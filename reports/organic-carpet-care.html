@@ -3,341 +3,946 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Website Review - Organic Carpet Care</title>
+<title>Website Review &mdash; Organic Carpet Care</title>
 <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; background: #f5f5f5; }
-    .page { max-width: 800px; margin: 0 auto; background: #fff; }
-    table { width: 100%; border-collapse: collapse; }
-    th { background: #0f3460; color: #fff; text-align: left; padding: 10px 14px; font-size: 13px; font-weight: 600; }
-    @media print {
-        body { background: #fff; }
-        .page { box-shadow: none; }
-        .page-break { page-break-before: always; }
-    }
+:root {
+    --navy: #0f172a;
+    --navy-light: #1e293b;
+    --blue: #3b82f6;
+    --blue-light: #dbeafe;
+    --green: #10b981;
+    --green-bg: #ecfdf5;
+    --amber: #f59e0b;
+    --amber-bg: #fffbeb;
+    --red: #ef4444;
+    --red-bg: #fef2f2;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-700);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Layout */
+.report { max-width: 960px; margin: 0 auto; }
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    padding: 64px 56px 56px;
+    border-radius: 0 0 var(--radius) var(--radius);
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(59,130,246,.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.8);
+    margin-bottom: 24px;
+}
+.hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    margin-bottom: 24px;
+}
+.hero-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+.hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+}
+.hero-meta-item svg { flex-shrink: 0; }
+.hero-divider {
+    height: 1px;
+    background: rgba(255,255,255,.12);
+    margin: 32px 0 20px;
+}
+.hero-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+}
+
+/* Sections */
+.section {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 24px 0;
+    overflow: hidden;
+}
+.section-header {
+    padding: 28px 32px 0;
+}
+.section-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 8px;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+.section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-900);
+    display: inline;
+    vertical-align: middle;
+}
+.section-desc {
+    font-size: 14px;
+    color: var(--gray-500);
+    margin-top: 8px;
+    padding: 0 32px;
+}
+.section-body {
+    padding: 24px 32px 32px;
+}
+
+/* Score Hero Card */
+.score-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    padding: 36px 32px;
+    flex-wrap: wrap;
+}
+.score-main {
+    text-align: center;
+}
+.score-ring-lg {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 12px;
+}
+.score-ring-lg svg {
+    width: 160px;
+    height: 160px;
+    transform: rotate(-90deg);
+}
+.score-ring-lg .ring-bg {
+    fill: none;
+    stroke: var(--gray-100);
+    stroke-width: 3;
+}
+.score-ring-lg .ring-fill {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    transition: stroke-dasharray .6s ease;
+}
+.score-big {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -.03em;
+}
+.score-of {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--gray-400);
+}
+.score-label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+.score-summary {
+    max-width: 420px;
+    text-align: left;
+}
+.score-summary p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-600);
+    margin-bottom: 12px;
+}
+
+/* Category Score Cards */
+.score-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+    padding: 0 32px 32px;
+}
+.score-card {
+    text-align: center;
+    padding: 20px 12px 16px;
+    background: var(--gray-50);
+    border-radius: 10px;
+    border: 1px solid var(--gray-200);
+}
+.ring-wrap {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 10px;
+}
+.ring-wrap svg {
+    width: 64px;
+    height: 64px;
+    transform: rotate(-90deg);
+}
+.ring { width: 100%; height: 100%; }
+.ring-bg { fill: none; stroke: var(--gray-200); stroke-width: 3; }
+.ring-fill { fill: none; stroke-width: 3; stroke-linecap: round; }
+.ring-num {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: 700;
+}
+.score-card-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 4px;
+}
+.score-card-sub {
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.4;
+}
+
+/* Tables */
+.tbl-wrap {
+    overflow-x: auto;
+    padding: 0 32px 32px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--gray-500);
+    border-bottom: 2px solid var(--gray-200);
+    background: var(--gray-50);
+    white-space: nowrap;
+}
+td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-100);
+    vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+.td-main { font-weight: 600; color: var(--gray-800); white-space: nowrap; }
+.td-muted { color: var(--gray-500); font-size: 12px; }
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.badge-green {
+    background: var(--green-bg);
+    color: #047857;
+}
+.badge-amber {
+    background: var(--amber-bg);
+    color: #b45309;
+}
+.badge-red {
+    background: var(--red-bg);
+    color: #b91c1c;
+}
+
+/* Gap Cards */
+.gap-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+}
+.gap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+.gap-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-800);
+}
+.gap-why {
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+.gap-format {
+    font-size: 12px;
+    color: var(--gray-400);
+    font-style: italic;
+}
+
+/* Action Plan */
+.action-group {
+    margin-bottom: 28px;
+}
+.action-group-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--gray-100);
+}
+.action-group-title .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.action-group-title .sub {
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--gray-400);
+}
+.action-list {
+    list-style: none;
+    counter-reset: action;
+}
+.action-list li {
+    counter-increment: action;
+    position: relative;
+    padding: 10px 0 10px 36px;
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    border-bottom: 1px solid var(--gray-100);
+}
+.action-list li:last-child { border-bottom: none; }
+.action-list li::before {
+    content: counter(action);
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 22px;
+    height: 22px;
+    background: var(--gray-100);
+    color: var(--gray-500);
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CTA */
+.cta {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 40px 40px;
+    text-align: center;
+    margin: 24px 0;
+}
+.cta h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.cta p {
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+    max-width: 500px;
+    margin: 0 auto 24px;
+    line-height: 1.65;
+}
+.cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.cta-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,.9);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.cta-link svg { flex-shrink: 0; }
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: var(--gray-400);
+}
+
+/* Print */
+@media print {
+    body { background: #fff; }
+    .section { box-shadow: none; border: 1px solid var(--gray-200); page-break-inside: avoid; }
+    .hero { border-radius: 0; }
+}
 </style>
 </head>
 <body>
 
-<!-- COVER -->
-<div class="page">
-    <div style="background:#0f3460;color:#fff;padding:60px 50px 50px">
-        <h1 style="font-size:38px;font-weight:800;line-height:1.2;margin-bottom:20px">Website Performance<br>Review</h1>
-        <div style="height:2px;background:#fff;margin-bottom:30px"></div>
-        <div style="font-size:22px;font-weight:700;margin-bottom:8px">Organic Carpet Care</div>
-        <div style="font-size:15px;color:#a8c8e8;margin-bottom:4px">organiccarpetcare.com</div>
-        <div style="font-size:14px;color:#8ab0d8">Portland, OR</div>
-        <div style="margin-top:50px;padding-top:20px;border-top:1px solid #3a6090">
-            <div style="font-size:13px;color:#a8c8e8">Prepared: April 15, 2026</div>
-            <div style="font-size:13px;color:#a8c8e8;margin-top:4px">Prepared by: Innovation With Pixels</div>
+<div class="report">
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-badge">Website Performance Review</div>
+        <h1>Organic Carpet Care</h1>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                organiccarpetcare.com
+            </div>
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Portland, OR
+            </div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-footer">
+            <span>Prepared April 15, 2026</span>
+            <span>by Innovation With Pixels</span>
         </div>
     </div>
 
     <!-- EXECUTIVE SUMMARY -->
-    <div style="padding:40px 50px" class="page-break">
-        <h2 style="font-size:22px;color:#0f3460;margin-bottom:6px;padding-bottom:8px;border-bottom:2px solid #0f3460">1. Executive Summary</h2>
-        <p style="font-size:14px;line-height:1.7;color:#444;margin-top:16px">Organic Carpet Care has built a solid local reputation in Portland with their eco-friendly approach. However, the website has several SEO gaps that are limiting its visibility in local search results.</p>
-        <p style="font-size:14px;line-height:1.7;color:#444;margin-top:10px">Key areas for improvement include title tag optimization, missing schema markup, and lack of dedicated service area pages. Addressing these issues could significantly improve local search performance.</p>
-
-        <div style="text-align:center;margin:30px 0">
-            <div style="display:inline-block;background:#f8f9fb;border:2px solid #0f3460;border-radius:12px;padding:20px 50px">
-                <div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:1px">Overall SEO Score</div>
-                <div style="font-size:44px;font-weight:800;color:#e94560;margin:6px 0">62 / 100</div>
-                <div style="font-size:12px;color:#888">Good foundation — needs optimization</div>
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">1</span>
+            <span class="section-title">Executive Summary</span>
+        </div>
+        <div class="score-hero">
+            <div class="score-main">
+                <div class="score-ring-lg">
+                    <svg viewBox="0 0 36 36">
+                        <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="62, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="score-big" style="color:#f59e0b">62<span class="score-of">/100</span></div>
+                </div>
+                <div class="score-label" style="color:#f59e0b">Needs Work</div>
+            </div>
+            <div class="score-summary">
+                <p>Organic Carpet Care has built a solid local reputation in Portland with their eco-friendly approach. However, the website has several SEO gaps that are limiting its visibility in local search results.</p>
+                <p>Key areas for improvement include title tag optimization, missing schema markup, and lack of dedicated service area pages. Addressing these issues could significantly improve local search performance and drive more qualified leads.</p>
             </div>
         </div>
-
-        <h3 style="font-size:18px;color:#0f3460;margin:30px 0 12px;padding-bottom:6px;border-bottom:2px solid #0f3460">Category Breakdown</h3>
-        <table>
-            <tr><th>Category</th><th>Score</th><th>Assessment</th></tr>
-            <tr style="background:#fff">
-            <td style="padding:10px 14px;border-bottom:1px solid #e8e8e8">On-Page SEO</td>
-            <td style="padding:10px 14px;border-bottom:1px solid #e8e8e8;font-weight:600">58/100</td>
-            <td style="padding:10px 14px;border-bottom:1px solid #e8e8e8;color:#666">Missing key optimizations</td>
-        </tr><tr style="background:#f8f9fb">
-            <td style="padding:10px 14px;border-bottom:1px solid #e8e8e8">Technical SEO</td>
-            <td style="padding:10px 14px;border-bottom:1px solid #e8e8e8;font-weight:600">70/100</td>
-            <td style="padding:10px 14px;border-bottom:1px solid #e8e8e8;color:#666">Solid foundation</td>
-        </tr><tr style="background:#fff">
-            <td style="padding:10px 14px;border-bottom:1px solid #e8e8e8">Content Quality</td>
-            <td style="padding:10px 14px;border-bottom:1px solid #e8e8e8;font-weight:600">55/100</td>
-            <td style="padding:10px 14px;border-bottom:1px solid #e8e8e8;color:#666">Thin content on service pages</td>
-        </tr><tr style="background:#f8f9fb">
-            <td style="padding:10px 14px;border-bottom:1px solid #e8e8e8">Local SEO</td>
-            <td style="padding:10px 14px;border-bottom:1px solid #e8e8e8;font-weight:600">62/100</td>
-            <td style="padding:10px 14px;border-bottom:1px solid #e8e8e8;color:#666">Basic setup present</td>
-        </tr><tr style="background:#fff">
-            <td style="padding:10px 14px;border-bottom:1px solid #e8e8e8">Backlink Profile</td>
-            <td style="padding:10px 14px;border-bottom:1px solid #e8e8e8;font-weight:600">50/100</td>
-            <td style="padding:10px 14px;border-bottom:1px solid #e8e8e8;color:#666">Limited backlinks</td>
-        </tr><tr style="background:#f8f9fb">
-            <td style="padding:10px 14px;border-bottom:1px solid #e8e8e8">Competitor Position</td>
-            <td style="padding:10px 14px;border-bottom:1px solid #e8e8e8;font-weight:600">65/100</td>
-            <td style="padding:10px 14px;border-bottom:1px solid #e8e8e8;color:#666">Middle of pack</td>
-        </tr>
-        </table>
+        <div class="score-grid">
+            
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="55, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">55</span>
+            </div>
+            <div class="score-card-label">On-Page SEO</div>
+            <div class="score-card-sub">Title tags and meta descriptions need work across all pages</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="70, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">70</span>
+            </div>
+            <div class="score-card-label">Technical SEO</div>
+            <div class="score-card-sub">HTTPS enabled, but missing schema markup and sitemap</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="50, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">50</span>
+            </div>
+            <div class="score-card-label">Local SEO</div>
+            <div class="score-card-sub">No LocalBusiness schema, incomplete NAP consistency</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="65, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">65</span>
+            </div>
+            <div class="score-card-label">Content Quality</div>
+            <div class="score-card-sub">Good service pages but missing blog and educational content</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="60, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">60</span>
+            </div>
+            <div class="score-card-label">Backlink Profile</div>
+            <div class="score-card-sub">Some local citations but few quality backlinks</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="72, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">72</span>
+            </div>
+            <div class="score-card-label">Mobile Experience</div>
+            <div class="score-card-sub">Responsive design works but page speed needs improvement</div>
+        </div>
+        </div>
     </div>
 
-    <!-- KEYWORDS -->
-    <div style="padding:40px 50px" class="page-break">
-        <h2 style="font-size:22px;color:#0f3460;margin-bottom:6px;padding-bottom:8px;border-bottom:2px solid #0f3460">2. Keyword Opportunities</h2>
-        <p style="font-size:13px;color:#888;margin:12px 0 16px">Top keyword opportunities ranked by search demand, competition, and relevance.</p>
-        <table>
-            <tr><th>Keyword</th><th>Difficulty</th><th>Opportunity</th><th>Intent</th><th>Action</th></tr>
-            <tr style="background:#fff">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">carpet cleaning portland</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#e74c3c;font-weight:700">High</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#e74c3c;font-weight:700">High</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Commercial</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Optimize homepage</td>
-        </tr><tr style="background:#f8f9fb">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">eco friendly carpet cleaning</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#f39c12;font-weight:700">Medium</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#e74c3c;font-weight:700">High</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Commercial</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Create dedicated page</td>
-        </tr><tr style="background:#fff">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">organic carpet cleaner portland</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#27ae60;font-weight:700">Low</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#e74c3c;font-weight:700">High</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Commercial</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Target in title tag</td>
-        </tr><tr style="background:#f8f9fb">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">carpet cleaning cost portland</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#f39c12;font-weight:700">Medium</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#f39c12;font-weight:700">Medium</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Informational</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Add pricing page</td>
-        </tr><tr style="background:#fff">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">pet stain removal portland</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#27ae60;font-weight:700">Low</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#f39c12;font-weight:700">Medium</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Commercial</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Service page</td>
-        </tr><tr style="background:#f8f9fb">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">steam carpet cleaning</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#e74c3c;font-weight:700">High</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#f39c12;font-weight:700">Medium</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Commercial</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Blog content</td>
-        </tr><tr style="background:#fff">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">green carpet cleaning</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#f39c12;font-weight:700">Medium</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#e74c3c;font-weight:700">High</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Commercial</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Homepage copy</td>
-        </tr><tr style="background:#f8f9fb">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">carpet cleaning near me</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#e74c3c;font-weight:700">High</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#e74c3c;font-weight:700">High</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Local</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Local SEO focus</td>
-        </tr><tr style="background:#fff">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">upholstery cleaning portland</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#f39c12;font-weight:700">Medium</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#f39c12;font-weight:700">Medium</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Commercial</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Service page</td>
-        </tr><tr style="background:#f8f9fb">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">rug cleaning portland or</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#27ae60;font-weight:700">Low</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#f39c12;font-weight:700">Medium</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Commercial</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Dedicated page</td>
-        </tr><tr style="background:#fff">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">best carpet cleaner portland</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#e74c3c;font-weight:700">High</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#e74c3c;font-weight:700">High</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Commercial</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Reviews + content</td>
-        </tr><tr style="background:#f8f9fb">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">carpet deep cleaning</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#f39c12;font-weight:700">Medium</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#f39c12;font-weight:700">Medium</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Informational</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Blog post</td>
-        </tr><tr style="background:#fff">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">natural carpet cleaning solutions</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#27ae60;font-weight:700">Low</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#f39c12;font-weight:700">Medium</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Informational</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Blog series</td>
-        </tr><tr style="background:#f8f9fb">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">commercial carpet cleaning portland</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#f39c12;font-weight:700">Medium</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#e74c3c;font-weight:700">High</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Commercial</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Service page</td>
-        </tr><tr style="background:#fff">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">carpet cleaning same day</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#27ae60;font-weight:700">Low</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#27ae60;font-weight:700">Low</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Transactional</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Add to homepage</td>
-        </tr>
-        </table>
+    <!-- KEYWORD OPPORTUNITIES -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">2</span>
+            <span class="section-title">Keyword Opportunities</span>
+        </div>
+        <p class="section-desc">Top keyword opportunities ranked by search demand, competition, and relevance to your business.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <thead><tr>
+                    <th>Keyword</th><th>Difficulty</th><th>Opportunity</th><th>Intent</th><th>Recommended Action</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">organic carpet cleaning portland</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Optimize homepage + create landing page</td>
+        </tr><tr>
+            <td class="td-main">eco-friendly carpet cleaning</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create dedicated service page</td>
+        </tr><tr>
+            <td class="td-main">green carpet cleaning portland or</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Add to existing service page</td>
+        </tr><tr>
+            <td class="td-main">carpet cleaning near me portland</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Transactional</td>
+            <td class="td-muted">Optimize Google Business Profile</td>
+        </tr><tr>
+            <td class="td-main">non-toxic carpet cleaning</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Create blog post</td>
+        </tr><tr>
+            <td class="td-main">pet stain removal portland</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create dedicated landing page</td>
+        </tr><tr>
+            <td class="td-main">carpet cleaning cost portland</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Add pricing page</td>
+        </tr><tr>
+            <td class="td-main">how to remove carpet stains naturally</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Create how-to blog post</td>
+        </tr><tr>
+            <td class="td-main">best carpet cleaner portland</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build reviews and testimonials page</td>
+        </tr><tr>
+            <td class="td-main">upholstery cleaning portland</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create service page</td>
+        </tr><tr>
+            <td class="td-main">area rug cleaning portland</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create dedicated page</td>
+        </tr><tr>
+            <td class="td-main">steam carpet cleaning vs dry cleaning</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Create comparison blog post</td>
+        </tr><tr>
+            <td class="td-main">carpet cleaning before moving portland</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Transactional</td>
+            <td class="td-muted">Create move-in/out page</td>
+        </tr><tr>
+            <td class="td-main">commercial carpet cleaning portland</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create commercial services page</td>
+        </tr><tr>
+            <td class="td-main">allergen-free carpet cleaning</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Create health-focused blog post</td>
+        </tr></tbody>
+            </table>
+        </div>
     </div>
 
-    <!-- ON-PAGE + TECHNICAL -->
-    <div style="padding:40px 50px" class="page-break">
-        <h2 style="font-size:22px;color:#0f3460;margin-bottom:6px;padding-bottom:8px;border-bottom:2px solid #0f3460">3. On-Page SEO Issues</h2>
-        <table style="margin-top:16px">
-            <tr><th>Page</th><th>Issue</th><th>Severity</th><th>Recommended Fix</th></tr>
-            <tr style="background:#fff">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">Homepage</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">Generic title tag</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#e74c3c;font-weight:700">HIGH</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Add city + service keywords</td>
-        </tr><tr style="background:#f8f9fb">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">Homepage</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">No meta description</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#e74c3c;font-weight:700">HIGH</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Write compelling 155-char description</td>
-        </tr><tr style="background:#fff">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">Services</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">Thin content (120 words)</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#e74c3c;font-weight:700">HIGH</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Expand to 500+ words with details</td>
-        </tr><tr style="background:#f8f9fb">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">About</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">Missing alt text on images</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#f39c12;font-weight:700">WARNING</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Add descriptive alt text</td>
-        </tr><tr style="background:#fff">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">Contact</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">No structured data</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#f39c12;font-weight:700">WARNING</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Add LocalBusiness schema</td>
-        </tr>
-        </table>
-
-        <h3 style="font-size:18px;color:#0f3460;margin:36px 0 12px;padding-bottom:6px;border-bottom:2px solid #0f3460">4. Technical SEO Checklist</h3>
-        <table>
-            <tr><th>Check</th><th>Status</th><th>Details</th></tr>
-            <tr style="background:#fff">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">HTTPS/SSL</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#27ae60;font-weight:700">PASS</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Valid certificate installed</td>
-        </tr><tr style="background:#f8f9fb">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">Mobile Responsive</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#27ae60;font-weight:700">PASS</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Responsive design detected</td>
-        </tr><tr style="background:#fff">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">Schema Markup</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#e74c3c;font-weight:700">FAIL</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">No structured data found</td>
-        </tr><tr style="background:#f8f9fb">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">Page Speed</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#f39c12;font-weight:700">WARNING</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Large uncompressed images</td>
-        </tr><tr style="background:#fff">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">XML Sitemap</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#e74c3c;font-weight:700">FAIL</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">No sitemap found</td>
-        </tr><tr style="background:#f8f9fb">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">Robots.txt</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8"><span style="color:#27ae60;font-weight:700">PASS</span></td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;color:#666">Standard configuration</td>
-        </tr>
-        </table>
+    <!-- ON-PAGE ISSUES -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">3</span>
+            <span class="section-title">On-Page SEO Issues</span>
+        </div>
+        <p class="section-desc">Page-level issues affecting your search visibility, sorted by severity.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <thead><tr>
+                    <th>Page</th><th>Issue</th><th>Severity</th><th>Recommended Fix</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">Homepage</td>
+            <td>Title tag is generic: &#x27;Home - Organic Carpet Care&#x27;</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Change to &#x27;Organic Carpet Cleaning Portland OR | Eco-Friendly &amp; Non-Toxic&#x27;</td>
+        </tr><tr>
+            <td class="td-main">Services</td>
+            <td>Missing meta description</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add unique 155-char meta description with target keywords</td>
+        </tr><tr>
+            <td class="td-main">About</td>
+            <td>No H1 tag present</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Add H1 with &#x27;About Organic Carpet Care Portland&#x27;</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>Images missing alt text (6 of 9)</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Add descriptive alt text with keywords to all images</td>
+        </tr><tr>
+            <td class="td-main">Contact</td>
+            <td>No structured NAP data</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add LocalBusiness schema with full address and phone</td>
+        </tr><tr>
+            <td class="td-main">Services</td>
+            <td>Thin content (under 300 words)</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Expand with detailed service descriptions, process info, and FAQs</td>
+        </tr></tbody>
+            </table>
+        </div>
     </div>
 
-    <!-- COMPETITORS + GAPS -->
-    <div style="padding:40px 50px" class="page-break">
-        <h2 style="font-size:22px;color:#0f3460;margin-bottom:6px;padding-bottom:8px;border-bottom:2px solid #0f3460">5. Competitor Comparison</h2>
-        <p style="font-size:13px;color:#888;margin:12px 0 16px">Head-to-head comparison against your main local competitors.</p>
-        <table>
-            <tr><th>Dimension</th><th>Organic Carpet Care</th><th>PDX Clean</th><th>Rose City Carpets</th></tr>
-            <tr style="background:#fff">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;font-weight:600">Domain Age</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">5 years</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">8 years</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">3 years</td>
-        </tr><tr style="background:#f8f9fb">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;font-weight:600">Google Reviews</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">45</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">120</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">67</td>
-        </tr><tr style="background:#fff">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;font-weight:600">Schema Markup</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">None</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">LocalBusiness</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">None</td>
-        </tr><tr style="background:#f8f9fb">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;font-weight:600">Blog Content</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">No blog</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">15 posts</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">5 posts</td>
-        </tr><tr style="background:#fff">
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8;font-weight:600">Service Pages</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">1 page</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">6 pages</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #e8e8e8">3 pages</td>
-        </tr>
-        </table>
+    <!-- TECHNICAL SEO -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">4</span>
+            <span class="section-title">Technical SEO Checklist</span>
+        </div>
+        <p class="section-desc">Infrastructure and crawlability checks that affect how search engines index your site.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <thead><tr>
+                    <th>Check</th><th>Status</th><th>Details</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">HTTPS / SSL</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Valid SSL certificate, all pages served over HTTPS</td>
+        </tr><tr>
+            <td class="td-main">Mobile Responsive</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Responsive layout adapts to mobile screens</td>
+        </tr><tr>
+            <td class="td-main">Page Speed (Mobile)</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">3.8s load time — optimize images and defer JavaScript</td>
+        </tr><tr>
+            <td class="td-main">XML Sitemap</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">No sitemap.xml found — create and submit to Google Search Console</td>
+        </tr><tr>
+            <td class="td-main">Robots.txt</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Properly configured, not blocking important pages</td>
+        </tr><tr>
+            <td class="td-main">Schema Markup</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">No structured data found — add LocalBusiness, Service, and FAQ schema</td>
+        </tr><tr>
+            <td class="td-main">Canonical Tags</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Missing on 3 pages — add self-referencing canonicals</td>
+        </tr><tr>
+            <td class="td-main">404 Errors</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">No broken internal links detected</td>
+        </tr><tr>
+            <td class="td-main">Core Web Vitals</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">LCP 3.2s (needs &lt;2.5s), CLS good, FID good</td>
+        </tr><tr>
+            <td class="td-main">Image Optimization</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">Several images over 500KB — compress and serve in WebP format</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
 
-        <h3 style="font-size:18px;color:#0f3460;margin:36px 0 12px;padding-bottom:6px;border-bottom:2px solid #0f3460">6. Content Gap Recommendations</h3>
-        <div style="margin-top:16px">
-        <div style="margin-bottom:16px;padding:14px 18px;background:#f8f9fb;border-radius:8px;border-left:4px solid #e74c3c">
-            <div style="font-weight:700;font-size:15px;color:#1a1a2e">Eco-Friendly Carpet Cleaning Guide
-                <span style="font-size:11px;color:#e74c3c;margin-left:8px">[High Priority]</span>
-            </div>
-            <div style="color:#666;font-size:13px;margin-top:4px">Core differentiator not leveraged in content</div>
-            <div style="color:#999;font-size:12px;margin-top:4px">Format: Long-form blog post (1500+ words)</div>
+    <!-- COMPETITOR COMPARISON -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">5</span>
+            <span class="section-title">Competitor Comparison</span>
         </div>
-        <div style="margin-bottom:16px;padding:14px 18px;background:#f8f9fb;border-radius:8px;border-left:4px solid #e74c3c">
-            <div style="font-weight:700;font-size:15px;color:#1a1a2e">Service Area Pages
-                <span style="font-size:11px;color:#e74c3c;margin-left:8px">[High Priority]</span>
-            </div>
-            <div style="color:#666;font-size:13px;margin-top:4px">No location-specific pages for Portland neighborhoods</div>
-            <div style="color:#999;font-size:12px;margin-top:4px">Format: Individual pages per area</div>
+        <p class="section-desc">Head-to-head comparison against your main local competitors.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <thead><tr>
+                    <th>Dimension</th><th>Organic Carpet Care</th><th>Portland Clean Carpets</th><th>NW Carpet Pros</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">Domain Age</td>
+            <td>4 years</td>
+            <td>9 years</td>
+            <td>6 years</td>
+        </tr><tr>
+            <td class="td-main">Estimated Pages</td>
+            <td>12</td>
+            <td>45</td>
+            <td>28</td>
+        </tr><tr>
+            <td class="td-main">Blog Content</td>
+            <td>None</td>
+            <td>Weekly posts</td>
+            <td>Monthly posts</td>
+        </tr><tr>
+            <td class="td-main">Google Reviews</td>
+            <td>47 (4.8★)</td>
+            <td>215 (4.6★)</td>
+            <td>89 (4.7★)</td>
+        </tr><tr>
+            <td class="td-main">Schema Markup</td>
+            <td>None</td>
+            <td>Full</td>
+            <td>Partial</td>
+        </tr><tr>
+            <td class="td-main">Service Area Pages</td>
+            <td>None</td>
+            <td>15 pages</td>
+            <td>8 pages</td>
+        </tr><tr>
+            <td class="td-main">Page Speed (Mobile)</td>
+            <td>3.8s</td>
+            <td>2.1s</td>
+            <td>2.9s</td>
+        </tr></tbody>
+            </table>
         </div>
-        <div style="margin-bottom:16px;padding:14px 18px;background:#f8f9fb;border-radius:8px;border-left:4px solid #f39c12">
-            <div style="font-weight:700;font-size:15px;color:#1a1a2e">Carpet Cleaning FAQ
-                <span style="font-size:11px;color:#f39c12;margin-left:8px">[Medium Priority]</span>
-            </div>
-            <div style="color:#666;font-size:13px;margin-top:4px">Missing FAQ content that competitors have</div>
-            <div style="color:#999;font-size:12px;margin-top:4px">Format: FAQ page with schema markup</div>
+    </div>
+
+    <!-- CONTENT GAPS -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">6</span>
+            <span class="section-title">Content Gap Recommendations</span>
         </div>
-        <div style="margin-bottom:16px;padding:14px 18px;background:#f8f9fb;border-radius:8px;border-left:4px solid #f39c12">
-            <div style="font-weight:700;font-size:15px;color:#1a1a2e">Before/After Gallery
-                <span style="font-size:11px;color:#f39c12;margin-left:8px">[Medium Priority]</span>
+        <p class="section-desc">Topics and content types your competitors cover that you're missing.</p>
+        <div class="section-body">
+            
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Service Area Landing Pages</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
             </div>
-            <div style="color:#666;font-size:13px;margin-top:4px">No visual proof of work quality</div>
-            <div style="color:#999;font-size:12px;margin-top:4px">Format: Image gallery with alt text</div>
-        </div></div>
+            <p class="gap-why">Competitors rank for &#x27;carpet cleaning [neighborhood]&#x27; terms — you have zero coverage</p>
+            <p class="gap-format">Recommended format: Individual pages for each Portland neighborhood served</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Carpet Care Blog</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Missing informational content that builds topical authority and captures long-tail traffic</p>
+            <p class="gap-format">Recommended format: Weekly blog posts: stain tips, maintenance guides, before/after showcases</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">FAQ Page with Schema</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">FAQ schema can earn rich snippets in search results, driving higher click-through rates</p>
+            <p class="gap-format">Recommended format: Dedicated FAQ page with 15-20 questions using FAQ schema markup</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Customer Testimonials Page</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Social proof content ranks for &#x27;best carpet cleaner&#x27; queries and builds trust</p>
+            <p class="gap-format">Recommended format: Dedicated page with structured Review schema markup</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Commercial Cleaning Services</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">No dedicated commercial page — missing an entire customer segment</p>
+            <p class="gap-format">Recommended format: Service page targeting office, restaurant, and retail carpet cleaning</p>
+        </div>
+        </div>
     </div>
 
     <!-- ACTION PLAN -->
-    <div style="padding:40px 50px" class="page-break">
-        <h2 style="font-size:22px;color:#0f3460;margin-bottom:6px;padding-bottom:8px;border-bottom:2px solid #0f3460">7. Prioritized Action Plan</h2>
-
-        <div style="margin-top:20px">
-            <h4 style="color:#27ae60;font-size:15px;margin-bottom:4px">QUICK WINS <span style="font-weight:400;color:#888;font-size:12px">(do this week — under 2 hours each)</span></h4>
-            <div style="padding:8px 0 8px 20px;position:relative;font-size:14px;color:#333"><span style="position:absolute;left:0;color:#27ae60;font-size:18px">&#9679;</span>Rewrite homepage title tag to include &#x27;Eco-Friendly Carpet Cleaning Portland OR&#x27;</div><div style="padding:8px 0 8px 20px;position:relative;font-size:14px;color:#333"><span style="position:absolute;left:0;color:#27ae60;font-size:18px">&#9679;</span>Add a compelling meta description with call-to-action</div><div style="padding:8px 0 8px 20px;position:relative;font-size:14px;color:#333"><span style="position:absolute;left:0;color:#27ae60;font-size:18px">&#9679;</span>Install LocalBusiness schema markup on all pages</div><div style="padding:8px 0 8px 20px;position:relative;font-size:14px;color:#333"><span style="position:absolute;left:0;color:#27ae60;font-size:18px">&#9679;</span>Compress images and add descriptive alt text</div><div style="padding:8px 0 8px 20px;position:relative;font-size:14px;color:#333"><span style="position:absolute;left:0;color:#27ae60;font-size:18px">&#9679;</span>Create and submit an XML sitemap to Google Search Console</div>
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">7</span>
+            <span class="section-title">Prioritized Action Plan</span>
         </div>
-
-        <div style="margin-top:28px">
-            <h4 style="color:#0f3460;font-size:15px;margin-bottom:4px">STRATEGIC INVESTMENTS <span style="font-weight:400;color:#888;font-size:12px">(plan for this quarter)</span></h4>
-            <div style="padding:8px 0 8px 20px;position:relative;font-size:14px;color:#333"><span style="position:absolute;left:0;color:#0f3460;font-size:18px">&#9679;</span>Build out individual service pages for each cleaning type (carpet, upholstery, rug, pet stain)</div><div style="padding:8px 0 8px 20px;position:relative;font-size:14px;color:#333"><span style="position:absolute;left:0;color:#0f3460;font-size:18px">&#9679;</span>Create neighborhood-specific landing pages for Portland areas</div><div style="padding:8px 0 8px 20px;position:relative;font-size:14px;color:#333"><span style="position:absolute;left:0;color:#0f3460;font-size:18px">&#9679;</span>Start a blog focused on eco-friendly cleaning tips and guides</div><div style="padding:8px 0 8px 20px;position:relative;font-size:14px;color:#333"><span style="position:absolute;left:0;color:#0f3460;font-size:18px">&#9679;</span>Build a reviews strategy to grow Google reviews from 45 to 100+</div>
-        </div>
-
-        <!-- CTA -->
-        <div style="margin-top:40px;background:#f8f9fb;border:1px solid #0f3460;border-radius:10px;padding:28px 30px;text-align:center">
-            <div style="font-size:17px;font-weight:700;color:#1a1a2e;margin-bottom:10px">Ready to implement these improvements?</div>
-            <div style="font-size:13px;color:#666;line-height:1.6;max-width:480px;margin:0 auto">Innovation With Pixels specializes in websites for carpet cleaning and home service businesses. We handle everything from technical fixes to content creation and ongoing optimization.</div>
-            <div style="margin-top:16px;padding-top:14px;border-top:1px solid #ddd">
-                <span style="font-weight:700;color:#e94560;font-size:13px">hammad@innovationwithpixels.com</span>
-                <span style="color:#ccc;margin:0 16px">|</span>
-                <span style="font-weight:700;color:#3498db;font-size:13px">innovationwithpixels.com</span>
+        <div class="section-body">
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--green)"></span>
+                    Quick Wins
+                    <span class="sub">do this week &mdash; under 2 hours each</span>
+                </div>
+                <ol class="action-list"><li>Rewrite homepage title tag to include &#x27;Organic Carpet Cleaning Portland OR&#x27;</li><li>Add meta descriptions to all 12 pages (155 characters each with keywords)</li><li>Add alt text to all images site-wide with descriptive, keyword-rich text</li><li>Create and submit XML sitemap to Google Search Console</li><li>Add LocalBusiness schema markup to every page with NAP data</li><li>Compress all images to under 100KB and convert to WebP format</li></ol>
             </div>
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--blue)"></span>
+                    Strategic Investments
+                    <span class="sub">plan for this quarter</span>
+                </div>
+                <ol class="action-list"><li>Build 10 service area pages for Portland neighborhoods (Sellwood, Pearl District, Hawthorne, etc.)</li><li>Launch a blog with 2 posts per month covering carpet care tips, stain removal guides, and eco-cleaning benefits</li><li>Create a comprehensive FAQ page with 20+ questions and FAQ schema markup for rich snippets</li><li>Build a testimonials page with Review schema and a system to collect new reviews</li><li>Develop a commercial services page targeting offices, restaurants, and retail businesses</li></ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+        <h3>Ready to implement these improvements?</h3>
+        <p>Innovation With Pixels specializes in websites for carpet cleaning and home service businesses. We handle everything from technical fixes to content creation and ongoing optimization.</p>
+        <div class="cta-links">
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+                hammad@innovationwithpixels.com
+            </span>
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                innovationwithpixels.com
+            </span>
         </div>
     </div>
 
     <!-- FOOTER -->
-    <div style="padding:16px 50px;background:#f8f9fb;border-top:1px solid #e8e8e8;font-size:11px;color:#999;text-align:center">
-        Prepared by Innovation With Pixels &nbsp;|&nbsp; innovationwithpixels.com
+    <div class="footer">
+        Prepared by Innovation With Pixels &middot; innovationwithpixels.com
     </div>
+
 </div>
 
 </body>
