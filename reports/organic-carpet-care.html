@@ -218,8 +218,8 @@ body {
 /* Category Score Cards */
 .score-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
     padding: 0 32px 32px;
 }
 .score-card {
@@ -272,6 +272,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     font-size: 13px;
+    table-layout: fixed;
 }
 th {
     text-align: left;
@@ -283,15 +284,16 @@ th {
     color: var(--gray-500);
     border-bottom: 2px solid var(--gray-200);
     background: var(--gray-50);
-    white-space: nowrap;
 }
 td {
     padding: 12px 14px;
     border-bottom: 1px solid var(--gray-100);
     vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 tr:last-child td { border-bottom: none; }
-.td-main { font-weight: 600; color: var(--gray-800); white-space: nowrap; }
+.td-main { font-weight: 600; color: var(--gray-800); }
 .td-muted { color: var(--gray-500); font-size: 12px; }
 
 /* Badges */
@@ -590,6 +592,7 @@ tr:last-child td { border-bottom: none; }
         <p class="section-desc">Top keyword opportunities ranked by search demand, competition, and relevance to your business.</p>
         <div class="tbl-wrap" style="padding-top:20px">
             <table>
+                <colgroup><col style="width:25%"><col style="width:12%"><col style="width:13%"><col style="width:15%"><col style="width:35%"></colgroup>
                 <thead><tr>
                     <th>Keyword</th><th>Difficulty</th><th>Opportunity</th><th>Intent</th><th>Recommended Action</th>
                 </tr></thead>
@@ -697,6 +700,7 @@ tr:last-child td { border-bottom: none; }
         <p class="section-desc">Page-level issues affecting your search visibility, sorted by severity.</p>
         <div class="tbl-wrap" style="padding-top:20px">
             <table>
+                <colgroup><col style="width:15%"><col style="width:30%"><col style="width:12%"><col style="width:43%"></colgroup>
                 <thead><tr>
                     <th>Page</th><th>Issue</th><th>Severity</th><th>Recommended Fix</th>
                 </tr></thead>
@@ -744,6 +748,7 @@ tr:last-child td { border-bottom: none; }
         <p class="section-desc">Infrastructure and crawlability checks that affect how search engines index your site.</p>
         <div class="tbl-wrap" style="padding-top:20px">
             <table>
+                <colgroup><col style="width:22%"><col style="width:15%"><col style="width:63%"></colgroup>
                 <thead><tr>
                     <th>Check</th><th>Status</th><th>Details</th>
                 </tr></thead>
