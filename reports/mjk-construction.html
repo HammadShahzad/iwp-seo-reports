@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Review &mdash; MJK Construction</title>
+<style>
+:root {
+    --navy: #0f172a;
+    --navy-light: #1e293b;
+    --blue: #3b82f6;
+    --blue-light: #dbeafe;
+    --green: #10b981;
+    --green-bg: #ecfdf5;
+    --amber: #f59e0b;
+    --amber-bg: #fffbeb;
+    --red: #ef4444;
+    --red-bg: #fef2f2;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-700);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Layout */
+.report { max-width: 960px; margin: 0 auto; }
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    padding: 64px 56px 56px;
+    border-radius: 0 0 var(--radius) var(--radius);
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(59,130,246,.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.8);
+    margin-bottom: 24px;
+}
+.hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    margin-bottom: 24px;
+}
+.hero-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+.hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+}
+.hero-meta-item svg { flex-shrink: 0; }
+.hero-divider {
+    height: 1px;
+    background: rgba(255,255,255,.12);
+    margin: 32px 0 20px;
+}
+.hero-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+}
+
+/* Sections */
+.section {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 24px 0;
+    overflow: hidden;
+}
+.section-header {
+    padding: 28px 32px 0;
+}
+.section-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 8px;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+.section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-900);
+    display: inline;
+    vertical-align: middle;
+}
+.section-desc {
+    font-size: 14px;
+    color: var(--gray-500);
+    margin-top: 8px;
+    padding: 0 32px;
+}
+.section-body {
+    padding: 24px 32px 32px;
+}
+
+/* Score Hero Card */
+.score-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    padding: 36px 32px;
+    flex-wrap: wrap;
+}
+.score-main {
+    text-align: center;
+}
+.score-ring-lg {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 12px;
+}
+.score-ring-lg svg {
+    width: 160px;
+    height: 160px;
+    transform: rotate(-90deg);
+}
+.score-ring-lg .ring-bg {
+    fill: none;
+    stroke: var(--gray-100);
+    stroke-width: 3;
+}
+.score-ring-lg .ring-fill {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    transition: stroke-dasharray .6s ease;
+}
+.score-big {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -.03em;
+}
+.score-of {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--gray-400);
+}
+.score-label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+.score-summary {
+    max-width: 420px;
+    text-align: left;
+}
+.score-summary p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-600);
+    margin-bottom: 12px;
+}
+
+/* Category Score Cards */
+.score-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 0 32px 32px;
+}
+.score-card {
+    text-align: center;
+    padding: 20px 12px 16px;
+    background: var(--gray-50);
+    border-radius: 10px;
+    border: 1px solid var(--gray-200);
+}
+.ring-wrap {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 10px;
+}
+.ring-wrap svg {
+    width: 64px;
+    height: 64px;
+    transform: rotate(-90deg);
+}
+.ring { width: 100%; height: 100%; }
+.ring-bg { fill: none; stroke: var(--gray-200); stroke-width: 3; }
+.ring-fill { fill: none; stroke-width: 3; stroke-linecap: round; }
+.ring-num {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: 700;
+}
+.score-card-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 4px;
+}
+.score-card-sub {
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.4;
+}
+
+/* Tables */
+.tbl-wrap {
+    overflow-x: auto;
+    padding: 0 32px 32px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    table-layout: fixed;
+}
+th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--gray-500);
+    border-bottom: 2px solid var(--gray-200);
+    background: var(--gray-50);
+}
+td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-100);
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+tr:last-child td { border-bottom: none; }
+.td-main { font-weight: 600; color: var(--gray-800); }
+.td-muted { color: var(--gray-500); font-size: 12px; }
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.badge-green {
+    background: var(--green-bg);
+    color: #047857;
+}
+.badge-amber {
+    background: var(--amber-bg);
+    color: #b45309;
+}
+.badge-red {
+    background: var(--red-bg);
+    color: #b91c1c;
+}
+
+/* Gap Cards */
+.gap-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+}
+.gap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+.gap-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-800);
+}
+.gap-why {
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+.gap-format {
+    font-size: 12px;
+    color: var(--gray-400);
+    font-style: italic;
+}
+
+/* Action Plan */
+.action-group {
+    margin-bottom: 28px;
+}
+.action-group-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--gray-100);
+}
+.action-group-title .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.action-group-title .sub {
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--gray-400);
+}
+.action-list {
+    list-style: none;
+    counter-reset: action;
+}
+.action-list li {
+    counter-increment: action;
+    position: relative;
+    padding: 10px 0 10px 36px;
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    border-bottom: 1px solid var(--gray-100);
+}
+.action-list li:last-child { border-bottom: none; }
+.action-list li::before {
+    content: counter(action);
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 22px;
+    height: 22px;
+    background: var(--gray-100);
+    color: var(--gray-500);
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CTA */
+.cta {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 40px 40px;
+    text-align: center;
+    margin: 24px 0;
+}
+.cta h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.cta p {
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+    max-width: 500px;
+    margin: 0 auto 24px;
+    line-height: 1.65;
+}
+.cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.cta-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,.9);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.cta-link svg { flex-shrink: 0; }
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: var(--gray-400);
+}
+
+/* Print */
+@media print {
+    body { background: #fff; }
+    .section { box-shadow: none; border: 1px solid var(--gray-200); page-break-inside: avoid; }
+    .hero { border-radius: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="report">
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-badge">Website Performance Review</div>
+        <h1>MJK Construction</h1>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                mjkbuild.com
+            </div>
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Portland, OR
+            </div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-footer">
+            <span>Prepared April 21, 2026</span>
+            <span>by Innovation With Pixels</span>
+        </div>
+    </div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">1</span>
+            <span class="section-title">Executive Summary</span>
+        </div>
+        <div class="score-hero">
+            <div class="score-main">
+                <div class="score-ring-lg">
+                    <svg viewBox="0 0 36 36">
+                        <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="ring-fill" stroke="#ef4444" stroke-dasharray="48, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="score-big" style="color:#ef4444">48<span class="score-of">/100</span></div>
+                </div>
+                <div class="score-label" style="color:#ef4444">Critical</div>
+            </div>
+            <div class="score-summary">
+                <p>MJK Construction has a solid foundation as a licensed general contractor serving the Portland metro area, with a clear range of services covering siding, roofing, decks, windows, and full home renovation. Customer testimonials indicate strong workmanship and satisfaction, and the business carries proper Oregon CCB licensing and certifications. However, the website is significantly underperforming compared to what a contractor of this caliber deserves, leaving substantial visibility and lead-generation opportunity on the table.</p>
+                <p>The site is missing fundamental SEO building blocks: there are no meta descriptions, no schema markup for local business or contractor services, none of the images carry alt text, and the homepage uses multiple H1 tags which dilutes search engine understanding. The copyright shows 2018, suggesting the site hasn&#x27;t been refreshed in some time. There&#x27;s no dedicated service area pages for Portland neighborhoods, no project portfolio with case studies, and no blog content to capture informational searches from homeowners researching contractors. Competitors like Hammer &amp; Hand and Neil Kelly are dominating the local search results with deeper content and structured data.</p>
+            </div>
+        </div>
+        <div class="score-grid">
+            
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="42, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">42</span>
+            </div>
+            <div class="score-card-label">On-Page SEO</div>
+            <div class="score-card-sub">Missing meta descriptions</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="55, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">55</span>
+            </div>
+            <div class="score-card-label">Technical SEO</div>
+            <div class="score-card-sub">HTTPS present, schema missing</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="38, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">38</span>
+            </div>
+            <div class="score-card-label">Content Depth</div>
+            <div class="score-card-sub">Thin service pages</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="50, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">50</span>
+            </div>
+            <div class="score-card-label">Local SEO</div>
+            <div class="score-card-sub">NAP visible, no schema</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="60, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">60</span>
+            </div>
+            <div class="score-card-label">Mobile/Speed</div>
+            <div class="score-card-sub">Acceptable, needs review</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="40, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">40</span>
+            </div>
+            <div class="score-card-label">Competitive Position</div>
+            <div class="score-card-sub">Behind local leaders</div>
+        </div>
+        </div>
+    </div>
+
+    <!-- KEYWORD OPPORTUNITIES -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">2</span>
+            <span class="section-title">Keyword Opportunities</span>
+        </div>
+        <p class="section-desc">Top keyword opportunities ranked by search demand, competition, and relevance to your business.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:25%"><col style="width:12%"><col style="width:13%"><col style="width:15%"><col style="width:35%"></colgroup>
+                <thead><tr>
+                    <th>Keyword</th><th>Difficulty</th><th>Opportunity</th><th>Intent</th><th>Recommended Action</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">general contractor Portland OR</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Optimize homepage and create dedicated landing page</td>
+        </tr><tr>
+            <td class="td-main">home remodeling Portland</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create service hub page with case studies</td>
+        </tr><tr>
+            <td class="td-main">kitchen remodel Portland Oregon</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build dedicated kitchen remodel page with portfolio</td>
+        </tr><tr>
+            <td class="td-main">bathroom renovation Portland</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build dedicated bathroom renovation page</td>
+        </tr><tr>
+            <td class="td-main">siding contractor Portland OR</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Expand siding service page with material options</td>
+        </tr><tr>
+            <td class="td-main">roofing contractor Portland</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create dedicated roofing landing page</td>
+        </tr><tr>
+            <td class="td-main">deck builder Portland OR</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build deck-specific page with materials and gallery</td>
+        </tr><tr>
+            <td class="td-main">home addition Portland Oregon</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create addition page with cost guide</td>
+        </tr><tr>
+            <td class="td-main">ADU contractor Portland</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build ADU page (high demand in Portland)</td>
+        </tr><tr>
+            <td class="td-main">cost to remodel kitchen Portland</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Write cost guide blog post with pricing ranges</td>
+        </tr><tr>
+            <td class="td-main">how to choose a general contractor</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Write helpful guide for homeowners</td>
+        </tr><tr>
+            <td class="td-main">commercial tenant improvement Portland</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create dedicated commercial TI page</td>
+        </tr><tr>
+            <td class="td-main">general contractor near me</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Add LocalBusiness schema and Google Business optimization</td>
+        </tr><tr>
+            <td class="td-main">licensed contractor Multnomah County</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create geo-specific landing page</td>
+        </tr><tr>
+            <td class="td-main">residential construction Portland</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build out residential services hub</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ON-PAGE ISSUES -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">3</span>
+            <span class="section-title">On-Page SEO Issues</span>
+        </div>
+        <p class="section-desc">Page-level issues affecting your search visibility, sorted by severity.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:15%"><col style="width:30%"><col style="width:12%"><col style="width:43%"></colgroup>
+                <thead><tr>
+                    <th>Page</th><th>Issue</th><th>Severity</th><th>Recommended Fix</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">Homepage</td>
+            <td>Missing meta description tag</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add a unique 150-160 character meta description focused on Portland general contracting services</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>Title tag is awkwardly formatted with slash and dash</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Rewrite to: &#x27;Portland General Contractor &amp; Remodeling Company | MJK Construction&#x27; (under 60 chars)</td>
+        </tr><tr>
+            <td class="td-main">All pages</td>
+            <td>Images missing alt text (approx. 18 images on homepage alone)</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add descriptive alt text to every image, including project photos, partner logos, and certifications</td>
+        </tr><tr>
+            <td class="td-main">Services page</td>
+            <td>Multiple H1 tags on the same page</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Use only one H1 per page; convert duplicates to H2 or H3</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>No Open Graph or Twitter Card meta tags</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Add og:title, og:description, og:image for proper sharing on social platforms</td>
+        </tr><tr>
+            <td class="td-main">Site-wide</td>
+            <td>Footer copyright shows 2018 - signals outdated site</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Update copyright dynamically with JavaScript or current year</td>
+        </tr><tr>
+            <td class="td-main">Service pages</td>
+            <td>Each service (siding, roofing, decks, etc.) lacks its own dedicated URL</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Build separate landing pages for each service with deep content (1,000+ words each)</td>
+        </tr><tr>
+            <td class="td-main">Site-wide</td>
+            <td>No blog or resources section to capture informational queries</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Launch a blog with cost guides, project showcases, and how-to content</td>
+        </tr><tr>
+            <td class="td-main">Site-wide</td>
+            <td>No dedicated portfolio or case study pages</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Build a project gallery with before/after photos, project descriptions, and client stories</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>No location/service area pages for Portland neighborhoods or suburbs</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Create pages for areas like Beaverton, Hillsboro, Lake Oswego, Vancouver WA</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TECHNICAL SEO -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">4</span>
+            <span class="section-title">Technical SEO Checklist</span>
+        </div>
+        <p class="section-desc">Infrastructure and crawlability checks that affect how search engines index your site.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:22%"><col style="width:15%"><col style="width:63%"></colgroup>
+                <thead><tr>
+                    <th>Check</th><th>Status</th><th>Details</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">HTTPS / SSL</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Site uses HTTPS with valid certificate</td>
+        </tr><tr>
+            <td class="td-main">Mobile Viewport</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Viewport meta tag presence unclear; needs verification on mobile devices</td>
+        </tr><tr>
+            <td class="td-main">Canonical Tags</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">No canonical tags detected, can lead to duplicate content issues</td>
+        </tr><tr>
+            <td class="td-main">Schema.org Markup</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">No JSON-LD structured data found; missing LocalBusiness/GeneralContractor schema</td>
+        </tr><tr>
+            <td class="td-main">XML Sitemap</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Sitemap presence unverified; needs to be submitted to Google Search Console</td>
+        </tr><tr>
+            <td class="td-main">Robots.txt</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Robots.txt file should be reviewed for proper crawl directives</td>
+        </tr><tr>
+            <td class="td-main">Open Graph Tags</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">No Open Graph or Twitter Card tags for social sharing</td>
+        </tr><tr>
+            <td class="td-main">Page Load Speed</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">No optimization signals visible; recommend running PageSpeed Insights audit</td>
+        </tr><tr>
+            <td class="td-main">NAP Consistency</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Name, address, phone clearly displayed in footer</td>
+        </tr><tr>
+            <td class="td-main">Google Analytics / Tag Manager</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">No tracking code detected in source; analytics may be missing</td>
+        </tr><tr>
+            <td class="td-main">Image Optimization</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">All images missing alt attributes; file sizes likely unoptimized</td>
+        </tr><tr>
+            <td class="td-main">Internal Linking Structure</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Limited internal linking; few unique pages to interlink</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- COMPETITOR COMPARISON -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">5</span>
+            <span class="section-title">Competitor Comparison</span>
+        </div>
+        <p class="section-desc">Head-to-head comparison against your main local competitors.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <thead><tr>
+                    <th>Dimension</th><th>MJK Construction</th><th>Catalyst Construction</th><th>Hammer &amp; Hand</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">Domain Authority Estimate</td>
+            <td>Low (~15-20)</td>
+            <td>Medium (~40)</td>
+            <td>Medium-High (~50)</td>
+        </tr><tr>
+            <td class="td-main">Indexed Pages</td>
+            <td>~10</td>
+            <td>~50+</td>
+            <td>~200+</td>
+        </tr><tr>
+            <td class="td-main">Blog / Content Hub</td>
+            <td>None</td>
+            <td>Yes - active</td>
+            <td>Yes - extensive</td>
+        </tr><tr>
+            <td class="td-main">Project Portfolio Pages</td>
+            <td>Limited</td>
+            <td>Yes - rich gallery</td>
+            <td>Yes - detailed case studies</td>
+        </tr><tr>
+            <td class="td-main">Schema Markup</td>
+            <td>Missing</td>
+            <td>LocalBusiness present</td>
+            <td>Multiple schema types</td>
+        </tr><tr>
+            <td class="td-main">Service Area Pages</td>
+            <td>None</td>
+            <td>Few</td>
+            <td>Multiple neighborhoods</td>
+        </tr><tr>
+            <td class="td-main">Google Reviews</td>
+            <td>Limited visibility</td>
+            <td>100+ reviews</td>
+            <td>200+ reviews</td>
+        </tr><tr>
+            <td class="td-main">Mobile Optimization</td>
+            <td>Basic</td>
+            <td>Strong</td>
+            <td>Excellent</td>
+        </tr><tr>
+            <td class="td-main">Last Site Refresh</td>
+            <td>2018 (per footer)</td>
+            <td>Recent</td>
+            <td>Continuously updated</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- CONTENT GAPS -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">6</span>
+            <span class="section-title">Content Gap Recommendations</span>
+        </div>
+        <p class="section-desc">Topics and content types your competitors cover that you're missing.</p>
+        <div class="section-body">
+            
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Project Portfolio with Detailed Case Studies</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Homeowners considering a contractor want to see your actual work. A portfolio with before/after photos, project scope, and client quotes builds trust faster than any sales copy. This is the single biggest gap holding back conversions.</p>
+            <p class="gap-format">Recommended format: Gallery page with 15-20 featured projects, each with its own page detailing scope, timeline, materials, and outcome</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Service Area Pages for Portland Metro Neighborhoods</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Competitors are capturing &#x27;general contractor [neighborhood]&#x27; searches with dedicated pages. Without these, you miss valuable local searches from homeowners in Beaverton, Lake Oswego, Tigard, Vancouver WA, and Hillsboro.</p>
+            <p class="gap-format">Recommended format: Individual pages per service area with localized content, recent projects in that area, and area-specific FAQs</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Cost Guides for Major Remodel Types</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Searches like &#x27;cost to remodel kitchen Portland&#x27; have high commercial intent and lower competition than transactional terms. These articles attract homeowners early in their research and position you as the expert.</p>
+            <p class="gap-format">Recommended format: Long-form guides (1,500-2,500 words) covering kitchen, bathroom, addition, ADU costs with real local pricing ranges</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">ADU (Accessory Dwelling Unit) Service Hub</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Portland is one of the top ADU markets in the US. There&#x27;s strong demand and your competitors are aggressively targeting it. A dedicated ADU page with permitting info, design options, and cost ranges would capture qualified leads.</p>
+            <p class="gap-format">Recommended format: Pillar page with sub-pages on detached ADUs, basement conversions, garage conversions, and permitting</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Blog with Educational Content for Homeowners</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">A regular blog answering common questions (&#x27;how long does a kitchen remodel take&#x27;, &#x27;do I need a permit for...&#x27;, &#x27;how to vet a contractor&#x27;) drives steady organic traffic and builds topical authority over time.</p>
+            <p class="gap-format">Recommended format: Weekly or biweekly blog posts, 800-1,200 words each, with strong internal linking back to service pages</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Client Testimonials and Reviews Hub</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Currently testimonials are buried on the homepage. Pulling them into a dedicated reviews page with names, locations, and project types makes them more credible and gives Google more local signals.</p>
+            <p class="gap-format">Recommended format: Dedicated testimonials page with embedded Google review widget and structured Review schema markup</p>
+        </div>
+        </div>
+    </div>
+
+    <!-- ACTION PLAN -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">7</span>
+            <span class="section-title">Prioritized Action Plan</span>
+        </div>
+        <div class="section-body">
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--green)"></span>
+                    Quick Wins
+                    <span class="sub">do this week &mdash; under 2 hours each</span>
+                </div>
+                <ol class="action-list"><li>Add a unique meta description to the homepage focused on Portland general contracting (150-160 characters)</li><li>Rewrite the homepage title tag to a clean format under 60 characters with primary keyword first</li><li>Add descriptive alt text to every image on the homepage and service page (about 30 images total)</li><li>Update the footer copyright to use the current year automatically</li><li>Add a clear, sticky &#x27;Get a Free Quote&#x27; button on mobile</li><li>Reduce the multiple H1 tags on the services page down to a single H1</li><li>Add Open Graph meta tags so the site previews properly when shared on Facebook and LinkedIn</li><li>Submit the site to Google Search Console and verify the XML sitemap</li><li>Claim and fully optimize the Google Business Profile with photos, services, and weekly posts</li><li>Add a phone number click-to-call link in the header for mobile visitors</li></ol>
+            </div>
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--blue)"></span>
+                    Strategic Investments
+                    <span class="sub">plan for this quarter</span>
+                </div>
+                <ol class="action-list"><li>Build a real project portfolio with 15-20 case studies (each its own page with photos, scope, and client story)</li><li>Create dedicated service pages for each major service: kitchen remodel, bathroom remodel, home addition, ADU, siding, roofing, decks (1,000+ words each)</li><li>Launch service area landing pages for Beaverton, Lake Oswego, Tigard, Hillsboro, and Vancouver WA</li><li>Add LocalBusiness and GeneralContractor schema markup site-wide for richer search results</li><li>Build out a blog/resources section with cost guides, how-to content, and project showcases</li><li>Build an ADU-focused content hub - this is a high-demand, high-margin Portland market</li><li>Run a full site refresh to modernize the design, improve mobile UX, and update the dated 2018 copyright</li><li>Implement structured Review schema and pull Google reviews into a dedicated testimonials page</li><li>Set up a content calendar to publish 2-4 helpful articles per month for the next 12 months</li><li>Run a performance audit (Core Web Vitals, image optimization, lazy loading) and fix anything dragging down page speed</li></ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+        <h3>Ready to implement these improvements?</h3>
+        <p>Innovation With Pixels specializes in websites for construction and home service businesses.</p>
+        <div class="cta-links">
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+                hammad@innovationwithpixels.com
+            </span>
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                innovationwithpixels.com
+            </span>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Prepared by Innovation With Pixels &middot; innovationwithpixels.com
+    </div>
+
+</div>
+
+</body>
+</html>
