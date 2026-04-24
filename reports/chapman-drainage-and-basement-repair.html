@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Review &mdash; Chapman Drainage &amp; Basement Repair</title>
+<style>
+:root {
+    --navy: #0f172a;
+    --navy-light: #1e293b;
+    --blue: #3b82f6;
+    --blue-light: #dbeafe;
+    --green: #10b981;
+    --green-bg: #ecfdf5;
+    --amber: #f59e0b;
+    --amber-bg: #fffbeb;
+    --red: #ef4444;
+    --red-bg: #fef2f2;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-700);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+.report { max-width: 960px; margin: 0 auto; }
+.hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    padding: 64px 56px 56px;
+    border-radius: 0 0 var(--radius) var(--radius);
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(59,130,246,.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.8);
+    margin-bottom: 24px;
+}
+.hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    margin-bottom: 24px;
+}
+.hero-meta { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 8px; }
+.hero-meta-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: rgba(255,255,255,.7); }
+.hero-meta-item svg { flex-shrink: 0; }
+.hero-divider { height: 1px; background: rgba(255,255,255,.12); margin: 32px 0 20px; }
+.hero-footer { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,.5); }
+.section { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); margin: 24px 0; overflow: hidden; }
+.section-header { padding: 28px 32px 0; }
+.section-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--blue); color: #fff; font-size: 13px; font-weight: 700; border-radius: 8px; margin-right: 12px; vertical-align: middle; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--gray-900); display: inline; vertical-align: middle; }
+.section-desc { font-size: 14px; color: var(--gray-500); margin-top: 8px; padding: 0 32px; }
+.section-body { padding: 24px 32px 32px; }
+.score-hero { display: flex; align-items: center; justify-content: center; gap: 48px; padding: 36px 32px; flex-wrap: wrap; }
+.score-main { text-align: center; }
+.score-ring-lg { position: relative; width: 160px; height: 160px; margin: 0 auto 12px; }
+.score-ring-lg svg { width: 160px; height: 160px; transform: rotate(-90deg); }
+.score-ring-lg .ring-bg { fill: none; stroke: var(--gray-100); stroke-width: 3; }
+.score-ring-lg .ring-fill { fill: none; stroke-width: 3; stroke-linecap: round; transition: stroke-dasharray .6s ease; }
+.score-big { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 48px; font-weight: 800; letter-spacing: -.03em; }
+.score-of { font-size: 18px; font-weight: 400; color: var(--gray-400); }
+.score-label { font-size: 14px; font-weight: 600; margin-top: 4px; }
+.score-summary { max-width: 420px; text-align: left; }
+.score-summary p { font-size: 15px; line-height: 1.7; color: var(--gray-600); margin-bottom: 12px; }
+.score-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 0 32px 32px; }
+.score-card { text-align: center; padding: 20px 12px 16px; background: var(--gray-50); border-radius: 10px; border: 1px solid var(--gray-200); }
+.ring-wrap { position: relative; width: 64px; height: 64px; margin: 0 auto 10px; }
+.ring-wrap svg { width: 64px; height: 64px; transform: rotate(-90deg); }
+.ring { width: 100%; height: 100%; }
+.ring-bg { fill: none; stroke: var(--gray-200); stroke-width: 3; }
+.ring-fill { fill: none; stroke-width: 3; stroke-linecap: round; }
+.ring-num { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 18px; font-weight: 700; }
+.score-card-label { font-size: 13px; font-weight: 600; color: var(--gray-800); margin-bottom: 4px; }
+.score-card-sub { font-size: 11px; color: var(--gray-400); line-height: 1.4; }
+.tbl-wrap { overflow-x: auto; padding: 0 32px 32px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; table-layout: fixed; }
+th { text-align: left; padding: 10px 14px; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .5px; color: var(--gray-500); border-bottom: 2px solid var(--gray-200); background: var(--gray-50); }
+td { padding: 12px 14px; border-bottom: 1px solid var(--gray-100); vertical-align: top; word-wrap: break-word; overflow-wrap: break-word; }
+tr:last-child td { border-bottom: none; }
+.td-main { font-weight: 600; color: var(--gray-800); }
+.td-muted { color: var(--gray-500); font-size: 12px; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.badge-green { background: var(--green-bg); color: #047857; }
+.badge-amber { background: var(--amber-bg); color: #b45309; }
+.badge-red { background: var(--red-bg); color: #b91c1c; }
+.gap-card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 10px; padding: 20px 24px; margin-bottom: 12px; }
+.gap-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.gap-title { font-size: 15px; font-weight: 700; color: var(--gray-800); }
+.gap-why { font-size: 13px; color: var(--gray-600); line-height: 1.6; margin-bottom: 6px; }
+.gap-format { font-size: 12px; color: var(--gray-400); font-style: italic; }
+.action-group { margin-bottom: 28px; }
+.action-group-title { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid var(--gray-100); }
+.action-group-title .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.action-group-title .sub { font-weight: 400; font-size: 12px; text-transform: none; letter-spacing: 0; color: var(--gray-400); }
+.action-list { list-style: none; counter-reset: action; }
+.action-list li { counter-increment: action; position: relative; padding: 10px 0 10px 36px; font-size: 14px; color: var(--gray-700); line-height: 1.55; border-bottom: 1px solid var(--gray-100); }
+.action-list li:last-child { border-bottom: none; }
+.action-list li::before { content: counter(action); position: absolute; left: 0; top: 11px; width: 22px; height: 22px; background: var(--gray-100); color: var(--gray-500); font-size: 11px; font-weight: 700; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+.cta { background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%); color: #fff; border-radius: var(--radius); padding: 40px 40px; text-align: center; margin: 24px 0; }
+.cta h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+.cta p { font-size: 14px; color: rgba(255,255,255,.7); max-width: 500px; margin: 0 auto 24px; line-height: 1.65; }
+.cta-links { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.cta-link { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,.9); font-size: 14px; font-weight: 600; text-decoration: none; }
+.cta-link svg { flex-shrink: 0; }
+.footer { text-align: center; padding: 24px; font-size: 12px; color: var(--gray-400); }
+@media print { body { background: #fff; } .section { box-shadow: none; border: 1px solid var(--gray-200); page-break-inside: avoid; } .hero { border-radius: 0; } }
+</style>
+</head>
+<body>
+<div class="report">
+    <div class="hero">
+        <div class="hero-badge">Website Performance Review</div>
+        <h1>Chapman Drainage &amp; Basement Repair</h1>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                chapmandrainage.com
+            </div>
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Dublin / Columbus, OH
+            </div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-footer">
+            <span>Prepared April 24, 2026</span>
+            <span>by Innovation With Pixels</span>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">1</span>
+            <span class="section-title">Executive Summary</span>
+        </div>
+        <div class="score-hero">
+            <div class="score-main">
+                <div class="score-ring-lg">
+                    <svg viewBox="0 0 36 36">
+                        <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="64, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="score-big" style="color:#f59e0b">64<span class="score-of">/100</span></div>
+                </div>
+                <div class="score-label" style="color:#f59e0b">Needs Work</div>
+            </div>
+            <div class="score-summary">
+                <p>Chapman Drainage has a solid foundation: 25+ years of family-owned reputation in Central Ohio, an A+ BBB rating, and decent existing technical setup with Yoast SEO and an SSL certificate. The site loads cleanly, images all have alt text, and the basic meta information is in place across most pages. That&#x27;s a stronger starting point than most local foundation repair sites we review.</p>
+                <p>The biggest gaps are local SEO signals and content depth. The homepage is missing an H1 tag entirely, there&#x27;s no LocalBusiness schema (which Google heavily uses for ranking local service businesses), and key terms like &#x27;Columbus&#x27; and &#x27;foundation repair&#x27; aren&#x27;t appearing in the homepage title where they should. There&#x27;s also a real opportunity to build out individual service pages for pier installation, bowed wall repair, and crack repair — right now a lot of services share one combined page, which makes it hard to rank for specific intent searches homeowners actually use.</p>
+            </div>
+        </div>
+        <div class="score-grid">
+            
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="60, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">60</span>
+            </div>
+            <div class="score-card-label">On-Page SEO</div>
+            <div class="score-card-sub">Title tags weak, missing H1 on home</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="75, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">75</span>
+            </div>
+            <div class="score-card-label">Technical SEO</div>
+            <div class="score-card-sub">HTTPS + Yoast in place, schema gaps</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="55, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">55</span>
+            </div>
+            <div class="score-card-label">Content Depth</div>
+            <div class="score-card-sub">Few service pages, no blog</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="55, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">55</span>
+            </div>
+            <div class="score-card-label">Local SEO</div>
+            <div class="score-card-sub">Missing LocalBusiness schema</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="72, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">72</span>
+            </div>
+            <div class="score-card-label">User Experience</div>
+            <div class="score-card-sub">Clean layout, images optimized</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="70, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">70</span>
+            </div>
+            <div class="score-card-label">Authority Signals</div>
+            <div class="score-card-sub">BBB A+, reviews present</div>
+        </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">2</span>
+            <span class="section-title">Keyword Opportunities</span>
+        </div>
+        <p class="section-desc">Top keyword opportunities ranked by search demand, competition, and relevance to your business.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:25%"><col style="width:12%"><col style="width:13%"><col style="width:15%"><col style="width:35%"></colgroup>
+                <thead><tr><th>Keyword</th><th>Difficulty</th><th>Opportunity</th><th>Intent</th><th>Recommended Action</th></tr></thead>
+                <tbody><tr>
+            <td class="td-main">foundation repair Columbus Ohio</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Optimize homepage title + H1 around this exact phrase</td>
+        </tr><tr>
+            <td class="td-main">basement waterproofing Columbus</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Strengthen waterproofing service page with city in title</td>
+        </tr><tr>
+            <td class="td-main">foundation repair Dublin OH</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build a Dublin service area page</td>
+        </tr><tr>
+            <td class="td-main">bowed basement wall repair Columbus</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Dedicated service page with photos and method</td>
+        </tr><tr>
+            <td class="td-main">wet basement repair near me</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Already have a page — add FAQ and local schema</td>
+        </tr><tr>
+            <td class="td-main">crawl space encapsulation Columbus</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build out service page with cost guide</td>
+        </tr><tr>
+            <td class="td-main">foundation crack repair Columbus</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create dedicated page separate from foundation repair</td>
+        </tr><tr>
+            <td class="td-main">sump pump installation Columbus</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Existing page — add pricing/process content</td>
+        </tr><tr>
+            <td class="td-main">signs of foundation problems</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Write blog post with photos + FAQ schema</td>
+        </tr><tr>
+            <td class="td-main">foundation repair cost Columbus Ohio</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Cost guide page — captures research-stage homeowners</td>
+        </tr><tr>
+            <td class="td-main">cracks in basement walls causes</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Educational article with diagrams</td>
+        </tr><tr>
+            <td class="td-main">how long does foundation repair take</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Blog FAQ post — easy to rank, builds trust</td>
+        </tr><tr>
+            <td class="td-main">uneven floors foundation issue</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Problem-based page that funnels to inspection</td>
+        </tr><tr>
+            <td class="td-main">foundation repair Hilliard OH</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Service area page for nearby suburb</td>
+        </tr><tr>
+            <td class="td-main">foundation repair Westerville OH</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Service area page for nearby suburb</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">3</span>
+            <span class="section-title">On-Page SEO Issues</span>
+        </div>
+        <p class="section-desc">Page-level issues affecting your search visibility, sorted by severity.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:15%"><col style="width:30%"><col style="width:12%"><col style="width:43%"></colgroup>
+                <thead><tr><th>Page</th><th>Issue</th><th>Severity</th><th>Recommended Fix</th></tr></thead>
+                <tbody><tr>
+            <td class="td-main">Homepage</td>
+            <td>No H1 tag at all on homepage — missing primary heading</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add a single H1 like &#x27;Columbus Foundation Repair &amp; Basement Waterproofing&#x27;</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>Title tag doesn&#x27;t include &#x27;Columbus&#x27; or city</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Change to something like &#x27;Columbus Foundation Repair &amp; Drainage Experts | Chapman Drainage&#x27;</td>
+        </tr><tr>
+            <td class="td-main">Foundation Repair page</td>
+            <td>H1 reads &#x27;Repair Contractors in Columbus&#x27; — missing &#x27;Foundation&#x27;</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Update to &#x27;Foundation Repair Contractors in Columbus&#x27; for keyword match</td>
+        </tr><tr>
+            <td class="td-main">Site-wide</td>
+            <td>No individual service pages for bowed walls, pier installation, crack repair</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Build dedicated landing pages for each foundation service</td>
+        </tr><tr>
+            <td class="td-main">Site-wide</td>
+            <td>No blog or educational content for informational queries</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Start with 6–8 blog posts targeting &#x27;signs of&#x27;, &#x27;cost&#x27;, &#x27;how long&#x27; queries</td>
+        </tr><tr>
+            <td class="td-main">Site-wide</td>
+            <td>No service area pages for individual Columbus suburbs (Dublin, Hilliard, Westerville, etc.)</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Create city/neighborhood pages for top 5 service areas</td>
+        </tr><tr>
+            <td class="td-main">Foundation Repair page</td>
+            <td>Multiple H2s overlap content — heading hierarchy could be clearer</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td class="td-muted">Restructure into clear H2 service categories with H3 sub-services</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">4</span>
+            <span class="section-title">Technical SEO Checklist</span>
+        </div>
+        <p class="section-desc">Infrastructure and crawlability checks that affect how search engines index your site.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:22%"><col style="width:15%"><col style="width:63%"></colgroup>
+                <thead><tr><th>Check</th><th>Status</th><th>Details</th></tr></thead>
+                <tbody><tr>
+            <td class="td-main">HTTPS / SSL</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Site loads over HTTPS with valid certificate</td>
+        </tr><tr>
+            <td class="td-main">Mobile viewport meta</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Responsive viewport meta tag present</td>
+        </tr><tr>
+            <td class="td-main">Meta description</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Unique, well-written meta descriptions on key pages</td>
+        </tr><tr>
+            <td class="td-main">Image alt text</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">All 13 homepage images have alt attributes</td>
+        </tr><tr>
+            <td class="td-main">Organization schema</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Yoast-generated Organization + WebPage schema present</td>
+        </tr><tr>
+            <td class="td-main">LocalBusiness schema</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">Missing — critical for local service business ranking</td>
+        </tr><tr>
+            <td class="td-main">FAQ / Service schema</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">No Service or FAQPage schema on service pages</td>
+        </tr><tr>
+            <td class="td-main">H1 tag on homepage</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">Homepage has zero H1 tags</td>
+        </tr><tr>
+            <td class="td-main">City in homepage title</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">&#x27;Columbus&#x27; missing from primary title tag</td>
+        </tr><tr>
+            <td class="td-main">XML sitemap</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Yoast sitemap available</td>
+        </tr><tr>
+            <td class="td-main">Internal linking depth</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Service pages only 1–2 deep — opportunity for hub-and-spoke structure</td>
+        </tr><tr>
+            <td class="td-main">Page load size</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Homepage is heavy with inline CSS — could be trimmed</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">5</span>
+            <span class="section-title">Competitor Comparison</span>
+        </div>
+        <p class="section-desc">Head-to-head comparison against your main local competitors.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <thead><tr><th>Dimension</th><th>Chapman Drainage &amp; Basement Repair</th><th>Columbus Ohio Basements</th><th>C&amp;J Basement Solutions</th></tr></thead>
+                <tbody><tr>
+            <td class="td-main">Years in business</td>
+            <td>25+ years</td>
+            <td>30+ years</td>
+            <td>25+ years</td>
+        </tr><tr>
+            <td class="td-main">Individual service pages</td>
+            <td>~4 main service pages</td>
+            <td>8+ service pages</td>
+            <td>5+ service pages</td>
+        </tr><tr>
+            <td class="td-main">Service area pages</td>
+            <td>0</td>
+            <td>Several</td>
+            <td>0</td>
+        </tr><tr>
+            <td class="td-main">Blog / educational content</td>
+            <td>Limited</td>
+            <td>Yes — active blog</td>
+            <td>Limited</td>
+        </tr><tr>
+            <td class="td-main">LocalBusiness schema</td>
+            <td>No</td>
+            <td>Partial</td>
+            <td>No</td>
+        </tr><tr>
+            <td class="td-main">BBB rating</td>
+            <td>A+</td>
+            <td>A+</td>
+            <td>A+</td>
+        </tr><tr>
+            <td class="td-main">Homepage H1 present</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>Yes</td>
+        </tr><tr>
+            <td class="td-main">Reviews showcased on-site</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes — with video</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">6</span>
+            <span class="section-title">Content Gap Recommendations</span>
+        </div>
+        <p class="section-desc">Topics and content types your competitors cover that you're missing.</p>
+        <div class="section-body">
+            
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Signs You Need Foundation Repair (with photos)</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">High-volume informational query that builds trust before homeowners are ready to book — captures research-stage traffic competitors are missing</p>
+            <p class="gap-format">Recommended format: Long-form blog post with photo examples and FAQ schema</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Foundation Repair Cost in Columbus, OH</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Cost-related queries are some of the highest-converting because intent is strong — homeowners ready to scope a project</p>
+            <p class="gap-format">Recommended format: Cost guide page with ranges by repair type and free estimate CTA</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Individual service pages for each repair type</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Right now multiple services share pages — makes it hard to rank for &#x27;pier installation Columbus&#x27; or &#x27;bowed wall repair Columbus&#x27;</p>
+            <p class="gap-format">Recommended format: Dedicated landing pages per service with method, photos, and pricing context</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Service area pages for Columbus suburbs</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Pages targeting Dublin, Hilliard, Westerville, Worthington, Powell each have lower competition than &#x27;Columbus&#x27; alone</p>
+            <p class="gap-format">Recommended format: City pages with localized content, project examples, and local proof</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Before/After project gallery</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Builds trust and creates indexable image content — also captures &#x27;foundation repair before after&#x27; searches</p>
+            <p class="gap-format">Recommended format: Gallery page with descriptions, location, and repair method per project</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">FAQ page with common foundation questions</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Captures voice search and &#x27;how long&#x27;, &#x27;how much&#x27;, &#x27;do I need&#x27; queries — easy ranking with FAQ schema</p>
+            <p class="gap-format">Recommended format: FAQ page with structured data markup</p>
+        </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">7</span>
+            <span class="section-title">Prioritized Action Plan</span>
+        </div>
+        <div class="section-body">
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--green)"></span>
+                    Quick Wins
+                    <span class="sub">do this week &mdash; under 2 hours each</span>
+                </div>
+                <ol class="action-list"><li>Add an H1 tag to the homepage with the phrase &#x27;Columbus Foundation Repair &amp; Basement Waterproofing&#x27;</li><li>Update homepage title tag to include &#x27;Columbus&#x27; — e.g. &#x27;Columbus Foundation Repair &amp; Drainage Experts | Chapman Drainage&#x27;</li><li>Update Foundation Repair page H1 from &#x27;Repair Contractors in Columbus&#x27; to &#x27;Foundation Repair Contractors in Columbus&#x27;</li><li>Add LocalBusiness schema with full NAP (name, address, phone) — biggest local SEO lift available</li><li>Add FAQ schema to existing service pages where you already answer common questions</li><li>Add a clear NAP block (name, address, phone) in the footer of every page</li></ol>
+            </div>
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--blue)"></span>
+                    Strategic Investments
+                    <span class="sub">plan for this quarter</span>
+                </div>
+                <ol class="action-list"><li>Build dedicated service pages: pier installation, bowed wall repair, foundation crack repair, crawl space encapsulation, sump pump installation</li><li>Launch 6–8 service area pages for Dublin, Hilliard, Westerville, Worthington, Powell, Upper Arlington, Grove City, Pickerington</li><li>Start an educational blog targeting &#x27;signs of foundation problems&#x27;, &#x27;foundation repair cost Columbus&#x27;, &#x27;how long does foundation repair take&#x27;, &#x27;cracks in walls causes&#x27;</li><li>Build out a before/after project gallery with location, repair type, and photos for each project</li><li>Create a cost guide hub page with pricing ranges by repair type — these pages convert exceptionally well</li><li>Set up Google Business Profile posts on a regular cadence to keep local rankings fresh</li></ol>
+            </div>
+        </div>
+    </div>
+    <div class="cta">
+        <h3>Ready to implement these improvements?</h3>
+        <p>Innovation With Pixels specializes in websites for foundation repair and home service businesses.</p>
+        <div class="cta-links">
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+                hammad@innovationwithpixels.com
+            </span>
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                innovationwithpixels.com
+            </span>
+        </div>
+    </div>
+    <div class="footer">
+        Prepared by Innovation With Pixels &middot; innovationwithpixels.com
+    </div>
+</div>
+</body>
+</html>
