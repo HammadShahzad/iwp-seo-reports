@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Review &mdash; Imbue Design</title>
+<style>
+:root {
+    --navy: #0f172a;
+    --navy-light: #1e293b;
+    --blue: #3b82f6;
+    --blue-light: #dbeafe;
+    --green: #10b981;
+    --green-bg: #ecfdf5;
+    --amber: #f59e0b;
+    --amber-bg: #fffbeb;
+    --red: #ef4444;
+    --red-bg: #fef2f2;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-700);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Layout */
+.report { max-width: 960px; margin: 0 auto; }
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    padding: 64px 56px 56px;
+    border-radius: 0 0 var(--radius) var(--radius);
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(59,130,246,.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.8);
+    margin-bottom: 24px;
+}
+.hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    margin-bottom: 24px;
+}
+.hero-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+.hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+}
+.hero-meta-item svg { flex-shrink: 0; }
+.hero-divider {
+    height: 1px;
+    background: rgba(255,255,255,.12);
+    margin: 32px 0 20px;
+}
+.hero-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+}
+
+/* Sections */
+.section {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 24px 0;
+    overflow: hidden;
+}
+.section-header {
+    padding: 28px 32px 0;
+}
+.section-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 8px;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+.section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-900);
+    display: inline;
+    vertical-align: middle;
+}
+.section-desc {
+    font-size: 14px;
+    color: var(--gray-500);
+    margin-top: 8px;
+    padding: 0 32px;
+}
+.section-body {
+    padding: 24px 32px 32px;
+}
+
+/* Score Hero Card */
+.score-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    padding: 36px 32px;
+    flex-wrap: wrap;
+}
+.score-main {
+    text-align: center;
+}
+.score-ring-lg {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 12px;
+}
+.score-ring-lg svg {
+    width: 160px;
+    height: 160px;
+    transform: rotate(-90deg);
+}
+.score-ring-lg .ring-bg {
+    fill: none;
+    stroke: var(--gray-100);
+    stroke-width: 3;
+}
+.score-ring-lg .ring-fill {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    transition: stroke-dasharray .6s ease;
+}
+.score-big {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -.03em;
+}
+.score-of {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--gray-400);
+}
+.score-label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+.score-summary {
+    max-width: 420px;
+    text-align: left;
+}
+.score-summary p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-600);
+    margin-bottom: 12px;
+}
+
+/* Category Score Cards */
+.score-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 0 32px 32px;
+}
+.score-card {
+    text-align: center;
+    padding: 20px 12px 16px;
+    background: var(--gray-50);
+    border-radius: 10px;
+    border: 1px solid var(--gray-200);
+}
+.ring-wrap {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 10px;
+}
+.ring-wrap svg {
+    width: 64px;
+    height: 64px;
+    transform: rotate(-90deg);
+}
+.ring { width: 100%; height: 100%; }
+.ring-bg { fill: none; stroke: var(--gray-200); stroke-width: 3; }
+.ring-fill { fill: none; stroke-width: 3; stroke-linecap: round; }
+.ring-num {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: 700;
+}
+.score-card-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 4px;
+}
+.score-card-sub {
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.4;
+}
+
+/* Tables */
+.tbl-wrap {
+    overflow-x: auto;
+    padding: 0 32px 32px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    table-layout: fixed;
+}
+th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--gray-500);
+    border-bottom: 2px solid var(--gray-200);
+    background: var(--gray-50);
+}
+td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-100);
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+tr:last-child td { border-bottom: none; }
+.td-main { font-weight: 600; color: var(--gray-800); }
+.td-muted { color: var(--gray-500); font-size: 12px; }
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.badge-green {
+    background: var(--green-bg);
+    color: #047857;
+}
+.badge-amber {
+    background: var(--amber-bg);
+    color: #b45309;
+}
+.badge-red {
+    background: var(--red-bg);
+    color: #b91c1c;
+}
+
+/* Gap Cards */
+.gap-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+}
+.gap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+.gap-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-800);
+}
+.gap-why {
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+.gap-format {
+    font-size: 12px;
+    color: var(--gray-400);
+    font-style: italic;
+}
+
+/* Action Plan */
+.action-group {
+    margin-bottom: 28px;
+}
+.action-group-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--gray-100);
+}
+.action-group-title .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.action-group-title .sub {
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--gray-400);
+}
+.action-list {
+    list-style: none;
+    counter-reset: action;
+}
+.action-list li {
+    counter-increment: action;
+    position: relative;
+    padding: 10px 0 10px 36px;
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    border-bottom: 1px solid var(--gray-100);
+}
+.action-list li:last-child { border-bottom: none; }
+.action-list li::before {
+    content: counter(action);
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 22px;
+    height: 22px;
+    background: var(--gray-100);
+    color: var(--gray-500);
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CTA */
+.cta {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 40px 40px;
+    text-align: center;
+    margin: 24px 0;
+}
+.cta h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.cta p {
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+    max-width: 500px;
+    margin: 0 auto 24px;
+    line-height: 1.65;
+}
+.cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.cta-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,.9);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.cta-link svg { flex-shrink: 0; }
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: var(--gray-400);
+}
+
+/* Print */
+@media print {
+    body { background: #fff; }
+    .section { box-shadow: none; border: 1px solid var(--gray-200); page-break-inside: avoid; }
+    .hero { border-radius: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="report">
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-badge">Website Performance Review</div>
+        <h1>Imbue Design</h1>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                imbue.design
+            </div>
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Salt Lake City, UT
+            </div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-footer">
+            <span>Prepared April 27, 2026</span>
+            <span>by Innovation With Pixels</span>
+        </div>
+    </div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">1</span>
+            <span class="section-title">Executive Summary</span>
+        </div>
+        <div class="score-hero">
+            <div class="score-main">
+                <div class="score-ring-lg">
+                    <svg viewBox="0 0 36 36">
+                        <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="ring-fill" stroke="#ef4444" stroke-dasharray="58, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="score-big" style="color:#ef4444">58<span class="score-of">/100</span></div>
+                </div>
+                <div class="score-label" style="color:#ef4444">Critical</div>
+            </div>
+            <div class="score-summary">
+                <p>Imbue Design is a respected modern home and commercial design studio in Salt Lake City with a portfolio that genuinely stands out — minimalist, considered, and beautifully photographed. The website carries that same restrained aesthetic, which works wonderfully for visitors who already know who you are. Where it falls short is for the people who don&#x27;t yet know you exist. The homepage and several key landing pages are missing the basic signals that search engines look for: descriptive titles, meta descriptions, headings, and structured project content. As a result, the firm is almost certainly not appearing in searches like &quot;modern home architect Salt Lake City&quot; or &quot;residential architect SLC&quot; where prospective clients are actively looking.</p>
+                <p>The good news: nothing here is broken — it&#x27;s just unbuilt. Squarespace gives you a clean technical foundation (HTTPS, mobile-ready, fast CDN delivery, basic structured data), but the platform leaves the SEO content layer almost entirely up to you, and that layer is currently empty. Filling in titles, descriptions, headings, image alt text, and adding a handful of dedicated location and service pages would put Imbue Design squarely on the map for the kind of clients who Google their way to a builder. Most of the highest-impact fixes are content edits you can make in an afternoon, not a redesign.</p>
+            </div>
+        </div>
+        <div class="score-grid">
+            
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="45, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">45</span>
+            </div>
+            <div class="score-card-label">On-Page SEO</div>
+            <div class="score-card-sub">Critical gaps in titles and metadata</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="78, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">78</span>
+            </div>
+            <div class="score-card-label">Technical SEO</div>
+            <div class="score-card-sub">Solid Squarespace foundation</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="55, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">55</span>
+            </div>
+            <div class="score-card-label">Content &amp; Portfolio</div>
+            <div class="score-card-sub">Beautiful work, weak indexing</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="50, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">50</span>
+            </div>
+            <div class="score-card-label">Local SEO</div>
+            <div class="score-card-sub">Missing location signals</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="62, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">62</span>
+            </div>
+            <div class="score-card-label">Image Optimization</div>
+            <div class="score-card-sub">Alt text usage inconsistent</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="75, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">75</span>
+            </div>
+            <div class="score-card-label">Mobile &amp; UX</div>
+            <div class="score-card-sub">Responsive, but slow on mobile</div>
+        </div>
+        </div>
+    </div>
+
+    <!-- KEYWORD OPPORTUNITIES -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">2</span>
+            <span class="section-title">Keyword Opportunities</span>
+        </div>
+        <p class="section-desc">Top keyword opportunities ranked by search demand, competition, and relevance to your business.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:25%"><col style="width:12%"><col style="width:13%"><col style="width:15%"><col style="width:35%"></colgroup>
+                <thead><tr>
+                    <th>Keyword</th><th>Difficulty</th><th>Opportunity</th><th>Intent</th><th>Recommended Action</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">modern home architect Salt Lake City</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create dedicated location-service landing page</td>
+        </tr><tr>
+            <td class="td-main">residential architect Salt Lake City</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Optimize homepage title and add service page</td>
+        </tr><tr>
+            <td class="td-main">modern architect Utah</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Add to homepage H1 and meta description</td>
+        </tr><tr>
+            <td class="td-main">custom home architect Salt Lake City</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create dedicated custom homes service page</td>
+        </tr><tr>
+            <td class="td-main">minimalist home design Utah</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Strong fit for brand voice — own this term</td>
+        </tr><tr>
+            <td class="td-main">ADU architect Salt Lake City</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create ADU-specific service page</td>
+        </tr><tr>
+            <td class="td-main">modern remodel architect SLC</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Add to renovation portfolio category</td>
+        </tr><tr>
+            <td class="td-main">commercial architect Salt Lake City</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create commercial services landing page</td>
+        </tr><tr>
+            <td class="td-main">do I need an architect for a remodel</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Write blog post or FAQ entry</td>
+        </tr><tr>
+            <td class="td-main">how much does a custom home architect cost</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Publish a fees &amp; process guide</td>
+        </tr><tr>
+            <td class="td-main">architect vs designer Utah</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Educational article — easy traffic</td>
+        </tr><tr>
+            <td class="td-main">modest home design ideas</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Owns brand language — turn into pillar post</td>
+        </tr><tr>
+            <td class="td-main">Park City modern architect</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create Park City service area page</td>
+        </tr><tr>
+            <td class="td-main">passive solar home design Utah</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Add sustainability-focused service page</td>
+        </tr><tr>
+            <td class="td-main">modern home builder architect collaboration</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Process post explaining how you work with builders</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ON-PAGE ISSUES -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">3</span>
+            <span class="section-title">On-Page SEO Issues</span>
+        </div>
+        <p class="section-desc">Page-level issues affecting your search visibility, sorted by severity.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:15%"><col style="width:30%"><col style="width:12%"><col style="width:43%"></colgroup>
+                <thead><tr>
+                    <th>Page</th><th>Issue</th><th>Severity</th><th>Recommended Fix</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">Homepage</td>
+            <td>Title tag is just &quot;imbue design&quot; — no keywords or location</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Rewrite to something like &quot;Modern Home &amp; Commercial Architect in Salt Lake City | Imbue Design&quot;</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>Meta description is empty</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Write a 150-160 character description with location and service keywords</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>No visible H1 heading on the page</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add a clear H1 like &quot;Modern Architecture for Salt Lake City Homes &amp; Businesses&quot;</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>No H2 subheadings to structure content</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Break the page into sections (Approach, Services, Featured Projects) with H2s</td>
+        </tr><tr>
+            <td class="td-main">Featured Architecture</td>
+            <td>Page title falls back to generic &quot;imbue design&quot;</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Set unique title: &quot;Featured Modern Home Projects | Salt Lake City | Imbue Design&quot;</td>
+        </tr><tr>
+            <td class="td-main">Featured Architecture</td>
+            <td>Meta description is empty</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add a description summarizing the portfolio and project types</td>
+        </tr><tr>
+            <td class="td-main">Featured Architecture</td>
+            <td>No H1 heading on the gallery page</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Add an H1 framing this as your featured work</td>
+        </tr><tr>
+            <td class="td-main">Project pages</td>
+            <td>Individual projects appear to live inside long galleries rather than as standalone indexable pages</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Give each major project its own URL with name, location, brief, and 2 to 3 paragraphs of context</td>
+        </tr><tr>
+            <td class="td-main">Site-wide</td>
+            <td>Squarespace background images load as CSS — search engines can&#x27;t read them as imagery</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Where projects are presented, use real img tags with descriptive alt text</td>
+        </tr><tr>
+            <td class="td-main">Site-wide</td>
+            <td>Image alt text appears to use generic or filename-based values on many shots</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Audit each portfolio image and add descriptive alt: &quot;Modern minimalist home in Avenues, Salt Lake City — south-facing facade&quot;</td>
+        </tr><tr>
+            <td class="td-main">Contact</td>
+            <td>Contact page has no schema markup for LocalBusiness</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Add LocalBusiness/Architect schema with NAP, hours, service area</td>
+        </tr><tr>
+            <td class="td-main">Site-wide</td>
+            <td>No blog or insights section to capture informational search demand</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Launch a small Journal section — process, fees, sustainability, ADU explainers</td>
+        </tr><tr>
+            <td class="td-main">Footer</td>
+            <td>Footer doesn&#x27;t list service areas or surface NAP consistently</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td class="td-muted">Add address, phone, hours, and a &quot;Serving Salt Lake City, Park City, Cottonwood Heights&quot; line</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TECHNICAL SEO -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">4</span>
+            <span class="section-title">Technical SEO Checklist</span>
+        </div>
+        <p class="section-desc">Infrastructure and crawlability checks that affect how search engines index your site.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:22%"><col style="width:15%"><col style="width:63%"></colgroup>
+                <thead><tr>
+                    <th>Check</th><th>Status</th><th>Details</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">HTTPS / SSL</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Valid Let&#x27;s Encrypt certificate, HTTP/2, HSTS enabled (max-age=15552000)</td>
+        </tr><tr>
+            <td class="td-main">Mobile viewport</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Viewport meta tag is set correctly: width=device-width, initial-scale=1</td>
+        </tr><tr>
+            <td class="td-main">Compression (gzip)</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Gzip enabled — pages compress well over the wire</td>
+        </tr><tr>
+            <td class="td-main">Canonical tags</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Self-referencing canonical present on homepage</td>
+        </tr><tr>
+            <td class="td-main">Open Graph tags</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">og:title, og:url, og:image, og:type all set (Squarespace default)</td>
+        </tr><tr>
+            <td class="td-main">Structured data (Schema.org)</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Only basic Squarespace defaults — no LocalBusiness/Architect schema, no Organization details, no project schema</td>
+        </tr><tr>
+            <td class="td-main">XML sitemap</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Squarespace generates /sitemap.xml automatically</td>
+        </tr><tr>
+            <td class="td-main">robots.txt</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Default Squarespace robots.txt — no crawl issues</td>
+        </tr><tr>
+            <td class="td-main">Page weight (homepage)</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Homepage is around 960 KB — heavy for a marketing site, mostly from large hero imagery</td>
+        </tr><tr>
+            <td class="td-main">Image lazy loading</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Squarespace handles native lazy-loading on most galleries</td>
+        </tr><tr>
+            <td class="td-main">Broken / redirect chains</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">No multi-hop redirects detected on top pages</td>
+        </tr><tr>
+            <td class="td-main">Title tag uniqueness</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">Multiple key pages share the fallback title &quot;imbue design&quot; — this kills click-through and topical relevance</td>
+        </tr><tr>
+            <td class="td-main">H1 presence per page</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">Homepage and featured-architecture page have no H1 element</td>
+        </tr><tr>
+            <td class="td-main">Internal linking depth</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Project work mostly accessible via long-scroll galleries — limited deep internal links to project subpages</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- COMPETITOR COMPARISON -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">5</span>
+            <span class="section-title">Competitor Comparison</span>
+        </div>
+        <p class="section-desc">Head-to-head comparison against your main local competitors.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <thead><tr>
+                    <th>Dimension</th><th>Imbue Design</th><th>Sparano + Mooney</th><th>VY Architecture</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">Page Title (Homepage)</td>
+            <td>imbue design</td>
+            <td>Sparano + Mooney Architecture | Architects in Salt Lake City Utah &amp; Los Angeles California</td>
+            <td>Residential, Commercial &amp; Passive House Architects</td>
+        </tr><tr>
+            <td class="td-main">Meta Description (Homepage)</td>
+            <td>Empty</td>
+            <td>Full sentence with location and services</td>
+            <td>Full sentence describing specialties</td>
+        </tr><tr>
+            <td class="td-main">H1 on Homepage</td>
+            <td>Missing</td>
+            <td>Present with brand+services</td>
+            <td>Present with brand+specialty</td>
+        </tr><tr>
+            <td class="td-main">Project Pages (indexable)</td>
+            <td>Galleries (limited deep pages)</td>
+            <td>Individual project pages with context</td>
+            <td>Individual project pages with descriptions</td>
+        </tr><tr>
+            <td class="td-main">Blog / Insights</td>
+            <td>None</td>
+            <td>Press / News section</td>
+            <td>News &amp; Awards section</td>
+        </tr><tr>
+            <td class="td-main">Local Schema Markup</td>
+            <td>Default only</td>
+            <td>Organization + LocalBusiness</td>
+            <td>Organization</td>
+        </tr><tr>
+            <td class="td-main">Service Area Pages</td>
+            <td>None</td>
+            <td>Two location pages (SLC + LA)</td>
+            <td>Implicit (single location)</td>
+        </tr><tr>
+            <td class="td-main">Visible Awards / Press</td>
+            <td>Recognition page exists</td>
+            <td>Strongly featured</td>
+            <td>Lightly featured</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- CONTENT GAPS -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">6</span>
+            <span class="section-title">Content Gap Recommendations</span>
+        </div>
+        <p class="section-desc">Topics and content types your competitors cover that you're missing.</p>
+        <div class="section-body">
+            
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Individual project case-study pages</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Each project is its own keyword surface — &quot;modern home Avenues SLC&quot;, &quot;warehouse renovation Pierpont&quot;. Right now Google sees galleries, not stories.</p>
+            <p class="gap-format">Recommended format: One URL per featured project: hero shot, location, square footage, brief, challenges, materials, photography credits</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Salt Lake City service-area page</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Searches like &quot;architect Salt Lake City&quot; need a dedicated page that ranks. Your homepage isn&#x27;t trying to rank for that.</p>
+            <p class="gap-format">Recommended format: Long-form page: services offered, neighborhoods served, FAQs, featured local projects, testimonials, schema markup</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">ADU / accessory dwelling unit page</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Utah has rising demand for ADUs; very few SLC architects own this term. Low-competition, high-intent.</p>
+            <p class="gap-format">Recommended format: Service page: what&#x27;s an ADU, code considerations in SLC, your ADU process, sample projects</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Process &amp; fees explainer</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">&quot;How much does an architect cost&quot; gets thousands of monthly searches. Most firms hide this; transparency wins links and trust.</p>
+            <p class="gap-format">Recommended format: Article + downloadable guide: phases of work, hourly vs. fixed, what&#x27;s included, what&#x27;s not</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Park City + mountain town landing pages</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Park City buyers Google by city. A dedicated page can capture them without polluting the SLC pages.</p>
+            <p class="gap-format">Recommended format: Smaller location page per nearby market: mountain home considerations, snow load design, sample projects</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Modest / minimalist design philosophy pillar post</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Imbue&#x27;s &quot;modern + modest&quot; voice is distinctive. Turning it into pillar content will rank for branded searches and aspirational searches alike.</p>
+            <p class="gap-format">Recommended format: Long essay with photography: principles, examples, and links into projects that embody them</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Sustainability / passive design content</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Aligns with eco-conscious buyer searches and supports rankings for &quot;passive solar&quot;, &quot;net zero home Utah&quot;.</p>
+            <p class="gap-format">Recommended format: Service page plus 2 to 3 supporting articles linked from it</p>
+        </div>
+        </div>
+    </div>
+
+    <!-- ACTION PLAN -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">7</span>
+            <span class="section-title">Prioritized Action Plan</span>
+        </div>
+        <div class="section-body">
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--green)"></span>
+                    Quick Wins
+                    <span class="sub">do this week &mdash; under 2 hours each</span>
+                </div>
+                <ol class="action-list"><li>Rewrite the homepage title to &quot;Modern Home &amp; Commercial Architect in Salt Lake City | Imbue Design&quot;</li><li>Add a homepage meta description (150 to 160 chars) covering location and services</li><li>Add a visible H1 on the homepage and featured-architecture page</li><li>Set unique titles and descriptions on the firm, contact, and featured-architecture pages</li><li>Add LocalBusiness/Architect schema to the contact page (NAP, hours, service area)</li><li>Audit the top 20 portfolio images and add descriptive, keyword-aware alt text</li><li>Add address, phone, and service area copy to the site footer</li><li>Submit the Squarespace-generated sitemap to Google Search Console and Bing Webmaster Tools</li></ol>
+            </div>
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--blue)"></span>
+                    Strategic Investments
+                    <span class="sub">plan for this quarter</span>
+                </div>
+                <ol class="action-list"><li>Restructure the portfolio so each major project has its own indexable URL with 2 to 3 paragraphs of context</li><li>Build a Salt Lake City service-area page targeting &quot;residential architect Salt Lake City&quot; and &quot;modern home architect SLC&quot;</li><li>Launch dedicated service pages for ADU design, custom homes, renovations, and commercial work</li><li>Start a small Journal section with 6 to 8 evergreen pillar posts (process, fees, sustainability, modest design philosophy)</li><li>Add 2 to 3 secondary location pages for Park City, Cottonwood Heights, and other mountain markets</li><li>Build a press / awards page that surfaces the existing Recognition content with rich formatting and links</li><li>Set up Google Search Console plus Looker Studio dashboard to monitor keyword movement quarterly</li></ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+        <h3>Ready to implement these improvements?</h3>
+        <p>Innovation With Pixels specializes in websites for architecture firms and design professionals. We handle everything from technical fixes to portfolio optimization and ongoing SEO.</p>
+        <div class="cta-links">
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+                hammad@innovationwithpixels.com
+            </span>
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                innovationwithpixels.com
+            </span>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Prepared by Innovation With Pixels &middot; innovationwithpixels.com
+    </div>
+
+</div>
+
+</body>
+</html>
