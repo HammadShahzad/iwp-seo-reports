@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Review &mdash; Rob Paulus Architects</title>
+<style>
+:root {
+    --navy: #0f172a;
+    --navy-light: #1e293b;
+    --blue: #3b82f6;
+    --blue-light: #dbeafe;
+    --green: #10b981;
+    --green-bg: #ecfdf5;
+    --amber: #f59e0b;
+    --amber-bg: #fffbeb;
+    --red: #ef4444;
+    --red-bg: #fef2f2;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-700);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Layout */
+.report { max-width: 960px; margin: 0 auto; }
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    padding: 64px 56px 56px;
+    border-radius: 0 0 var(--radius) var(--radius);
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(59,130,246,.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.8);
+    margin-bottom: 24px;
+}
+.hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    margin-bottom: 24px;
+}
+.hero-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+.hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+}
+.hero-meta-item svg { flex-shrink: 0; }
+.hero-divider {
+    height: 1px;
+    background: rgba(255,255,255,.12);
+    margin: 32px 0 20px;
+}
+.hero-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+}
+
+/* Sections */
+.section {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 24px 0;
+    overflow: hidden;
+}
+.section-header {
+    padding: 28px 32px 0;
+}
+.section-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 8px;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+.section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-900);
+    display: inline;
+    vertical-align: middle;
+}
+.section-desc {
+    font-size: 14px;
+    color: var(--gray-500);
+    margin-top: 8px;
+    padding: 0 32px;
+}
+.section-body {
+    padding: 24px 32px 32px;
+}
+
+/* Score Hero Card */
+.score-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    padding: 36px 32px;
+    flex-wrap: wrap;
+}
+.score-main {
+    text-align: center;
+}
+.score-ring-lg {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 12px;
+}
+.score-ring-lg svg {
+    width: 160px;
+    height: 160px;
+    transform: rotate(-90deg);
+}
+.score-ring-lg .ring-bg {
+    fill: none;
+    stroke: var(--gray-100);
+    stroke-width: 3;
+}
+.score-ring-lg .ring-fill {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    transition: stroke-dasharray .6s ease;
+}
+.score-big {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -.03em;
+}
+.score-of {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--gray-400);
+}
+.score-label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+.score-summary {
+    max-width: 420px;
+    text-align: left;
+}
+.score-summary p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-600);
+    margin-bottom: 12px;
+}
+
+/* Category Score Cards */
+.score-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 0 32px 32px;
+}
+.score-card {
+    text-align: center;
+    padding: 20px 12px 16px;
+    background: var(--gray-50);
+    border-radius: 10px;
+    border: 1px solid var(--gray-200);
+}
+.ring-wrap {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 10px;
+}
+.ring-wrap svg {
+    width: 64px;
+    height: 64px;
+    transform: rotate(-90deg);
+}
+.ring { width: 100%; height: 100%; }
+.ring-bg { fill: none; stroke: var(--gray-200); stroke-width: 3; }
+.ring-fill { fill: none; stroke-width: 3; stroke-linecap: round; }
+.ring-num {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: 700;
+}
+.score-card-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 4px;
+}
+.score-card-sub {
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.4;
+}
+
+/* Tables */
+.tbl-wrap {
+    overflow-x: auto;
+    padding: 0 32px 32px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    table-layout: fixed;
+}
+th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--gray-500);
+    border-bottom: 2px solid var(--gray-200);
+    background: var(--gray-50);
+}
+td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-100);
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+tr:last-child td { border-bottom: none; }
+.td-main { font-weight: 600; color: var(--gray-800); }
+.td-muted { color: var(--gray-500); font-size: 12px; }
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.badge-green {
+    background: var(--green-bg);
+    color: #047857;
+}
+.badge-amber {
+    background: var(--amber-bg);
+    color: #b45309;
+}
+.badge-red {
+    background: var(--red-bg);
+    color: #b91c1c;
+}
+
+/* Gap Cards */
+.gap-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+}
+.gap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+.gap-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-800);
+}
+.gap-why {
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+.gap-format {
+    font-size: 12px;
+    color: var(--gray-400);
+    font-style: italic;
+}
+
+/* Action Plan */
+.action-group {
+    margin-bottom: 28px;
+}
+.action-group-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--gray-100);
+}
+.action-group-title .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.action-group-title .sub {
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--gray-400);
+}
+.action-list {
+    list-style: none;
+    counter-reset: action;
+}
+.action-list li {
+    counter-increment: action;
+    position: relative;
+    padding: 10px 0 10px 36px;
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    border-bottom: 1px solid var(--gray-100);
+}
+.action-list li:last-child { border-bottom: none; }
+.action-list li::before {
+    content: counter(action);
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 22px;
+    height: 22px;
+    background: var(--gray-100);
+    color: var(--gray-500);
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CTA */
+.cta {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 40px 40px;
+    text-align: center;
+    margin: 24px 0;
+}
+.cta h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.cta p {
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+    max-width: 500px;
+    margin: 0 auto 24px;
+    line-height: 1.65;
+}
+.cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.cta-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,.9);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.cta-link svg { flex-shrink: 0; }
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: var(--gray-400);
+}
+
+/* Print */
+@media print {
+    body { background: #fff; }
+    .section { box-shadow: none; border: 1px solid var(--gray-200); page-break-inside: avoid; }
+    .hero { border-radius: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="report">
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-badge">Website Performance Review</div>
+        <h1>Rob Paulus Architects</h1>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                robpaulus.com
+            </div>
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Tucson, AZ
+            </div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-footer">
+            <span>Prepared April 28, 2026</span>
+            <span>by Innovation With Pixels</span>
+        </div>
+    </div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">1</span>
+            <span class="section-title">Executive Summary</span>
+        </div>
+        <div class="score-hero">
+            <div class="score-main">
+                <div class="score-ring-lg">
+                    <svg viewBox="0 0 36 36">
+                        <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="ring-fill" stroke="#ef4444" stroke-dasharray="55, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="score-big" style="color:#ef4444">55<span class="score-of">/100</span></div>
+                </div>
+                <div class="score-label" style="color:#ef4444">Critical</div>
+            </div>
+            <div class="score-summary">
+                <p>Rob Paulus Architects has built a strong reputation in Tucson over three decades, with 60+ awards and a portfolio that ranges from desert houses to adaptive reuse like Ice House Lofts and Barrio Metalico. The site reflects that work visually, but the technical foundation underneath the photography is doing very little of the heavy lifting on Google. Search engines are essentially looking at hundreds of beautiful project images they cannot describe, and pages that compete for terms like &#x27;modern architect Tucson&#x27; or &#x27;adaptive reuse architect Arizona&#x27; are missing the basic on-page signals they need to rank.</p>
+                <p>The biggest issues are fixable in days rather than months: nearly every project image on the site has empty alt text, the Projects page has no H1 or H2 headings at all, no page on the site has a meta description, and the LocalBusiness markup is stuck in an older microdata format that Google now downweights. There is also a meaningful content opportunity — project pages average under 200 words of unique copy, which means each award-winning project is competing on photography alone. With targeted fixes to image alt text, meta descriptions, JSON-LD schema, and project page copy, this site has the bones to rank far higher for high-intent local searches.</p>
+            </div>
+        </div>
+        <div class="score-grid">
+            
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="45, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">45</span>
+            </div>
+            <div class="score-card-label">On-Page SEO</div>
+            <div class="score-card-sub">Missing meta descriptions sitewide</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="68, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">68</span>
+            </div>
+            <div class="score-card-label">Technical SEO</div>
+            <div class="score-card-sub">HTTPS, sitemap, robots.txt OK</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="55, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">55</span>
+            </div>
+            <div class="score-card-label">Content Quality</div>
+            <div class="score-card-sub">Project pages are thin</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="58, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">58</span>
+            </div>
+            <div class="score-card-label">Local SEO</div>
+            <div class="score-card-sub">Old microdata, no JSON-LD</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="25, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">25</span>
+            </div>
+            <div class="score-card-label">Image SEO</div>
+            <div class="score-card-sub">98+ empty alt attributes</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="72, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">72</span>
+            </div>
+            <div class="score-card-label">Performance</div>
+            <div class="score-card-sub">WP Engine, responsive, decent</div>
+        </div>
+        </div>
+    </div>
+
+    <!-- KEYWORD OPPORTUNITIES -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">2</span>
+            <span class="section-title">Keyword Opportunities</span>
+        </div>
+        <p class="section-desc">Top keyword opportunities ranked by search demand, competition, and relevance to your business.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:25%"><col style="width:12%"><col style="width:13%"><col style="width:15%"><col style="width:35%"></colgroup>
+                <thead><tr>
+                    <th>Keyword</th><th>Difficulty</th><th>Opportunity</th><th>Intent</th><th>Recommended Action</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">architect Tucson</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Add to homepage H1/title and create dedicated landing copy</td>
+        </tr><tr>
+            <td class="td-main">modern architect Tucson AZ</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build a &#x27;Modern Homes&#x27; service page with case studies</td>
+        </tr><tr>
+            <td class="td-main">residential architect Tucson</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create a residential services page with portfolio sub-grid</td>
+        </tr><tr>
+            <td class="td-main">custom home architect Tucson</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Add a custom home service page targeting this exact phrase</td>
+        </tr><tr>
+            <td class="td-main">adaptive reuse architect Arizona</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Lean into Ice House Lofts and Barrio Metalico as anchor case studies</td>
+        </tr><tr>
+            <td class="td-main">desert architecture Tucson</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Write a thought-leadership post on desert design principles</td>
+        </tr><tr>
+            <td class="td-main">sustainable architect Tucson</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Add page covering passive cooling, solar orientation, water-wise design</td>
+        </tr><tr>
+            <td class="td-main">mixed use architect Tucson</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create a mixed-use page anchored by Barrio Metalico</td>
+        </tr><tr>
+            <td class="td-main">loft conversion architect Tucson</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Anchor with Ice House Lofts case study</td>
+        </tr><tr>
+            <td class="td-main">architect for ADU Tucson</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Capture the growing ADU market with a dedicated service page</td>
+        </tr><tr>
+            <td class="td-main">how much does an architect cost in Arizona</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Write a transparent fee structure article</td>
+        </tr><tr>
+            <td class="td-main">architect vs designer for custom home</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Educational blog post that funnels to consultation</td>
+        </tr><tr>
+            <td class="td-main">best architects in Tucson</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build dedicated &#x27;Awards &amp; Recognition&#x27; page that ranks for branded searches</td>
+        </tr><tr>
+            <td class="td-main">commercial architect Tucson</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Showcase Mister Car Wash and Ermanos as commercial anchors</td>
+        </tr><tr>
+            <td class="td-main">LEED architect Tucson</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">If any team members are LEED accredited, build a page around it</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ON-PAGE ISSUES -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">3</span>
+            <span class="section-title">On-Page SEO Issues</span>
+        </div>
+        <p class="section-desc">Page-level issues affecting your search visibility, sorted by severity.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:15%"><col style="width:30%"><col style="width:12%"><col style="width:43%"></colgroup>
+                <thead><tr>
+                    <th>Page</th><th>Issue</th><th>Severity</th><th>Recommended Fix</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">Sitewide</td>
+            <td>Zero pages on the site have a meta description tag</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Write a unique 150-160 character meta description for every page; without it Google guesses from page text and CTRs suffer</td>
+        </tr><tr>
+            <td class="td-main">Projects</td>
+            <td>Page has no H1 and no H2 headings at all</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add an H1 like &#x27;Architecture Projects in Tucson and the Southwest&#x27; and use H2 to group projects by type</td>
+        </tr><tr>
+            <td class="td-main">Sitewide</td>
+            <td>98+ project images with empty alt attributes</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add descriptive alt text — e.g. &#x27;Steel and stucco modern home in Tucson Catalina foothills&#x27; instead of empty alt</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>Multiple H1 tags — one per project slide creates 10+ H1s on a single page</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Use a single H1 for the page; convert project slide titles to H2 or H3</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>Image alt text shows raw filenames like &#x27;_MG_8855_FULL_v3&#x27; and &#x27;A_DWC-035&#x27;</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Replace camera filenames with descriptive captions that include project name and architectural details</td>
+        </tr><tr>
+            <td class="td-main">Project pages</td>
+            <td>Each project page has under 200 unique words of copy</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Add 300-500 words per project covering brief, site, materials, awards, and client outcomes</td>
+        </tr><tr>
+            <td class="td-main">Sitewide</td>
+            <td>No structured data (JSON-LD) anywhere on the site</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Add JSON-LD blocks for LocalBusiness on every page and CreativeWork/Project schema on each project</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>Tagline &#x27;We create inspiring sustainable environments&#x27; contains no geographic or service keywords</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td class="td-muted">Rewrite as &#x27;Tucson&#x27;s award-winning architecture firm for modern desert homes, adaptive reuse, and mixed-use projects&#x27;</td>
+        </tr><tr>
+            <td class="td-main">Footer</td>
+            <td>Uses legacy Universal Analytics tracking code (GA classic), which has been retired</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td class="td-muted">Migrate to Google Analytics 4 — UA stopped processing data in mid-2024</td>
+        </tr><tr>
+            <td class="td-main">Sitewide</td>
+            <td>No internal links from project pages back to related projects or service categories</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td class="td-muted">Add a &#x27;Related Projects&#x27; block at the bottom of each project page</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TECHNICAL SEO -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">4</span>
+            <span class="section-title">Technical SEO Checklist</span>
+        </div>
+        <p class="section-desc">Infrastructure and crawlability checks that affect how search engines index your site.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:22%"><col style="width:15%"><col style="width:63%"></colgroup>
+                <thead><tr>
+                    <th>Check</th><th>Status</th><th>Details</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">HTTPS / SSL</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Site loads on HTTPS, HTTP redirects via 301 — properly configured</td>
+        </tr><tr>
+            <td class="td-main">robots.txt</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Exists and correctly references /wp-sitemap.xml</td>
+        </tr><tr>
+            <td class="td-main">XML Sitemap</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">WordPress core sitemap at /wp-sitemap.xml is reachable and serving 200</td>
+        </tr><tr>
+            <td class="td-main">Mobile Viewport Meta</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Viewport tag present, site uses responsive layout</td>
+        </tr><tr>
+            <td class="td-main">Canonical Tags</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Self-referencing canonical present on inspected pages</td>
+        </tr><tr>
+            <td class="td-main">JSON-LD Schema</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">No JSON-LD on any page; only legacy microdata in the footer LocalBusiness block</td>
+        </tr><tr>
+            <td class="td-main">HSTS Header</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">No Strict-Transport-Security header — recommended for security signal</td>
+        </tr><tr>
+            <td class="td-main">Open Graph Tags</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Comprehensive og:title, og:image, og:url present — good for social sharing</td>
+        </tr><tr>
+            <td class="td-main">Image Lazy Loading</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Some images use a custom data-fullsize swap; mixed approach instead of native loading=lazy</td>
+        </tr><tr>
+            <td class="td-main">WordPress / CMS</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Hosted on WP Engine — quality managed hosting with edge caching</td>
+        </tr><tr>
+            <td class="td-main">Analytics</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">Site still using legacy Universal Analytics (UA-1941859-1); UA stopped processing in 2024</td>
+        </tr><tr>
+            <td class="td-main">Pretty URL Structure</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Clean /projects/[name]/ structure — no query strings or session IDs</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- COMPETITOR COMPARISON -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">5</span>
+            <span class="section-title">Competitor Comparison</span>
+        </div>
+        <p class="section-desc">Head-to-head comparison against your main local competitors.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <thead><tr>
+                    <th>Dimension</th><th>Rob Paulus Architects</th><th>Seaver Franks Architects</th><th>Studio Rick Joy</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">Domain Age</td>
+            <td>30 years (since 1995)</td>
+            <td>50+ years</td>
+            <td>32 years (since 1993)</td>
+        </tr><tr>
+            <td class="td-main">Meta Description Coverage</td>
+            <td>0 of inspected pages</td>
+            <td>Most pages covered</td>
+            <td>Inconsistent</td>
+        </tr><tr>
+            <td class="td-main">JSON-LD Schema</td>
+            <td>None (microdata only)</td>
+            <td>Limited</td>
+            <td>None</td>
+        </tr><tr>
+            <td class="td-main">Project Page Copy Depth</td>
+            <td>Under 200 words avg.</td>
+            <td>200-300 words</td>
+            <td>Brief but published in books/press</td>
+        </tr><tr>
+            <td class="td-main">Image Alt Text Quality</td>
+            <td>Mostly empty or filenames</td>
+            <td>Mixed quality</td>
+            <td>Mostly empty</td>
+        </tr><tr>
+            <td class="td-main">Awards &amp; Recognition Page</td>
+            <td>Yes — strong asset</td>
+            <td>Yes</td>
+            <td>Yes — extensively published</td>
+        </tr><tr>
+            <td class="td-main">Blog or Editorial Content</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Limited</td>
+        </tr><tr>
+            <td class="td-main">Service Pages by Type</td>
+            <td>None — projects only</td>
+            <td>Some</td>
+            <td>None</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- CONTENT GAPS -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">6</span>
+            <span class="section-title">Content Gap Recommendations</span>
+        </div>
+        <p class="section-desc">Topics and content types your competitors cover that you're missing.</p>
+        <div class="section-body">
+            
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Service-type landing pages (residential, commercial, mixed-use, adaptive reuse)</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Right now every project lives in a flat /projects/ list with no hub pages. Service pages capture searches like &#x27;residential architect Tucson&#x27; that the project list cannot rank for.</p>
+            <p class="gap-format">Recommended format: 4-6 service pages, each 600-900 words, with grouped portfolio thumbnails</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Individual project case studies with the brief, site, materials, awards, and outcomes</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Project pages are currently photo-led with very little text. Adding the story behind each build makes them rank for project-type searches and gives clients the context they actually want.</p>
+            <p class="gap-format">Recommended format: Long-form case study per project with embedded image gallery and pull-quote</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Process / What to expect when working with us</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Custom-home prospects research firms for weeks before reaching out. A clear process page reduces friction and ranks for &#x27;what to expect from an architect&#x27; searches.</p>
+            <p class="gap-format">Recommended format: Single page covering phases from initial consultation through construction admin</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">FAQ on architect fees, timelines, and design vs. build separation</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">These are the questions that drive &#x27;architect cost Arizona&#x27; searches. Answering them captures top-of-funnel traffic and converts skeptical prospects.</p>
+            <p class="gap-format">Recommended format: FAQ page with FAQ schema markup for rich results</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Editorial / journal posts about desert design, sustainability, and historic renovation</span>
+                <span class="badge badge-amber" style="font-size:11px">Low Priority</span>
+            </div>
+            <p class="gap-why">With 60+ awards and 30 years of experience, Rob Paulus has thought-leadership credibility most firms cannot match — but no surface to express it.</p>
+            <p class="gap-format">Recommended format: Quarterly long-form posts (1000+ words) on architectural topics tied to recent projects</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Tucson neighborhood and area pages (Catalina Foothills, Sam Hughes, Barrio Viejo)</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Hyper-local searches like &#x27;Catalina Foothills architect&#x27; have low competition and very high commercial intent.</p>
+            <p class="gap-format">Recommended format: Neighborhood pages anchored by relevant past projects in each area</p>
+        </div>
+        </div>
+    </div>
+
+    <!-- ACTION PLAN -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">7</span>
+            <span class="section-title">Prioritized Action Plan</span>
+        </div>
+        <div class="section-body">
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--green)"></span>
+                    Quick Wins
+                    <span class="sub">do this week &mdash; under 2 hours each</span>
+                </div>
+                <ol class="action-list"><li>Write descriptive alt text for the 10 homepage slider images and the top 30 project images — replace empty alts and raw filenames with phrases that include &#x27;modern home Tucson&#x27;, &#x27;adaptive reuse Arizona&#x27;, etc.</li><li>Add a unique 150-160 character meta description to the homepage, Projects, About, Recognition, and Contact pages</li><li>Add a single H1 to the Projects page — something like &#x27;Architecture Projects in Tucson and the Southwest&#x27; — and use H2 to group by type (Houses, Multi-family, Commercial, Adaptive Reuse)</li><li>Reduce homepage to a single H1; convert project slide titles to H2 or styled spans</li><li>Add a JSON-LD LocalBusiness block to the site footer with name, address, phone, hours, and sameAs links to Facebook and Instagram</li><li>Migrate from Universal Analytics to Google Analytics 4 — current UA tag has not collected data since mid-2024</li><li>Update the homepage tagline to include &#x27;Tucson&#x27; and a service keyword so the H1 carries geographic intent</li></ol>
+            </div>
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--blue)"></span>
+                    Strategic Investments
+                    <span class="sub">plan for this quarter</span>
+                </div>
+                <ol class="action-list"><li>Build out four service pages: Residential, Commercial, Mixed-Use, and Adaptive Reuse. Each 600-900 words, with grouped project thumbnails and a clear contact CTA.</li><li>Expand each of the top 12 project pages into a full case study (300-500 words covering brief, site, materials, awards, outcome) and add a &#x27;Related Projects&#x27; block linking to similar work.</li><li>Launch a quarterly journal with editorial posts on desert design, adaptive reuse, and sustainability — leverage the firm&#x27;s award credibility into evergreen organic traffic.</li><li>Stand up a LEED / Sustainable Design page if any team members hold accreditations — captures a low-competition, high-intent vertical.</li><li>Build neighborhood pages for Catalina Foothills, Sam Hughes, and Barrio Viejo, each anchored by relevant past projects, to capture hyper-local searches.</li><li>Implement a Google Business Profile cleanup and consistency pass: ensure NAP matches sitewide, request reviews from the last five completed clients, and post project updates monthly.</li></ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+        <h3>Ready to implement these improvements?</h3>
+        <p>Innovation With Pixels specializes in websites for architecture firms and design professionals. We handle everything from technical fixes to portfolio optimization and ongoing SEO.</p>
+        <div class="cta-links">
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+                hammad@innovationwithpixels.com
+            </span>
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                innovationwithpixels.com
+            </span>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Prepared by Innovation With Pixels &middot; innovationwithpixels.com
+    </div>
+
+</div>
+
+</body>
+</html>
