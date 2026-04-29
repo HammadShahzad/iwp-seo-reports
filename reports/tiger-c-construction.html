@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Review &mdash; Tiger C Construction</title>
+<style>
+:root {
+    --navy: #0f172a;
+    --navy-light: #1e293b;
+    --blue: #3b82f6;
+    --blue-light: #dbeafe;
+    --green: #10b981;
+    --green-bg: #ecfdf5;
+    --amber: #f59e0b;
+    --amber-bg: #fffbeb;
+    --red: #ef4444;
+    --red-bg: #fef2f2;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-700);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Layout */
+.report { max-width: 960px; margin: 0 auto; }
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    padding: 64px 56px 56px;
+    border-radius: 0 0 var(--radius) var(--radius);
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(59,130,246,.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.8);
+    margin-bottom: 24px;
+}
+.hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    margin-bottom: 24px;
+}
+.hero-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+.hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+}
+.hero-meta-item svg { flex-shrink: 0; }
+.hero-divider {
+    height: 1px;
+    background: rgba(255,255,255,.12);
+    margin: 32px 0 20px;
+}
+.hero-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+}
+
+/* Sections */
+.section {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 24px 0;
+    overflow: hidden;
+}
+.section-header {
+    padding: 28px 32px 0;
+}
+.section-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 8px;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+.section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-900);
+    display: inline;
+    vertical-align: middle;
+}
+.section-desc {
+    font-size: 14px;
+    color: var(--gray-500);
+    margin-top: 8px;
+    padding: 0 32px;
+}
+.section-body {
+    padding: 24px 32px 32px;
+}
+
+/* Score Hero Card */
+.score-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    padding: 36px 32px;
+    flex-wrap: wrap;
+}
+.score-main {
+    text-align: center;
+}
+.score-ring-lg {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 12px;
+}
+.score-ring-lg svg {
+    width: 160px;
+    height: 160px;
+    transform: rotate(-90deg);
+}
+.score-ring-lg .ring-bg {
+    fill: none;
+    stroke: var(--gray-100);
+    stroke-width: 3;
+}
+.score-ring-lg .ring-fill {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    transition: stroke-dasharray .6s ease;
+}
+.score-big {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -.03em;
+}
+.score-of {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--gray-400);
+}
+.score-label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+.score-summary {
+    max-width: 420px;
+    text-align: left;
+}
+.score-summary p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-600);
+    margin-bottom: 12px;
+}
+
+/* Category Score Cards */
+.score-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 0 32px 32px;
+}
+.score-card {
+    text-align: center;
+    padding: 20px 12px 16px;
+    background: var(--gray-50);
+    border-radius: 10px;
+    border: 1px solid var(--gray-200);
+}
+.ring-wrap {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 10px;
+}
+.ring-wrap svg {
+    width: 64px;
+    height: 64px;
+    transform: rotate(-90deg);
+}
+.ring { width: 100%; height: 100%; }
+.ring-bg { fill: none; stroke: var(--gray-200); stroke-width: 3; }
+.ring-fill { fill: none; stroke-width: 3; stroke-linecap: round; }
+.ring-num {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: 700;
+}
+.score-card-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 4px;
+}
+.score-card-sub {
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.4;
+}
+
+/* Tables */
+.tbl-wrap {
+    overflow-x: auto;
+    padding: 0 32px 32px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    table-layout: fixed;
+}
+th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--gray-500);
+    border-bottom: 2px solid var(--gray-200);
+    background: var(--gray-50);
+}
+td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-100);
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+tr:last-child td { border-bottom: none; }
+.td-main { font-weight: 600; color: var(--gray-800); }
+.td-muted { color: var(--gray-500); font-size: 12px; }
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.badge-green {
+    background: var(--green-bg);
+    color: #047857;
+}
+.badge-amber {
+    background: var(--amber-bg);
+    color: #b45309;
+}
+.badge-red {
+    background: var(--red-bg);
+    color: #b91c1c;
+}
+
+/* Gap Cards */
+.gap-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+}
+.gap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+.gap-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-800);
+}
+.gap-why {
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+.gap-format {
+    font-size: 12px;
+    color: var(--gray-400);
+    font-style: italic;
+}
+
+/* Action Plan */
+.action-group {
+    margin-bottom: 28px;
+}
+.action-group-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--gray-100);
+}
+.action-group-title .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.action-group-title .sub {
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--gray-400);
+}
+.action-list {
+    list-style: none;
+    counter-reset: action;
+}
+.action-list li {
+    counter-increment: action;
+    position: relative;
+    padding: 10px 0 10px 36px;
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    border-bottom: 1px solid var(--gray-100);
+}
+.action-list li:last-child { border-bottom: none; }
+.action-list li::before {
+    content: counter(action);
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 22px;
+    height: 22px;
+    background: var(--gray-100);
+    color: var(--gray-500);
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CTA */
+.cta {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 40px 40px;
+    text-align: center;
+    margin: 24px 0;
+}
+.cta h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.cta p {
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+    max-width: 500px;
+    margin: 0 auto 24px;
+    line-height: 1.65;
+}
+.cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.cta-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,.9);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.cta-link svg { flex-shrink: 0; }
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: var(--gray-400);
+}
+
+/* Print */
+@media print {
+    body { background: #fff; }
+    .section { box-shadow: none; border: 1px solid var(--gray-200); page-break-inside: avoid; }
+    .hero { border-radius: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="report">
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-badge">Website Performance Review</div>
+        <h1>Tiger C Construction</h1>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                tigercconstruction.com
+            </div>
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Chester / Richmond, VA
+            </div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-footer">
+            <span>Prepared April 29, 2026</span>
+            <span>by Innovation With Pixels</span>
+        </div>
+    </div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">1</span>
+            <span class="section-title">Executive Summary</span>
+        </div>
+        <div class="score-hero">
+            <div class="score-main">
+                <div class="score-ring-lg">
+                    <svg viewBox="0 0 36 36">
+                        <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="64, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="score-big" style="color:#f59e0b">64<span class="score-of">/100</span></div>
+                </div>
+                <div class="score-label" style="color:#f59e0b">Needs Work</div>
+            </div>
+            <div class="score-summary">
+                <p>Tiger C Construction has a solid foundation to build on — a clean, modern site, a real local presence across Chester, Richmond, Henrico, and Chesterfield, and 20+ years of family-owned credibility coming through in the copy. The site already does several things well: dedicated city-level waterproofing pages (Glen Allen, Hopewell, Henrico, Colonial Heights), a working FAQ section, and a Projects page that showcases real work. That puts you ahead of plenty of competitors who lean entirely on a single homepage.</p>
+                <p>Where there&#x27;s room to grow is positioning and depth. The homepage and meta description position Tiger C as a generic &quot;home improvement expert,&quot; which buries your two highest-margin specialties — foundation repair and basement waterproofing — under a vague umbrella. Search engines (and homeowners typing problems into Google) need to see the specialty up front. There&#x27;s also no LocalBusiness schema, no dedicated pages for individual repair methods (pier installation, wall bracing, crack repair, crawl space encapsulation), and only thin informational content for the long-tail searches homeowners actually use when their walls start cracking.</p>
+            </div>
+        </div>
+        <div class="score-grid">
+            
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="60, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">60</span>
+            </div>
+            <div class="score-card-label">On-Page SEO</div>
+            <div class="score-card-sub">Decent structure, weak positioning</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="72, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">72</span>
+            </div>
+            <div class="score-card-label">Technical SEO</div>
+            <div class="score-card-sub">Solid basics, schema gaps</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="70, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">70</span>
+            </div>
+            <div class="score-card-label">Local SEO</div>
+            <div class="score-card-sub">Good city pages, missing LocalBusiness markup</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="55, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">55</span>
+            </div>
+            <div class="score-card-label">Content Depth</div>
+            <div class="score-card-sub">Thin on service-specific pages</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="58, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">58</span>
+            </div>
+            <div class="score-card-label">Keyword Coverage</div>
+            <div class="score-card-sub">Missing problem-based queries</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="65, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">65</span>
+            </div>
+            <div class="score-card-label">Competitive Position</div>
+            <div class="score-card-sub">Mid-pack vs Richmond rivals</div>
+        </div>
+        </div>
+    </div>
+
+    <!-- KEYWORD OPPORTUNITIES -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">2</span>
+            <span class="section-title">Keyword Opportunities</span>
+        </div>
+        <p class="section-desc">Top keyword opportunities ranked by search demand, competition, and relevance to your business.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:25%"><col style="width:12%"><col style="width:13%"><col style="width:15%"><col style="width:35%"></colgroup>
+                <thead><tr>
+                    <th>Keyword</th><th>Difficulty</th><th>Opportunity</th><th>Intent</th><th>Recommended Action</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">foundation repair Richmond VA</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Make this the homepage H1 focus and target it on /foundation-repair/</td>
+        </tr><tr>
+            <td class="td-main">basement waterproofing Richmond VA</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Strengthen /basement-waterproofing/ with city-specific copy and FAQ schema</td>
+        </tr><tr>
+            <td class="td-main">crawl space encapsulation Richmond</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build a dedicated /crawl-space-encapsulation/ page (currently lumped in)</td>
+        </tr><tr>
+            <td class="td-main">foundation crack repair Richmond</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create /foundation-crack-repair/ with photo gallery and process steps</td>
+        </tr><tr>
+            <td class="td-main">pier installation Virginia</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create /pier-installation/ — major service gap right now</td>
+        </tr><tr>
+            <td class="td-main">wall bracing repair Richmond</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create /bowing-wall-repair/ with diagrams of wall anchors and braces</td>
+        </tr><tr>
+            <td class="td-main">signs of foundation problems</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Long-form blog post with photos — top of funnel traffic driver</td>
+        </tr><tr>
+            <td class="td-main">foundation repair cost Richmond VA</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Pricing-range guide page; high-converting visitors</td>
+        </tr><tr>
+            <td class="td-main">cracks in basement walls</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Diagnostic guide explaining horizontal vs vertical vs stair-step cracks</td>
+        </tr><tr>
+            <td class="td-main">sticking doors foundation issues</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Symptom-based blog post linking to inspection CTA</td>
+        </tr><tr>
+            <td class="td-main">uneven floors repair Richmond</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Service page covering floor leveling and joist repair</td>
+        </tr><tr>
+            <td class="td-main">sump pump installation Richmond VA</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Standalone /sump-pump-installation/ page (mentioned but not its own page)</td>
+        </tr><tr>
+            <td class="td-main">crawl space encapsulation cost</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Cost guide with VA-specific pricing ranges</td>
+        </tr><tr>
+            <td class="td-main">basement leaking after rain</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Problem-focused post → waterproofing service CTA</td>
+        </tr><tr>
+            <td class="td-main">foundation inspection Richmond</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Free-inspection landing page with form, schema markup, and reviews</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ON-PAGE ISSUES -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">3</span>
+            <span class="section-title">On-Page SEO Issues</span>
+        </div>
+        <p class="section-desc">Page-level issues affecting your search visibility, sorted by severity.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:15%"><col style="width:30%"><col style="width:12%"><col style="width:43%"></colgroup>
+                <thead><tr>
+                    <th>Page</th><th>Issue</th><th>Severity</th><th>Recommended Fix</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">Homepage</td>
+            <td>Title and H1 lead with &#x27;Home Improvement Expert&#x27; instead of foundation/waterproofing specialty</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Rewrite to &#x27;Foundation Repair &amp; Basement Waterproofing in Richmond, VA | Tiger C Construction&#x27;</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>Meta description doesn&#x27;t mention foundation, waterproofing, or crawl space — current copy says &#x27;stunning transformation&#x27; which is wrong vertical</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Rewrite to: &#x27;Family-owned foundation repair, basement waterproofing &amp; crawl space encapsulation in Richmond, VA. 20+ years experience. Free inspection.&#x27;</td>
+        </tr><tr>
+            <td class="td-main">/foundation-repair/</td>
+            <td>Page is missing meta description entirely</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add: &#x27;Expert foundation repair in Richmond, VA. We fix settling, cracks, sinking foundations &amp; failing piers. Family-owned, 20+ years. Get a free inspection.&#x27;</td>
+        </tr><tr>
+            <td class="td-main">/foundation-repair/</td>
+            <td>No internal links to specific repair methods (pier installation, wall bracing, crack repair)</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Build out method-specific child pages and link from foundation-repair hub</td>
+        </tr><tr>
+            <td class="td-main">Site-wide</td>
+            <td>No LocalBusiness schema — only Organization/Person/WebSite types found</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add LocalBusiness JSON-LD with NAP, hours, service area, sameAs (Google Business / Facebook), and aggregateRating</td>
+        </tr><tr>
+            <td class="td-main">Site-wide</td>
+            <td>No FAQ schema on the FAQ page</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Wrap FAQ page Q&amp;A in FAQPage JSON-LD to win &#x27;People also ask&#x27; SERP slots</td>
+        </tr><tr>
+            <td class="td-main">Service area pages</td>
+            <td>Glen Allen / Hopewell / Henrico / Colonial Heights pages exist for waterproofing but NOT for foundation repair</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Mirror the city-page pattern for /foundation-repair-glen-allen-va/ etc.</td>
+        </tr><tr>
+            <td class="td-main">Blog / Resources</td>
+            <td>Limited informational content — only a few blog posts; missing top-of-funnel content like &#x27;signs of foundation problems&#x27;</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Publish 1 long-form pillar post per month on common homeowner symptoms</td>
+        </tr><tr>
+            <td class="td-main">Projects page</td>
+            <td>Projects shown without before/after pairings, locations, or descriptive text — missed E-E-A-T and image SEO opportunity</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Add captions with neighborhood, problem, solution, timeline, and descriptive image alt text</td>
+        </tr><tr>
+            <td class="td-main">Homepage / Service pages</td>
+            <td>No reviews/testimonials marked up with Review schema; written reviews on page but not machine-readable</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Add Review/AggregateRating schema using existing Google reviews</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TECHNICAL SEO -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">4</span>
+            <span class="section-title">Technical SEO Checklist</span>
+        </div>
+        <p class="section-desc">Infrastructure and crawlability checks that affect how search engines index your site.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:22%"><col style="width:15%"><col style="width:63%"></colgroup>
+                <thead><tr>
+                    <th>Check</th><th>Status</th><th>Details</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">HTTPS / SSL</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Site loads over HTTPS with a valid certificate</td>
+        </tr><tr>
+            <td class="td-main">Mobile viewport meta</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Responsive Elementor build, viewport tag present</td>
+        </tr><tr>
+            <td class="td-main">XML Sitemap</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Standard WordPress/Yoast sitemap pattern detected</td>
+        </tr><tr>
+            <td class="td-main">Robots.txt</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Accessible, no obvious crawl blocks</td>
+        </tr><tr>
+            <td class="td-main">Canonical tags</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Inconsistent canonical implementation across service pages — verify each page self-canonicalizes</td>
+        </tr><tr>
+            <td class="td-main">Open Graph tags</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">OG title/description missing or thin on inner pages — hurts social shares and link previews</td>
+        </tr><tr>
+            <td class="td-main">Schema markup (LocalBusiness)</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">Only Organization, Person, WebSite, ContactPoint schemas detected. LocalBusiness with NAP, hours, service area, and aggregateRating is missing — high-value miss for a local service business</td>
+        </tr><tr>
+            <td class="td-main">FAQ schema</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">FAQ page exists but Q&amp;A are not wrapped in FAQPage JSON-LD</td>
+        </tr><tr>
+            <td class="td-main">Image optimization</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">16 homepage images, all with alt text — good. But Elementor often serves uncompressed PNGs; verify large hero images are compressed and converted to WebP</td>
+        </tr><tr>
+            <td class="td-main">Page speed (Elementor + WordPress)</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Heavy Elementor build typically loads many CSS/JS assets. Recommend running Lighthouse and adding caching/CDN if not already in place</td>
+        </tr><tr>
+            <td class="td-main">H1 uniqueness per page</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Each major page has a single H1</td>
+        </tr><tr>
+            <td class="td-main">URL structure</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Clean, descriptive URL slugs: /foundation-repair/, /basement-waterproofing-glen-allen-va/, etc.</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- COMPETITOR COMPARISON -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">5</span>
+            <span class="section-title">Competitor Comparison</span>
+        </div>
+        <p class="section-desc">Head-to-head comparison against your main local competitors.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <thead><tr>
+                    <th>Dimension</th><th>Tiger C Construction</th><th>Stable Foundations</th><th>Virginia Foundation Solutions</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">Years in business (signal)</td>
+            <td>20+ years</td>
+            <td>30+ years (3rd gen)</td>
+            <td>15+ years</td>
+        </tr><tr>
+            <td class="td-main">Dedicated foundation repair pages</td>
+            <td>1 main page</td>
+            <td>Hub + multiple method pages</td>
+            <td>Hub + several method pages</td>
+        </tr><tr>
+            <td class="td-main">Service-specific pages (pier, wall, crack, slab)</td>
+            <td>Not yet built out</td>
+            <td>Yes — separate pages per method</td>
+            <td>Yes — separate pages per method</td>
+        </tr><tr>
+            <td class="td-main">City-level service pages</td>
+            <td>Yes (waterproofing only)</td>
+            <td>Yes (foundation + waterproofing)</td>
+            <td>Yes (foundation + waterproofing)</td>
+        </tr><tr>
+            <td class="td-main">LocalBusiness schema markup</td>
+            <td>Missing</td>
+            <td>Present</td>
+            <td>Partial</td>
+        </tr><tr>
+            <td class="td-main">Blog / informational content</td>
+            <td>Light (a handful of posts)</td>
+            <td>Active blog with pillar guides</td>
+            <td>Medium — guides and FAQs</td>
+        </tr><tr>
+            <td class="td-main">Before/after project gallery</td>
+            <td>Projects page (light captions)</td>
+            <td>Detailed case studies</td>
+            <td>Project portfolio with descriptions</td>
+        </tr><tr>
+            <td class="td-main">Homepage positioning</td>
+            <td>Generic &#x27;home improvement expert&#x27;</td>
+            <td>Foundation &amp; crawl space specialist</td>
+            <td>Foundation &amp; waterproofing specialist</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- CONTENT GAPS -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">6</span>
+            <span class="section-title">Content Gap Recommendations</span>
+        </div>
+        <p class="section-desc">Topics and content types your competitors cover that you're missing.</p>
+        <div class="section-body">
+            
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Signs your home has foundation problems (pillar guide)</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">High-volume informational query in Richmond&#x27;s clay-soil market. Builds trust before homeowners are ready to call. Currently missing — competitors rank for it.</p>
+            <p class="gap-format">Recommended format: Long-form blog post (1,800+ words) with photos of cracks, sticking doors, uneven floors + FAQ schema</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Foundation repair cost in Richmond VA</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Cost queries are extremely high intent — these visitors are within weeks of buying. Without your own page on this, prospects find competitor pricing pages and call them instead.</p>
+            <p class="gap-format">Recommended format: Pricing range guide page with VA-specific cost factors and &#x27;get a custom quote&#x27; CTA</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Method-specific service pages (pier installation, wall bracing, crack injection, slab repair)</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Homeowners increasingly search the specific repair method they&#x27;ve been told they need. Without method pages, you don&#x27;t appear in these mid-funnel searches.</p>
+            <p class="gap-format">Recommended format: One service page per method with photos, process steps, warranty info, and FAQ schema</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Crawl space encapsulation cost &amp; process</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Big-ticket service for VA homes. Currently bundled inside waterproofing — splitting it out lets you rank for encapsulation-specific terms.</p>
+            <p class="gap-format">Recommended format: Dedicated /crawl-space-encapsulation/ service page + cost guide blog post</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Foundation repair city pages (mirror waterproofing pattern)</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">You already nailed the city-page formula for waterproofing. Repeating it for foundation repair would unlock identical local-search wins for Glen Allen, Hopewell, Henrico, Colonial Heights, etc.</p>
+            <p class="gap-format">Recommended format: Templated city pages with local copy, neighborhood mentions, and city-specific testimonials</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Project case studies with before/after</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Visual proof drives conversions and ranks in image search. Your Projects page exists but lacks captions, neighborhoods, and detailed descriptions search engines (and skeptical homeowners) want to see.</p>
+            <p class="gap-format">Recommended format: Case-study posts: problem → diagnosis → solution → timeline → cost range, with descriptive image alt text</p>
+        </div>
+        </div>
+    </div>
+
+    <!-- ACTION PLAN -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">7</span>
+            <span class="section-title">Prioritized Action Plan</span>
+        </div>
+        <div class="section-body">
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--green)"></span>
+                    Quick Wins
+                    <span class="sub">do this week &mdash; under 2 hours each</span>
+                </div>
+                <ol class="action-list"><li>Rewrite the homepage title and H1 to lead with &#x27;Foundation Repair &amp; Basement Waterproofing in Richmond, VA&#x27; — your specialties, not &#x27;home improvement&#x27;</li><li>Replace the homepage meta description with one that mentions foundation, waterproofing, crawl space, and 20+ years</li><li>Add a meta description to the /foundation-repair/ page (currently missing)</li><li>Add LocalBusiness JSON-LD schema with your NAP, hours, service area, and Google reviews aggregate rating</li><li>Wrap your FAQ page Q&amp;A in FAQPage schema to win &#x27;People also ask&#x27; results</li><li>Add Open Graph tags (og:title, og:description, og:image) to inner service pages so Facebook/Messenger previews look professional</li><li>Compress and convert hero images to WebP — easy speed win on Elementor/WordPress</li><li>Add captions and neighborhood tags to your Projects page entries</li></ol>
+            </div>
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--blue)"></span>
+                    Strategic Investments
+                    <span class="sub">plan for this quarter</span>
+                </div>
+                <ol class="action-list"><li>Build dedicated method pages: /pier-installation/, /bowing-wall-repair/, /foundation-crack-repair/, /slab-foundation-repair/, /crawl-space-encapsulation/ — each with photos, process steps, FAQs, and schema</li><li>Mirror your waterproofing city-page pattern for foundation repair: /foundation-repair-glen-allen-va/, /foundation-repair-henrico-va/, etc.</li><li>Launch a monthly long-form blog cadence focused on homeowner symptoms (cracks, sticking doors, uneven floors, basement leaks) — these are the searches that drive top-of-funnel traffic</li><li>Publish 6–8 detailed before/after case studies per year with before/after photos, neighborhood, problem, solution, and timeline</li><li>Add Review/AggregateRating schema and surface star ratings in search results — major CTR lift for local service queries</li><li>Run a Lighthouse / PageSpeed audit and address any Core Web Vitals issues from the Elementor build (typically image weight and unused CSS/JS)</li></ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+        <h3>Ready to implement these improvements?</h3>
+        <p>Innovation With Pixels specializes in websites for foundation repair and home service businesses.</p>
+        <div class="cta-links">
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+                hammad@innovationwithpixels.com
+            </span>
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                innovationwithpixels.com
+            </span>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Prepared by Innovation With Pixels &middot; innovationwithpixels.com
+    </div>
+
+</div>
+
+</body>
+</html>
