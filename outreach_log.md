@@ -2,6 +2,15 @@
 
 This log tracks carpet-cleaning companies that have been contacted via the automated outreach task. NEVER contact a company already listed here. Rotate cities — avoid reusing a city from the last 2 entries.
 
+## 2026-05-04
+- **Company:** Clean As Day
+- **Website:** cleanasday.com
+- **City:** Phoenix, AZ
+- **Contact:** info@cleanasday.com
+- **Subject:** Quick look at the Clean As Day site — a few things worth fixing
+- **Status:** Sent
+- **Report URL:** https://reports.innovationwithpixels.com/reports/clean-as-day.html
+
 ## 2026-04-29
 - **Company:** EverClean Nashville
 - **Website:** evercleantn.com
