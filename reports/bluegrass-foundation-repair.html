@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Review &mdash; Bluegrass Foundation Repair</title>
+<style>
+:root {
+    --navy: #0f172a;
+    --navy-light: #1e293b;
+    --blue: #3b82f6;
+    --blue-light: #dbeafe;
+    --green: #10b981;
+    --green-bg: #ecfdf5;
+    --amber: #f59e0b;
+    --amber-bg: #fffbeb;
+    --red: #ef4444;
+    --red-bg: #fef2f2;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-700);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Layout */
+.report { max-width: 960px; margin: 0 auto; }
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    padding: 64px 56px 56px;
+    border-radius: 0 0 var(--radius) var(--radius);
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(59,130,246,.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.8);
+    margin-bottom: 24px;
+}
+.hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    margin-bottom: 24px;
+}
+.hero-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+.hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+}
+.hero-meta-item svg { flex-shrink: 0; }
+.hero-divider {
+    height: 1px;
+    background: rgba(255,255,255,.12);
+    margin: 32px 0 20px;
+}
+.hero-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+}
+
+/* Sections */
+.section {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 24px 0;
+    overflow: hidden;
+}
+.section-header {
+    padding: 28px 32px 0;
+}
+.section-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 8px;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+.section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-900);
+    display: inline;
+    vertical-align: middle;
+}
+.section-desc {
+    font-size: 14px;
+    color: var(--gray-500);
+    margin-top: 8px;
+    padding: 0 32px;
+}
+.section-body {
+    padding: 24px 32px 32px;
+}
+
+/* Score Hero Card */
+.score-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    padding: 36px 32px;
+    flex-wrap: wrap;
+}
+.score-main {
+    text-align: center;
+}
+.score-ring-lg {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 12px;
+}
+.score-ring-lg svg {
+    width: 160px;
+    height: 160px;
+    transform: rotate(-90deg);
+}
+.score-ring-lg .ring-bg {
+    fill: none;
+    stroke: var(--gray-100);
+    stroke-width: 3;
+}
+.score-ring-lg .ring-fill {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    transition: stroke-dasharray .6s ease;
+}
+.score-big {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -.03em;
+}
+.score-of {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--gray-400);
+}
+.score-label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+.score-summary {
+    max-width: 420px;
+    text-align: left;
+}
+.score-summary p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-600);
+    margin-bottom: 12px;
+}
+
+/* Category Score Cards */
+.score-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 0 32px 32px;
+}
+.score-card {
+    text-align: center;
+    padding: 20px 12px 16px;
+    background: var(--gray-50);
+    border-radius: 10px;
+    border: 1px solid var(--gray-200);
+}
+.ring-wrap {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 10px;
+}
+.ring-wrap svg {
+    width: 64px;
+    height: 64px;
+    transform: rotate(-90deg);
+}
+.ring { width: 100%; height: 100%; }
+.ring-bg { fill: none; stroke: var(--gray-200); stroke-width: 3; }
+.ring-fill { fill: none; stroke-width: 3; stroke-linecap: round; }
+.ring-num {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: 700;
+}
+.score-card-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 4px;
+}
+.score-card-sub {
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.4;
+}
+
+/* Tables */
+.tbl-wrap {
+    overflow-x: auto;
+    padding: 0 32px 32px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    table-layout: fixed;
+}
+th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--gray-500);
+    border-bottom: 2px solid var(--gray-200);
+    background: var(--gray-50);
+}
+td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-100);
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+tr:last-child td { border-bottom: none; }
+.td-main { font-weight: 600; color: var(--gray-800); }
+.td-muted { color: var(--gray-500); font-size: 12px; }
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.badge-green {
+    background: var(--green-bg);
+    color: #047857;
+}
+.badge-amber {
+    background: var(--amber-bg);
+    color: #b45309;
+}
+.badge-red {
+    background: var(--red-bg);
+    color: #b91c1c;
+}
+
+/* Gap Cards */
+.gap-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+}
+.gap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+.gap-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-800);
+}
+.gap-why {
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+.gap-format {
+    font-size: 12px;
+    color: var(--gray-400);
+    font-style: italic;
+}
+
+/* Action Plan */
+.action-group {
+    margin-bottom: 28px;
+}
+.action-group-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--gray-100);
+}
+.action-group-title .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.action-group-title .sub {
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--gray-400);
+}
+.action-list {
+    list-style: none;
+    counter-reset: action;
+}
+.action-list li {
+    counter-increment: action;
+    position: relative;
+    padding: 10px 0 10px 36px;
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    border-bottom: 1px solid var(--gray-100);
+}
+.action-list li:last-child { border-bottom: none; }
+.action-list li::before {
+    content: counter(action);
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 22px;
+    height: 22px;
+    background: var(--gray-100);
+    color: var(--gray-500);
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CTA */
+.cta {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 40px 40px;
+    text-align: center;
+    margin: 24px 0;
+}
+.cta h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.cta p {
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+    max-width: 500px;
+    margin: 0 auto 24px;
+    line-height: 1.65;
+}
+.cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.cta-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,.9);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.cta-link svg { flex-shrink: 0; }
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: var(--gray-400);
+}
+
+/* Print */
+@media print {
+    body { background: #fff; }
+    .section { box-shadow: none; border: 1px solid var(--gray-200); page-break-inside: avoid; }
+    .hero { border-radius: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="report">
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-badge">Website Performance Review</div>
+        <h1>Bluegrass Foundation Repair</h1>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                bluegrassrepair.com
+            </div>
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Louisville, KY
+            </div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-footer">
+            <span>Prepared May 7, 2026</span>
+            <span>by Innovation With Pixels</span>
+        </div>
+    </div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">1</span>
+            <span class="section-title">Executive Summary</span>
+        </div>
+        <div class="score-hero">
+            <div class="score-main">
+                <div class="score-ring-lg">
+                    <svg viewBox="0 0 36 36">
+                        <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="64, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="score-big" style="color:#f59e0b">64<span class="score-of">/100</span></div>
+                </div>
+                <div class="score-label" style="color:#f59e0b">Needs Work</div>
+            </div>
+            <div class="score-summary">
+                <p>Bluegrass Foundation Repair has a clean, professional WordPress/Elementor site with strong service coverage — dedicated pages for foundation repair, basement waterproofing, crawl space repair, concrete leveling, basement wall repair, and egress windows. The brand presents well, the site is HTTPS-secured with canonical tags and proper Open Graph markup, and the homepage tells a clear story for Kentucky homeowners. The active blog and visible reviews are real assets most local competitors lack.</p>
+                <p>Where the site is leaving money on the table is in three places: every page is missing a meta description (so Google writes its own snippet from random body text), the title tags don&#x27;t include the city or buyer-intent keywords, and there&#x27;s no LocalBusiness schema or FAQ schema — which means the site isn&#x27;t competing for the rich-result slots that &#x27;foundation repair Louisville&#x27; searches now show. The site also serves the entire state but only has one Service Area page; building dedicated pages for Louisville, Lexington, Bowling Green, etc. would unlock organic traffic from each market individually.</p>
+            </div>
+        </div>
+        <div class="score-grid">
+            
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="55, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">55</span>
+            </div>
+            <div class="score-card-label">On-Page SEO</div>
+            <div class="score-card-sub">Missing meta descriptions</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="75, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">75</span>
+            </div>
+            <div class="score-card-label">Technical SEO</div>
+            <div class="score-card-sub">Solid foundations, gaps in schema</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="68, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">68</span>
+            </div>
+            <div class="score-card-label">Content Depth</div>
+            <div class="score-card-sub">Service pages decent, gaps remain</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="52, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">52</span>
+            </div>
+            <div class="score-card-label">Local SEO</div>
+            <div class="score-card-sub">No city-specific landing pages</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="78, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">78</span>
+            </div>
+            <div class="score-card-label">User Experience</div>
+            <div class="score-card-sub">Clean, mobile-friendly</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="70, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">70</span>
+            </div>
+            <div class="score-card-label">Conversion Setup</div>
+            <div class="score-card-sub">CTAs present, could be stronger</div>
+        </div>
+        </div>
+    </div>
+
+    <!-- KEYWORD OPPORTUNITIES -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">2</span>
+            <span class="section-title">Keyword Opportunities</span>
+        </div>
+        <p class="section-desc">Top keyword opportunities ranked by search demand, competition, and relevance to your business.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:25%"><col style="width:12%"><col style="width:13%"><col style="width:15%"><col style="width:35%"></colgroup>
+                <thead><tr>
+                    <th>Keyword</th><th>Difficulty</th><th>Opportunity</th><th>Intent</th><th>Recommended Action</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">foundation repair Louisville KY</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build dedicated Louisville landing page with local content</td>
+        </tr><tr>
+            <td class="td-main">basement waterproofing Louisville</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Add city to current waterproofing page title and H1</td>
+        </tr><tr>
+            <td class="td-main">crawl space repair Kentucky</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Strengthen crawl space page with state-level content</td>
+        </tr><tr>
+            <td class="td-main">foundation repair Lexington KY</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create dedicated Lexington landing page</td>
+        </tr><tr>
+            <td class="td-main">concrete leveling Louisville</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Optimize existing concrete leveling page for local intent</td>
+        </tr><tr>
+            <td class="td-main">signs of foundation problems</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Write detailed blog post with photos and FAQ schema</td>
+        </tr><tr>
+            <td class="td-main">foundation repair cost Kentucky</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Create transparent cost guide with ranges by repair type</td>
+        </tr><tr>
+            <td class="td-main">basement wall bowing repair</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build a focused service page (currently lumped with basement wall repair)</td>
+        </tr><tr>
+            <td class="td-main">wet basement repair Louisville</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Targeted page or section addressing seasonal flooding</td>
+        </tr><tr>
+            <td class="td-main">cracks in basement walls</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Educational blog post with crack-type identification guide</td>
+        </tr><tr>
+            <td class="td-main">uneven floors house settling</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Symptom-based diagnostic blog post linking to repair page</td>
+        </tr><tr>
+            <td class="td-main">sticking doors foundation issues</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Short symptom guide with internal link to inspection CTA</td>
+        </tr><tr>
+            <td class="td-main">pier installation foundation Kentucky</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Carve out a method-specific page from the foundation repair page</td>
+        </tr><tr>
+            <td class="td-main">egress window installation Louisville</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Optimize existing page with city in title and H1</td>
+        </tr><tr>
+            <td class="td-main">foundation inspection near me</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create a free inspection landing page tied to GMB and ad campaigns</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ON-PAGE ISSUES -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">3</span>
+            <span class="section-title">On-Page SEO Issues</span>
+        </div>
+        <p class="section-desc">Page-level issues affecting your search visibility, sorted by severity.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:15%"><col style="width:30%"><col style="width:12%"><col style="width:43%"></colgroup>
+                <thead><tr>
+                    <th>Page</th><th>Issue</th><th>Severity</th><th>Recommended Fix</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">Homepage</td>
+            <td>No meta description tag</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Write a 150-160 character description featuring &#x27;foundation repair&#x27;, service area, and a value prop</td>
+        </tr><tr>
+            <td class="td-main">Foundation Repair page</td>
+            <td>No meta description tag</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Unique meta description targeting &#x27;foundation repair Kentucky&#x27; with phone number</td>
+        </tr><tr>
+            <td class="td-main">Basement Waterproofing page</td>
+            <td>No meta description tag</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add unique 150-char description with primary keyword and CTA</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>Title tag is just &#x27;Bluegrass Foundation Repair&#x27; — no keywords or location</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Update to &#x27;Foundation Repair Louisville KY | Bluegrass Foundation Repair&#x27;</td>
+        </tr><tr>
+            <td class="td-main">Service pages</td>
+            <td>Title pattern is generic (&#x27;Service - Bluegrass Foundation Repair&#x27;)</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Add city/state and benefit modifier — e.g. &#x27;Basement Waterproofing in Louisville, KY | Free Estimates&#x27;</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>7 of 12 images have empty alt attributes</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Write descriptive alt text for hero, project, and team images</td>
+        </tr><tr>
+            <td class="td-main">Sitewide</td>
+            <td>No LocalBusiness schema markup</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add LocalBusiness JSON-LD with NAP, hours, service area, and aggregateRating</td>
+        </tr><tr>
+            <td class="td-main">Service pages</td>
+            <td>No FAQ schema despite having FAQ sections on page</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Wrap existing FAQs in FAQPage JSON-LD to qualify for rich results</td>
+        </tr><tr>
+            <td class="td-main">Service Area page</td>
+            <td>Single page covers entire state with no city-specific content</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Build separate landing pages for Louisville, Lexington, Bowling Green, Paducah, Frankfort</td>
+        </tr><tr>
+            <td class="td-main">Foundation Repair page</td>
+            <td>No internal links to related blog content (cost guide, signs, etc.)</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td class="td-muted">Add a &#x27;Helpful Articles&#x27; section linking to 3-5 informational posts</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>Hero H1 doesn&#x27;t include &#x27;Louisville&#x27; or top city keyword</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Adjust H1 to &#x27;Foundation Repair, Crawlspace &amp; Waterproofing in Louisville &amp; Across Kentucky&#x27;</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TECHNICAL SEO -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">4</span>
+            <span class="section-title">Technical SEO Checklist</span>
+        </div>
+        <p class="section-desc">Infrastructure and crawlability checks that affect how search engines index your site.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:22%"><col style="width:15%"><col style="width:63%"></colgroup>
+                <thead><tr>
+                    <th>Check</th><th>Status</th><th>Details</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">HTTPS / SSL</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Site loads over HTTPS with valid SSL certificate</td>
+        </tr><tr>
+            <td class="td-main">Mobile viewport meta</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Responsive viewport tag present and properly configured</td>
+        </tr><tr>
+            <td class="td-main">Canonical tags</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Canonical URLs set on key pages</td>
+        </tr><tr>
+            <td class="td-main">Open Graph tags</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">OG title, description, and type all present for social sharing</td>
+        </tr><tr>
+            <td class="td-main">Schema markup</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Has Organization and WebSite schema but missing LocalBusiness, Service, and FAQPage</td>
+        </tr><tr>
+            <td class="td-main">XML sitemap</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Sitemap accessible via WordPress feeds and oembed</td>
+        </tr><tr>
+            <td class="td-main">Robots.txt</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Standard WordPress robots.txt configured</td>
+        </tr><tr>
+            <td class="td-main">Page weight (homepage)</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Homepage HTML is ~393KB unminified — could benefit from minification and lazy-load</td>
+        </tr><tr>
+            <td class="td-main">Image optimization</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Many images present without explicit width/height; alt text incomplete</td>
+        </tr><tr>
+            <td class="td-main">Internal linking</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Service pages don&#x27;t cross-link to related blog content or each other</td>
+        </tr><tr>
+            <td class="td-main">Structured data testing</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Existing schema validates but coverage is shallow for a service business</td>
+        </tr><tr>
+            <td class="td-main">404 / broken links</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Main navigation paths return 200 OK; no obvious broken interior links</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- COMPETITOR COMPARISON -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">5</span>
+            <span class="section-title">Competitor Comparison</span>
+        </div>
+        <p class="section-desc">Head-to-head comparison against your main local competitors.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <thead><tr>
+                    <th>Dimension</th><th>Bluegrass Foundation Repair</th><th>Louisville Foundation Repair Pros</th><th>KCS Foundation &amp; Waterproofing</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">Domain age &amp; authority</td>
+            <td>Established, mid-tier authority</td>
+            <td>20+ years, higher authority</td>
+            <td>Newer, lower authority</td>
+        </tr><tr>
+            <td class="td-main">Indexed pages (estimate)</td>
+            <td>~15-20 pages</td>
+            <td>~30-40 pages</td>
+            <td>~25 pages</td>
+        </tr><tr>
+            <td class="td-main">City-specific landing pages</td>
+            <td>0 (single state-level page)</td>
+            <td>5+ city pages</td>
+            <td>3-4 city pages</td>
+        </tr><tr>
+            <td class="td-main">Blog post count</td>
+            <td>Active blog (low frequency)</td>
+            <td>Active with 50+ posts</td>
+            <td>Sporadic posting</td>
+        </tr><tr>
+            <td class="td-main">Meta descriptions</td>
+            <td>Missing across site</td>
+            <td>Present and keyword-rich</td>
+            <td>Mostly present</td>
+        </tr><tr>
+            <td class="td-main">LocalBusiness schema</td>
+            <td>Not implemented</td>
+            <td>Implemented with reviews</td>
+            <td>Partial implementation</td>
+        </tr><tr>
+            <td class="td-main">FAQ schema on service pages</td>
+            <td>FAQs visible, schema missing</td>
+            <td>FAQ schema active</td>
+            <td>Not implemented</td>
+        </tr><tr>
+            <td class="td-main">Reviews / testimonials on-page</td>
+            <td>Yes, displayed</td>
+            <td>Yes with schema</td>
+            <td>Yes without schema</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- CONTENT GAPS -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">6</span>
+            <span class="section-title">Content Gap Recommendations</span>
+        </div>
+        <p class="section-desc">Topics and content types your competitors cover that you're missing.</p>
+        <div class="section-body">
+            
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Foundation repair cost guide for Kentucky homeowners</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Cost queries are among the highest-volume informational searches in this category and they bring buyer-ready traffic. Competitors with cost guides outrank Bluegrass for these terms.</p>
+            <p class="gap-format">Recommended format: Long-form pillar post with cost ranges by repair type, factors that affect cost, and FAQ schema</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Signs of foundation problems (homeowner diagnostic guide)</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Top-of-funnel content that homeowners search before they know they need a repair. Strong internal-link opportunity to push readers into service pages.</p>
+            <p class="gap-format">Recommended format: Visual blog post with 8-10 warning signs, photos, and a &#x27;when to call a pro&#x27; decision tree</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">City-specific landing pages (Louisville, Lexington, Bowling Green, Paducah, Frankfort)</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Single statewide service area page is bleeding rankings to competitors who have built out city pages. Each city page can capture its own local search demand.</p>
+            <p class="gap-format">Recommended format: Dedicated landing pages with local content, neighborhoods served, recent projects, and city-specific schema</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Crawl space encapsulation deep-dive</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Encapsulation is a higher-ticket service and a content gap competitors aren&#x27;t fully owning. Good ROI per page.</p>
+            <p class="gap-format">Recommended format: Service page expansion with before/after gallery, process explanation, and pricing context</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Foundation crack repair: what each crack type means</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Highly searched diagnostic query. Bluegrass already has the expertise — just needs to publish it as content.</p>
+            <p class="gap-format">Recommended format: Visual guide with photos of vertical, horizontal, stair-step cracks and what each indicates</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">After-repair maintenance &amp; warranty guide</span>
+                <span class="badge badge-amber" style="font-size:11px">Low Priority</span>
+            </div>
+            <p class="gap-why">Trust-building content that supports the sales cycle and gives existing customers reasons to return to the site.</p>
+            <p class="gap-format">Recommended format: Owner&#x27;s guide PDF download or long-form post with warranty details</p>
+        </div>
+        </div>
+    </div>
+
+    <!-- ACTION PLAN -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">7</span>
+            <span class="section-title">Prioritized Action Plan</span>
+        </div>
+        <div class="section-body">
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--green)"></span>
+                    Quick Wins
+                    <span class="sub">do this week &mdash; under 2 hours each</span>
+                </div>
+                <ol class="action-list"><li>Add a unique meta description (150-160 chars) to the homepage and each of the 6 service pages</li><li>Update homepage title tag to &#x27;Foundation Repair Louisville KY | Bluegrass Foundation Repair&#x27;</li><li>Add &#x27;Louisville&#x27; or relevant city to each service page title tag</li><li>Implement LocalBusiness JSON-LD schema sitewide with NAP, hours, service area, and aggregateRating</li><li>Wrap existing FAQ sections on service pages in FAQPage JSON-LD schema</li><li>Write descriptive alt text for the 7 images on the homepage that currently have empty alt attributes</li><li>Add a &#x27;Related Articles&#x27; or &#x27;Helpful Reading&#x27; block at the bottom of each service page linking to 3-5 blog posts</li><li>Update the homepage H1 to include &#x27;Louisville&#x27; as the primary city alongside &#x27;Kentucky&#x27;</li><li>Compress and lazy-load homepage hero images to reduce the 393KB HTML payload</li></ol>
+            </div>
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--blue)"></span>
+                    Strategic Investments
+                    <span class="sub">plan for this quarter</span>
+                </div>
+                <ol class="action-list"><li>Build dedicated city landing pages for Louisville, Lexington, Bowling Green, Paducah, and Frankfort — each with local content, projects, and reviews</li><li>Publish a Kentucky foundation repair cost guide as a pillar page targeting &#x27;foundation repair cost Kentucky&#x27; and supporting terms</li><li>Launch an &#x27;Education Center&#x27; content cluster covering signs of foundation problems, crack types, and DIY-vs-pro decision content</li><li>Expand the Foundation Repair page into method-specific sub-pages (steel push piers, helical piers, wall braces, slab pier systems)</li><li>Build out a project gallery / case studies section with location-tagged before/after content and review schema</li><li>Set up Google Business Profile review syndication so reviews surface on the site with schema for rich results</li><li>Develop a quarterly content calendar (2-4 posts/month) targeting symptom and cost queries, with internal links into service pages</li></ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+        <h3>Ready to implement these improvements?</h3>
+        <p>Innovation With Pixels specializes in websites for foundation repair and home service businesses.</p>
+        <div class="cta-links">
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+                hammad@innovationwithpixels.com
+            </span>
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                innovationwithpixels.com
+            </span>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Prepared by Innovation With Pixels &middot; innovationwithpixels.com
+    </div>
+
+</div>
+
+</body>
+</html>
