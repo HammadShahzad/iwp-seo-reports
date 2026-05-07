@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Review &mdash; Kaufmann Architects</title>
+<style>
+:root {
+    --navy: #0f172a;
+    --navy-light: #1e293b;
+    --blue: #3b82f6;
+    --blue-light: #dbeafe;
+    --green: #10b981;
+    --green-bg: #ecfdf5;
+    --amber: #f59e0b;
+    --amber-bg: #fffbeb;
+    --red: #ef4444;
+    --red-bg: #fef2f2;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-700);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Layout */
+.report { max-width: 960px; margin: 0 auto; }
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    padding: 64px 56px 56px;
+    border-radius: 0 0 var(--radius) var(--radius);
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(59,130,246,.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.8);
+    margin-bottom: 24px;
+}
+.hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    margin-bottom: 24px;
+}
+.hero-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+.hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+}
+.hero-meta-item svg { flex-shrink: 0; }
+.hero-divider {
+    height: 1px;
+    background: rgba(255,255,255,.12);
+    margin: 32px 0 20px;
+}
+.hero-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+}
+
+/* Sections */
+.section {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 24px 0;
+    overflow: hidden;
+}
+.section-header {
+    padding: 28px 32px 0;
+}
+.section-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 8px;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+.section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-900);
+    display: inline;
+    vertical-align: middle;
+}
+.section-desc {
+    font-size: 14px;
+    color: var(--gray-500);
+    margin-top: 8px;
+    padding: 0 32px;
+}
+.section-body {
+    padding: 24px 32px 32px;
+}
+
+/* Score Hero Card */
+.score-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    padding: 36px 32px;
+    flex-wrap: wrap;
+}
+.score-main {
+    text-align: center;
+}
+.score-ring-lg {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 12px;
+}
+.score-ring-lg svg {
+    width: 160px;
+    height: 160px;
+    transform: rotate(-90deg);
+}
+.score-ring-lg .ring-bg {
+    fill: none;
+    stroke: var(--gray-100);
+    stroke-width: 3;
+}
+.score-ring-lg .ring-fill {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    transition: stroke-dasharray .6s ease;
+}
+.score-big {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -.03em;
+}
+.score-of {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--gray-400);
+}
+.score-label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+.score-summary {
+    max-width: 420px;
+    text-align: left;
+}
+.score-summary p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-600);
+    margin-bottom: 12px;
+}
+
+/* Category Score Cards */
+.score-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 0 32px 32px;
+}
+.score-card {
+    text-align: center;
+    padding: 20px 12px 16px;
+    background: var(--gray-50);
+    border-radius: 10px;
+    border: 1px solid var(--gray-200);
+}
+.ring-wrap {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 10px;
+}
+.ring-wrap svg {
+    width: 64px;
+    height: 64px;
+    transform: rotate(-90deg);
+}
+.ring { width: 100%; height: 100%; }
+.ring-bg { fill: none; stroke: var(--gray-200); stroke-width: 3; }
+.ring-fill { fill: none; stroke-width: 3; stroke-linecap: round; }
+.ring-num {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: 700;
+}
+.score-card-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 4px;
+}
+.score-card-sub {
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.4;
+}
+
+/* Tables */
+.tbl-wrap {
+    overflow-x: auto;
+    padding: 0 32px 32px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    table-layout: fixed;
+}
+th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--gray-500);
+    border-bottom: 2px solid var(--gray-200);
+    background: var(--gray-50);
+}
+td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-100);
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+tr:last-child td { border-bottom: none; }
+.td-main { font-weight: 600; color: var(--gray-800); }
+.td-muted { color: var(--gray-500); font-size: 12px; }
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.badge-green {
+    background: var(--green-bg);
+    color: #047857;
+}
+.badge-amber {
+    background: var(--amber-bg);
+    color: #b45309;
+}
+.badge-red {
+    background: var(--red-bg);
+    color: #b91c1c;
+}
+
+/* Gap Cards */
+.gap-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+}
+.gap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+.gap-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-800);
+}
+.gap-why {
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+.gap-format {
+    font-size: 12px;
+    color: var(--gray-400);
+    font-style: italic;
+}
+
+/* Action Plan */
+.action-group {
+    margin-bottom: 28px;
+}
+.action-group-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--gray-100);
+}
+.action-group-title .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.action-group-title .sub {
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--gray-400);
+}
+.action-list {
+    list-style: none;
+    counter-reset: action;
+}
+.action-list li {
+    counter-increment: action;
+    position: relative;
+    padding: 10px 0 10px 36px;
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    border-bottom: 1px solid var(--gray-100);
+}
+.action-list li:last-child { border-bottom: none; }
+.action-list li::before {
+    content: counter(action);
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 22px;
+    height: 22px;
+    background: var(--gray-100);
+    color: var(--gray-500);
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CTA */
+.cta {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 40px 40px;
+    text-align: center;
+    margin: 24px 0;
+}
+.cta h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.cta p {
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+    max-width: 500px;
+    margin: 0 auto 24px;
+    line-height: 1.65;
+}
+.cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.cta-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,.9);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.cta-link svg { flex-shrink: 0; }
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: var(--gray-400);
+}
+
+/* Print */
+@media print {
+    body { background: #fff; }
+    .section { box-shadow: none; border: 1px solid var(--gray-200); page-break-inside: avoid; }
+    .hero { border-radius: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="report">
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-badge">Website Performance Review</div>
+        <h1>Kaufmann Architects</h1>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                kaufmannarchitects.com
+            </div>
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Sacramento, CA
+            </div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-footer">
+            <span>Prepared May 7, 2026</span>
+            <span>by Innovation With Pixels</span>
+        </div>
+    </div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">1</span>
+            <span class="section-title">Executive Summary</span>
+        </div>
+        <div class="score-hero">
+            <div class="score-main">
+                <div class="score-ring-lg">
+                    <svg viewBox="0 0 36 36">
+                        <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="61, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="score-big" style="color:#f59e0b">61<span class="score-of">/100</span></div>
+                </div>
+                <div class="score-label" style="color:#f59e0b">Needs Work</div>
+            </div>
+            <div class="score-summary">
+                <p>Kaufmann Architects has a clean, well-structured site with the SEO fundamentals in good shape: every page has a unique title and meta description, project pages live at their own URLs, schema markup is in place, and the canonical / OG / mobile setup is all correct. For a small studio that&#x27;s a strong baseline most firms don&#x27;t reach.</p>
+                <p>The biggest gap is one that quietly hurts every architecture firm: the imagery is invisible to search engines. Across the homepage, projects index, about page, and individual project pages, virtually every photo has empty alt text — so Google can&#x27;t see the work that defines the practice. Combined with thin individual project copy, a missing homepage H1 keyword, and no dedicated service or location pages for searches like &#x27;custom home architect Sacramento&#x27; or &#x27;ADU architect Sacramento,&#x27; there&#x27;s meaningful traffic the site isn&#x27;t competing for yet.</p>
+            </div>
+        </div>
+        <div class="score-grid">
+            
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="65, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">65</span>
+            </div>
+            <div class="score-card-label">On-Page SEO</div>
+            <div class="score-card-sub">Solid titles &amp; metas; H1s and headings need work</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="78, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">78</span>
+            </div>
+            <div class="score-card-label">Technical SEO</div>
+            <div class="score-card-sub">Strong fundamentals, schema could go deeper</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="48, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">48</span>
+            </div>
+            <div class="score-card-label">Content Depth</div>
+            <div class="score-card-sub">Thin project pages, no service pages</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="32, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">32</span>
+            </div>
+            <div class="score-card-label">Image SEO</div>
+            <div class="score-card-sub">Missing alt text on nearly every image</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="62, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">62</span>
+            </div>
+            <div class="score-card-label">Local SEO</div>
+            <div class="score-card-sub">NAP consistent, no LocalBusiness schema</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="55, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">55</span>
+            </div>
+            <div class="score-card-label">Keyword Coverage</div>
+            <div class="score-card-sub">Missing high-intent local &amp; service keywords</div>
+        </div>
+        </div>
+    </div>
+
+    <!-- KEYWORD OPPORTUNITIES -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">2</span>
+            <span class="section-title">Keyword Opportunities</span>
+        </div>
+        <p class="section-desc">Top keyword opportunities ranked by search demand, competition, and relevance to your business.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:25%"><col style="width:12%"><col style="width:13%"><col style="width:15%"><col style="width:35%"></colgroup>
+                <thead><tr>
+                    <th>Keyword</th><th>Difficulty</th><th>Opportunity</th><th>Intent</th><th>Recommended Action</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">custom home architect sacramento</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create dedicated service page targeting this exact phrase</td>
+        </tr><tr>
+            <td class="td-main">residential architect sacramento</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Optimize homepage H1 + content for this term</td>
+        </tr><tr>
+            <td class="td-main">kitchen remodel architect sacramento</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build a kitchen remodel landing page with local examples</td>
+        </tr><tr>
+            <td class="td-main">whole house remodel sacramento</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Service page with case studies &amp; process</td>
+        </tr><tr>
+            <td class="td-main">winery architect california</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Niche page using existing winery portfolio (Twin Rocks, Heringer)</td>
+        </tr><tr>
+            <td class="td-main">restaurant architect sacramento</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Niche page leveraging Wildwood &amp; Nation&#x27;s Hamburgers projects</td>
+        </tr><tr>
+            <td class="td-main">ranch style home architect</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Already have content — break it into a standalone indexable page</td>
+        </tr><tr>
+            <td class="td-main">ADU architect sacramento</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Add an ADU service page — high-volume local search, no current coverage</td>
+        </tr><tr>
+            <td class="td-main">east sacramento architect</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Neighborhood landing page using existing East Sac project</td>
+        </tr><tr>
+            <td class="td-main">land park architect</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Neighborhood page using Land Park remodel project</td>
+        </tr><tr>
+            <td class="td-main">how much does an architect cost in california</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Educational blog post — wide top-of-funnel reach</td>
+        </tr><tr>
+            <td class="td-main">architect vs designer custom home</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Educational article — captures research-stage clients</td>
+        </tr><tr>
+            <td class="td-main">do I need an architect for a remodel</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Blog post answering common pre-client question</td>
+        </tr><tr>
+            <td class="td-main">modern custom home design sacramento</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Project category page with curated modern homes</td>
+        </tr><tr>
+            <td class="td-main">historic home renovation architect sacramento</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Service page for remodels of pre-war / mid-century homes</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ON-PAGE ISSUES -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">3</span>
+            <span class="section-title">On-Page SEO Issues</span>
+        </div>
+        <p class="section-desc">Page-level issues affecting your search visibility, sorted by severity.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:15%"><col style="width:30%"><col style="width:12%"><col style="width:43%"></colgroup>
+                <thead><tr>
+                    <th>Page</th><th>Issue</th><th>Severity</th><th>Recommended Fix</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">All pages</td>
+            <td>Empty alt attributes on every image (27+ images audited)</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add descriptive alt text to every image — e.g. &#x27;Modern custom home in East Sacramento with Cor-Ten siding&#x27;. Critical for an image-heavy architecture site.</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>H1 &#x27;What does your dream house look like?&#x27; contains no target keyword</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Reframe to something like &#x27;Custom Home &amp; Remodel Architect in Sacramento, California&#x27; while keeping the warm tone elsewhere on the page.</td>
+        </tr><tr>
+            <td class="td-main">Individual project pages</td>
+            <td>No H1 tag at all on project detail pages (e.g. /custom-home-sacramento-california/)</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add a clear H1 with the project name + city — e.g. &#x27;Custom Modern Home — East Sacramento, CA&#x27;.</td>
+        </tr><tr>
+            <td class="td-main">Individual project pages</td>
+            <td>Thin content — most project pages have under 200 words</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Expand each project to 400-600 words: design brief, site/context, materials, scope, client goals, outcome.</td>
+        </tr><tr>
+            <td class="td-main">Projects index</td>
+            <td>Page lists projects but lacks a clear keyword-targeted H1 and intro content</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Add an introductory paragraph targeting &#x27;architecture portfolio Sacramento&#x27; and structure project cards with descriptive subheadings.</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>Only 3 H2s, structure is shallow for the main entry page</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td class="td-muted">Add H2 sections for service categories: Custom Homes, Whole-House Remodels, Kitchen Remodels, Wineries &amp; Restaurants.</td>
+        </tr><tr>
+            <td class="td-main">About page</td>
+            <td>H2s contain hard line breaks inside text, causing odd parsing</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td class="td-muted">Render headings as a single line; use CSS for visual line breaks instead.</td>
+        </tr><tr>
+            <td class="td-main">Sitewide</td>
+            <td>No internal linking between related projects</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Add &#x27;related projects&#x27; modules at the bottom of each project page (e.g. other ranch homes, other Sacramento remodels).</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TECHNICAL SEO -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">4</span>
+            <span class="section-title">Technical SEO Checklist</span>
+        </div>
+        <p class="section-desc">Infrastructure and crawlability checks that affect how search engines index your site.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:22%"><col style="width:15%"><col style="width:63%"></colgroup>
+                <thead><tr>
+                    <th>Check</th><th>Status</th><th>Details</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">HTTPS / SSL</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Valid SSL certificate; site loads over HTTPS.</td>
+        </tr><tr>
+            <td class="td-main">Mobile viewport</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Viewport meta tag set on every page.</td>
+        </tr><tr>
+            <td class="td-main">Canonical tags</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Self-referencing canonical present on every page audited.</td>
+        </tr><tr>
+            <td class="td-main">Schema markup</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">WebPage / BreadcrumbList schema present, but no LocalBusiness or Architect schema. Adding Architect schema with NAP, hours, areaServed would strengthen local visibility.</td>
+        </tr><tr>
+            <td class="td-main">Open Graph tags</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">og:title and og:description set on each page.</td>
+        </tr><tr>
+            <td class="td-main">Meta descriptions</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Unique meta descriptions on every page audited.</td>
+        </tr><tr>
+            <td class="td-main">Title tags</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Unique, descriptive titles. Lengths are within 50-65 chars on most pages.</td>
+        </tr><tr>
+            <td class="td-main">Image alt text</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">27+ images audited across 5 pages — virtually all have empty alt attributes. This is the single biggest SEO issue on the site.</td>
+        </tr><tr>
+            <td class="td-main">Project page H1</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">Individual project pages do not have an H1 element, weakening on-page topical signals.</td>
+        </tr><tr>
+            <td class="td-main">URL structure</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Clean, readable, keyword-rich URLs (e.g. /custom-home-east-sacramento-california).</td>
+        </tr><tr>
+            <td class="td-main">Page weight (homepage)</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Homepage HTML is ~141 KB. With image-heavy galleries, lazy-loading and modern formats (WebP/AVIF) would help LCP.</td>
+        </tr><tr>
+            <td class="td-main">XML sitemap</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">WordPress / Yoast-style sitemap detected; standard structure.</td>
+        </tr><tr>
+            <td class="td-main">Robots.txt</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Standard robots.txt — no major crawl blocks.</td>
+        </tr><tr>
+            <td class="td-main">NAP consistency</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Address (1435 Alhambra Blvd. Suite 205, Sacramento) and phone (916.217.9556) appear consistently in footer.</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- COMPETITOR COMPARISON -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">5</span>
+            <span class="section-title">Competitor Comparison</span>
+        </div>
+        <p class="section-desc">Head-to-head comparison against your main local competitors.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <thead><tr>
+                    <th>Dimension</th><th>Kaufmann Architects</th><th>Studio Oxeye</th><th>Donald Joseph Inc.</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">Domain age &amp; authority</td>
+            <td>Established (long-running site)</td>
+            <td>Long-running studio site</td>
+            <td>40+ years in business</td>
+        </tr><tr>
+            <td class="td-main">Indexable project pages</td>
+            <td>13 individual project pages</td>
+            <td>Multiple project pages with deeper copy</td>
+            <td>Heavy portfolio with deeper case studies</td>
+        </tr><tr>
+            <td class="td-main">Image alt text coverage</td>
+            <td>Near 0% (empty)</td>
+            <td>Mixed but better</td>
+            <td>Generally populated</td>
+        </tr><tr>
+            <td class="td-main">Service / category pages</td>
+            <td>None — categories live only on portfolio page</td>
+            <td>Limited</td>
+            <td>Service breakdown by project type</td>
+        </tr><tr>
+            <td class="td-main">Blog / educational content</td>
+            <td>None</td>
+            <td>None visible</td>
+            <td>Press / featured-in section, no active blog</td>
+        </tr><tr>
+            <td class="td-main">LocalBusiness / Architect schema</td>
+            <td>Not present</td>
+            <td>Not present</td>
+            <td>Not present</td>
+        </tr><tr>
+            <td class="td-main">Average project page word count</td>
+            <td>~170 words</td>
+            <td>~250-400 words</td>
+            <td>~300-500 words</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- CONTENT GAPS -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">6</span>
+            <span class="section-title">Content Gap Recommendations</span>
+        </div>
+        <p class="section-desc">Topics and content types your competitors cover that you're missing.</p>
+        <div class="section-body">
+            
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Custom Home Architect — Sacramento landing page</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Highest-intent commercial keyword for the practice; currently no page directly targeting it. The homepage tries to do too many jobs at once.</p>
+            <p class="gap-format">Recommended format: Service landing page with intro copy, process overview, 4-6 featured custom home projects, FAQ section.</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">ADU (Accessory Dwelling Unit) Architect — Sacramento</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">ADU search volume in California has grown sharply with state policy changes. Local searches like &#x27;ADU architect Sacramento&#x27; have real traffic and are nearly unclaimed by direct service pages.</p>
+            <p class="gap-format">Recommended format: Dedicated service page covering ADU regulations, typical scopes, costs, examples.</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Whole-House Remodel Architect</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">The studio clearly does this work (Land Park, Esparto, etc.) but has no page targeting the search term.</p>
+            <p class="gap-format">Recommended format: Service page + 2-3 in-depth case studies showing before/after, scope, timeline.</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Neighborhood pages — East Sacramento, Land Park, Sierra Oaks</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Sacramento home buyers search by neighborhood. Each has projects already in the portfolio that could anchor a local SEO page.</p>
+            <p class="gap-format">Recommended format: Short, useful neighborhood pages with project grid, local context, and a CTA.</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Winery &amp; Tasting Room Architect</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">A real differentiator (Twin Rocks, Heringer Winery) but undersold. Niche, lower competition, premium clients.</p>
+            <p class="gap-format">Recommended format: Niche service page with hospitality / agriculture context.</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Educational articles for early-stage clients</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Most prospective clients search informational queries before commercial ones. A small content library captures top-of-funnel and builds authority.</p>
+            <p class="gap-format">Recommended format: Short blog posts: &#x27;Do I need an architect for a remodel?&#x27;, &#x27;How much does a custom home cost in Sacramento?&#x27;, &#x27;Architect vs. designer&#x27;.</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Process / What to Expect page expansion</span>
+                <span class="badge badge-amber" style="font-size:11px">Low Priority</span>
+            </div>
+            <p class="gap-why">The &#x27;How We Work&#x27; page is good but light. Expanding it with a phase-by-phase breakdown helps both SEO and conversion.</p>
+            <p class="gap-format">Recommended format: Long-form guide with diagrams, deliverables per phase, typical timelines.</p>
+        </div>
+        </div>
+    </div>
+
+    <!-- ACTION PLAN -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">7</span>
+            <span class="section-title">Prioritized Action Plan</span>
+        </div>
+        <div class="section-body">
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--green)"></span>
+                    Quick Wins
+                    <span class="sub">do this week &mdash; under 2 hours each</span>
+                </div>
+                <ol class="action-list"><li>Add descriptive alt text to every image on the site — start with the homepage hero, projects index, and the 13 individual project pages.</li><li>Add an H1 tag to every individual project page (currently missing) — use the project name + city.</li><li>Rewrite the homepage H1 to include &#x27;Sacramento&#x27; and a clear service term (e.g. &#x27;Custom Home &amp; Remodel Architect in Sacramento&#x27;).</li><li>Add LocalBusiness / Architect schema in the footer with NAP, hours, areaServed, sameAs links to social profiles.</li><li>Expand the meta description on the projects page to include &#x27;Sacramento&#x27; explicitly (currently mentions only &#x27;western United States&#x27;).</li><li>Add 2-3 internal &#x27;related projects&#x27; links at the bottom of each project page.</li><li>Run all hero / portfolio images through a WebP conversion to cut page weight.</li><li>Make sure every project URL is in the XML sitemap and request a fresh crawl in Google Search Console.</li></ol>
+            </div>
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--blue)"></span>
+                    Strategic Investments
+                    <span class="sub">plan for this quarter</span>
+                </div>
+                <ol class="action-list"><li>Build dedicated service pages: Custom Homes, Whole-House Remodels, Kitchen Remodels, ADUs, Wineries &amp; Restaurants. Each targeting one primary keyword + Sacramento.</li><li>Expand each project case study to 400-600 words covering brief, site, materials, process, and outcome — turning the portfolio into a real content asset.</li><li>Launch a small but focused blog (1 post/month) covering the questions Sacramento homeowners actually ask before hiring an architect.</li><li>Add neighborhood landing pages for East Sacramento, Land Park, and Sierra Oaks anchored to existing portfolio projects.</li><li>Set up Google Business Profile optimization with project photos (with alt text) and weekly posts; encourage past clients to leave reviews.</li><li>Build an internal linking structure connecting related projects, services, and neighborhoods — currently each project page is largely a dead end.</li></ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+        <h3>Ready to implement these improvements?</h3>
+        <p>Innovation With Pixels specializes in websites for architecture firms and design professionals. We handle everything from technical fixes to portfolio optimization and ongoing SEO.</p>
+        <div class="cta-links">
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+                hammad@innovationwithpixels.com
+            </span>
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                innovationwithpixels.com
+            </span>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Prepared by Innovation With Pixels &middot; innovationwithpixels.com
+    </div>
+
+</div>
+
+</body>
+</html>
