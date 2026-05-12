@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Review &mdash; Vincent Abell Contracting</title>
+<style>
+:root {
+    --navy: #0f172a;
+    --navy-light: #1e293b;
+    --blue: #3b82f6;
+    --blue-light: #dbeafe;
+    --green: #10b981;
+    --green-bg: #ecfdf5;
+    --amber: #f59e0b;
+    --amber-bg: #fffbeb;
+    --red: #ef4444;
+    --red-bg: #fef2f2;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-700);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+.report { max-width: 960px; margin: 0 auto; }
+.hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    padding: 64px 56px 56px;
+    border-radius: 0 0 var(--radius) var(--radius);
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(59,130,246,.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.8);
+    margin-bottom: 24px;
+}
+.hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    margin-bottom: 24px;
+}
+.hero-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+.hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+}
+.hero-meta-item svg { flex-shrink: 0; }
+.hero-divider {
+    height: 1px;
+    background: rgba(255,255,255,.12);
+    margin: 32px 0 20px;
+}
+.hero-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+}
+.section {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 24px 0;
+    overflow: hidden;
+}
+.section-header {
+    padding: 28px 32px 0;
+}
+.section-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 8px;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+.section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-900);
+    display: inline;
+    vertical-align: middle;
+}
+.section-desc {
+    font-size: 14px;
+    color: var(--gray-500);
+    margin-top: 8px;
+    padding: 0 32px;
+}
+.section-body {
+    padding: 24px 32px 32px;
+}
+.score-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    padding: 36px 32px;
+    flex-wrap: wrap;
+}
+.score-main { text-align: center; }
+.score-ring-lg {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 12px;
+}
+.score-ring-lg svg {
+    width: 160px;
+    height: 160px;
+    transform: rotate(-90deg);
+}
+.score-ring-lg .ring-bg {
+    fill: none;
+    stroke: var(--gray-100);
+    stroke-width: 3;
+}
+.score-ring-lg .ring-fill {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    transition: stroke-dasharray .6s ease;
+}
+.score-big {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -.03em;
+}
+.score-of {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--gray-400);
+}
+.score-label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+.score-summary {
+    max-width: 420px;
+    text-align: left;
+}
+.score-summary p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-600);
+    margin-bottom: 12px;
+}
+.score-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 0 32px 32px;
+}
+.score-card {
+    text-align: center;
+    padding: 20px 12px 16px;
+    background: var(--gray-50);
+    border-radius: 10px;
+    border: 1px solid var(--gray-200);
+}
+.ring-wrap {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 10px;
+}
+.ring-wrap svg {
+    width: 64px;
+    height: 64px;
+    transform: rotate(-90deg);
+}
+.ring { width: 100%; height: 100%; }
+.ring-bg { fill: none; stroke: var(--gray-200); stroke-width: 3; }
+.ring-fill { fill: none; stroke-width: 3; stroke-linecap: round; }
+.ring-num {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: 700;
+}
+.score-card-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 4px;
+}
+.score-card-sub {
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.4;
+}
+.tbl-wrap {
+    overflow-x: auto;
+    padding: 0 32px 32px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    table-layout: fixed;
+}
+th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--gray-500);
+    border-bottom: 2px solid var(--gray-200);
+    background: var(--gray-50);
+}
+td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-100);
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+tr:last-child td { border-bottom: none; }
+.td-main { font-weight: 600; color: var(--gray-800); }
+.td-muted { color: var(--gray-500); font-size: 12px; }
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.badge-green { background: var(--green-bg); color: #047857; }
+.badge-amber { background: var(--amber-bg); color: #b45309; }
+.badge-red { background: var(--red-bg); color: #b91c1c; }
+.gap-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+}
+.gap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+.gap-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-800);
+}
+.gap-why {
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+.gap-format {
+    font-size: 12px;
+    color: var(--gray-400);
+    font-style: italic;
+}
+.action-group { margin-bottom: 28px; }
+.action-group-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--gray-100);
+}
+.action-group-title .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.action-group-title .sub {
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--gray-400);
+}
+.action-list {
+    list-style: none;
+    counter-reset: action;
+}
+.action-list li {
+    counter-increment: action;
+    position: relative;
+    padding: 10px 0 10px 36px;
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    border-bottom: 1px solid var(--gray-100);
+}
+.action-list li:last-child { border-bottom: none; }
+.action-list li::before {
+    content: counter(action);
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 22px;
+    height: 22px;
+    background: var(--gray-100);
+    color: var(--gray-500);
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cta {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 40px 40px;
+    text-align: center;
+    margin: 24px 0;
+}
+.cta h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.cta p {
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+    max-width: 500px;
+    margin: 0 auto 24px;
+    line-height: 1.65;
+}
+.cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.cta-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,.9);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.cta-link svg { flex-shrink: 0; }
+.footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: var(--gray-400);
+}
+@media print {
+    body { background: #fff; }
+    .section { box-shadow: none; border: 1px solid var(--gray-200); page-break-inside: avoid; }
+    .hero { border-radius: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="report">
+
+    <div class="hero">
+        <div class="hero-badge">Website Performance Review</div>
+        <h1>Vincent Abell Contracting</h1>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                vincentabellcontracting.com
+            </div>
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Louisville, KY
+            </div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-footer">
+            <span>Prepared May 12, 2026</span>
+            <span>by Innovation With Pixels</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">1</span>
+            <span class="section-title">Executive Summary</span>
+        </div>
+        <div class="score-hero">
+            <div class="score-main">
+                <div class="score-ring-lg">
+                    <svg viewBox="0 0 36 36">
+                        <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="ring-fill" stroke="#ef4444" stroke-dasharray="58, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="score-big" style="color:#ef4444">58<span class="score-of">/100</span></div>
+                </div>
+                <div class="score-label" style="color:#ef4444">Critical</div>
+            </div>
+            <div class="score-summary">
+                <p>Vincent Abell Contracting has strong fundamentals — a 25+ year track record, a recognizable family name in Louisville, an active portfolio, and reviews on Houzz, Angie&#x27;s, BBB, and GuildQuality. The site loads on HTTPS, the page titles include the city, and individual service pages are reasonably well-written with pricing context that homeowners actually want to see.</p>
+                <p>The big leaks are on the technical and on-page side. The homepage meta description and H1 don&#x27;t position you for any of the searches homeowners actually run (&quot;kitchen remodel Louisville,&quot; &quot;general contractor Highlands,&quot; &quot;home additions Louisville KY&quot;), there&#x27;s no LocalBusiness schema telling Google your service area, neighborhood-specific landing pages don&#x27;t exist as standalone URLs, and the portfolio images are missing descriptive alt text and structured data. Fixing the on-page basics and adding 6–8 neighborhood pages would meaningfully move local rankings within 60–90 days.</p>
+            </div>
+        </div>
+        <div class="score-grid">
+            
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="50, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">50</span>
+            </div>
+            <div class="score-card-label">On-Page SEO</div>
+            <div class="score-card-sub">Weak meta and H1 setup</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="65, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">65</span>
+            </div>
+            <div class="score-card-label">Technical SEO</div>
+            <div class="score-card-sub">Solid foundation, schema missing</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="55, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">55</span>
+            </div>
+            <div class="score-card-label">Local SEO</div>
+            <div class="score-card-sub">Service area pages needed</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="65, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">65</span>
+            </div>
+            <div class="score-card-label">Content Depth</div>
+            <div class="score-card-sub">Good service pages, gaps elsewhere</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="45, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">45</span>
+            </div>
+            <div class="score-card-label">Portfolio Optimization</div>
+            <div class="score-card-sub">Alt text and schema absent</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="70, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">70</span>
+            </div>
+            <div class="score-card-label">Trust &amp; Reviews</div>
+            <div class="score-card-sub">Reviews exist but underused on site</div>
+        </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">2</span>
+            <span class="section-title">Keyword Opportunities</span>
+        </div>
+        <p class="section-desc">Top keyword opportunities ranked by search demand, competition, and relevance to your business.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:25%"><col style="width:12%"><col style="width:13%"><col style="width:15%"><col style="width:35%"></colgroup>
+                <thead><tr>
+                    <th>Keyword</th><th>Difficulty</th><th>Opportunity</th><th>Intent</th><th>Recommended Action</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">general contractor Louisville KY</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Optimize homepage title and H1 for this exact phrase</td>
+        </tr><tr>
+            <td class="td-main">kitchen remodel Louisville</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Strengthen H1 on kitchen service page, add FAQ schema</td>
+        </tr><tr>
+            <td class="td-main">bathroom remodeling Louisville KY</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build out bathroom page with before/after photos and project costs</td>
+        </tr><tr>
+            <td class="td-main">home additions Louisville</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Add cost ranges and timeline content to additions page</td>
+        </tr><tr>
+            <td class="td-main">design build remodeling Louisville</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create a dedicated design-build landing page</td>
+        </tr><tr>
+            <td class="td-main">Highlands Louisville remodeling contractor</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Local</td>
+            <td class="td-muted">Build dedicated Highlands service area page</td>
+        </tr><tr>
+            <td class="td-main">Cherokee Triangle home renovation</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Local</td>
+            <td class="td-muted">Add Cherokee Triangle neighborhood page with project examples</td>
+        </tr><tr>
+            <td class="td-main">Saint Matthews kitchen remodel</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Local</td>
+            <td class="td-muted">Create Saint Matthews landing page</td>
+        </tr><tr>
+            <td class="td-main">historical home renovation Louisville</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Expand historical renovations page with case studies</td>
+        </tr><tr>
+            <td class="td-main">dormer addition cost Louisville</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Add cost-guide blog post linking to service page</td>
+        </tr><tr>
+            <td class="td-main">basement finishing Louisville KY</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build a basement remodeling service page (currently only portfolio)</td>
+        </tr><tr>
+            <td class="td-main">load bearing wall removal Louisville</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Convert load bearing portfolio into a service page</td>
+        </tr><tr>
+            <td class="td-main">cost to remodel a kitchen in Louisville</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Create dedicated cost guide blog post with local figures</td>
+        </tr><tr>
+            <td class="td-main">how to choose a remodeling contractor</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Add evergreen blog content with hiring checklist</td>
+        </tr><tr>
+            <td class="td-main">licensed general contractor near me</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Add license info, service area schema, and Google Business Profile alignment</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">3</span>
+            <span class="section-title">On-Page SEO Issues</span>
+        </div>
+        <p class="section-desc">Page-level issues affecting your search visibility, sorted by severity.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:15%"><col style="width:30%"><col style="width:12%"><col style="width:43%"></colgroup>
+                <thead><tr>
+                    <th>Page</th><th>Issue</th><th>Severity</th><th>Recommended Fix</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">Homepage</td>
+            <td>Meta description is generic and doesn&#x27;t mention Louisville, contractor, or remodeling</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Rewrite to ~155 chars: &#x27;Vincent Abell Contracting is a Louisville, KY design-build general contractor specializing in kitchen, bathroom, and home addition remodeling since 2000.&#x27;</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>H1 is just the company name with no keyword context</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Update H1 to &#x27;Louisville, KY General Contractor &amp; Design-Build Remodeling&#x27; or similar</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>Page last modified August 2022 — content reads as stale</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Refresh homepage copy with current year, recent projects, and updated awards</td>
+        </tr><tr>
+            <td class="td-main">Service pages</td>
+            <td>Page titles repeat the same &#x27;- Vincent Abell Contracting - Louisville, KY&#x27; suffix, leaving little room for keywords</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Trim suffix to &#x27;Vincent Abell&#x27; and front-load keywords (e.g. &#x27;Kitchen Remodeling Louisville KY | Vincent Abell&#x27;)</td>
+        </tr><tr>
+            <td class="td-main">Portfolio</td>
+            <td>Project images use placeholder/lazy-load SVGs with no descriptive alt text</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add alt text like &#x27;Cherokee Triangle kitchen remodel with quartz island and custom cabinets&#x27;</td>
+        </tr><tr>
+            <td class="td-main">Service pages</td>
+            <td>External link to &#x27;Homes &amp; Gardens&#x27; kitchen trends sends authority off-site without a return path</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td class="td-muted">Replace with internal links to your own kitchen portfolio or convert to a no-follow</td>
+        </tr><tr>
+            <td class="td-main">Kitchen service page</td>
+            <td>Pricing range mentioned but not wrapped in FAQ/Service schema</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Add FAQPage and Service schema for &#x27;How much does a kitchen remodel cost in Louisville?&#x27;</td>
+        </tr><tr>
+            <td class="td-main">Site-wide</td>
+            <td>No dedicated service area pages for Highlands, Cherokee Triangle, Saint Matthews, Indian Hills, Anchorage, Prospect — all mentioned but never as standalone URLs</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Create one landing page per neighborhood with local content and at least 2 portfolio examples</td>
+        </tr><tr>
+            <td class="td-main">Site-wide</td>
+            <td>No blog / content hub — missing all informational and &#x27;cost&#x27; keyword traffic</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Launch a /blog section with 1 post/month covering cost guides, project timelines, and design trends</td>
+        </tr><tr>
+            <td class="td-main">About page</td>
+            <td>Founder story and team are not surfaced on the homepage where trust is most valuable</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td class="td-muted">Add a short &#x27;Meet Brad&#x27; or &#x27;Family-owned since 2000&#x27; section above the fold</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">4</span>
+            <span class="section-title">Technical SEO Checklist</span>
+        </div>
+        <p class="section-desc">Infrastructure and crawlability checks that affect how search engines index your site.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:22%"><col style="width:15%"><col style="width:63%"></colgroup>
+                <thead><tr>
+                    <th>Check</th><th>Status</th><th>Details</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">HTTPS / SSL</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Site loads over HTTPS with a valid certificate</td>
+        </tr><tr>
+            <td class="td-main">Mobile viewport</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Meta viewport tag is set correctly for responsive rendering</td>
+        </tr><tr>
+            <td class="td-main">Canonical tags</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Canonical URLs declared on all reviewed pages</td>
+        </tr><tr>
+            <td class="td-main">Open Graph tags</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">OG title, description, and image present</td>
+        </tr><tr>
+            <td class="td-main">Schema markup — LocalBusiness</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">No LocalBusiness or GeneralContractor schema detected — critical for local SEO</td>
+        </tr><tr>
+            <td class="td-main">Schema markup — Service / FAQ</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">Service-level structured data missing on all service pages</td>
+        </tr><tr>
+            <td class="td-main">Image optimization</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Many portfolio images load as base64 placeholders without descriptive alt attributes</td>
+        </tr><tr>
+            <td class="td-main">Page freshness signals</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Homepage last-modified date is August 2022 — Google reads this as stale</td>
+        </tr><tr>
+            <td class="td-main">XML sitemap</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">WordPress sitemap is publicly accessible at /sitemap.xml</td>
+        </tr><tr>
+            <td class="td-main">Robots.txt</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Robots.txt is present and not blocking indexing</td>
+        </tr><tr>
+            <td class="td-main">WordPress version</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Running WordPress 6.9.4 — keep core/plugins patched for security and speed</td>
+        </tr><tr>
+            <td class="td-main">Page speed signals</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Heavy hero imagery and base64 placeholders likely impact LCP on mobile</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">5</span>
+            <span class="section-title">Competitor Comparison</span>
+        </div>
+        <p class="section-desc">Head-to-head comparison against your main local competitors.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <thead><tr>
+                    <th>Dimension</th><th>Vincent Abell Contracting</th><th>Wescott Construction</th><th>Killian&#x27;s Contracting Group</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">Domain Age</td>
+            <td>~25 years</td>
+            <td>~17 years</td>
+            <td>~15 years</td>
+        </tr><tr>
+            <td class="td-main">Neighborhood landing pages</td>
+            <td>None</td>
+            <td>Partial (St Matthews, Highlands)</td>
+            <td>None</td>
+        </tr><tr>
+            <td class="td-main">LocalBusiness schema</td>
+            <td>Missing</td>
+            <td>Present</td>
+            <td>Missing</td>
+        </tr><tr>
+            <td class="td-main">Blog / content hub</td>
+            <td>None</td>
+            <td>Active blog</td>
+            <td>None</td>
+        </tr><tr>
+            <td class="td-main">Project case studies with copy</td>
+            <td>Image galleries only</td>
+            <td>Written case studies</td>
+            <td>Image galleries</td>
+        </tr><tr>
+            <td class="td-main">Reviews surfaced on site</td>
+            <td>Trust badges only</td>
+            <td>Review widget + testimonials</td>
+            <td>Testimonials page</td>
+        </tr><tr>
+            <td class="td-main">Service-specific cost guides</td>
+            <td>Pricing on kitchen page only</td>
+            <td>Cost guide pages for 3+ services</td>
+            <td>None</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">6</span>
+            <span class="section-title">Content Gap Recommendations</span>
+        </div>
+        <p class="section-desc">Topics and content types your competitors cover that you're missing.</p>
+        <div class="section-body">
+            
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Neighborhood landing pages for Louisville&#x27;s premium remodeling areas</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Homeowners in Highlands, Cherokee Triangle, and Saint Matthews search by neighborhood. You serve them but have no page targeting those phrases.</p>
+            <p class="gap-format">Recommended format: Six pages, ~600-800 words each, with neighborhood-specific projects and a service-area map</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Written project case studies (not just photo galleries)</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Google can&#x27;t read a photo. Case studies with scope, timeline, budget range, and challenges turn portfolio pages into ranking content.</p>
+            <p class="gap-format">Recommended format: 8-10 detailed case studies linked from the portfolio with before/after photos and 400+ words of context</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Cost guide content for Louisville remodeling</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">&quot;Cost to remodel a kitchen in Louisville&quot; and similar phrases have steady demand and high commercial intent — they convert.</p>
+            <p class="gap-format">Recommended format: Long-form blog posts (1,200+ words) with local cost ranges and an internal link to the matching service page</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Homeowner-facing FAQ and process content</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Builds trust and captures featured snippets for questions like &#x27;how long does a kitchen remodel take?&#x27;</p>
+            <p class="gap-format">Recommended format: FAQ schema on service pages plus a dedicated &#x27;Our Process&#x27; page</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Reviews and testimonials surfaced on the site</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">You have 5-star reviews on Houzz, GuildQuality, BBB, and Angie&#x27;s, but they live off-site. Pulling them in builds trust signals for Google and visitors.</p>
+            <p class="gap-format">Recommended format: A testimonials page plus quote callouts on each service page</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Basement remodeling and load-bearing service pages</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Currently only portfolio categories — they&#x27;re missing the conversion-focused service pages that drive bookings.</p>
+            <p class="gap-format">Recommended format: Standalone service pages with scope, pricing context, and gallery</p>
+        </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">7</span>
+            <span class="section-title">Prioritized Action Plan</span>
+        </div>
+        <div class="section-body">
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--green)"></span>
+                    Quick Wins
+                    <span class="sub">do this week &mdash; under 2 hours each</span>
+                </div>
+                <ol class="action-list"><li>Rewrite homepage meta description to include Louisville, general contractor, and remodeling</li><li>Update homepage H1 to include &#x27;Louisville KY general contractor&#x27; or &#x27;design-build remodeling&#x27;</li><li>Add descriptive alt text to every portfolio image (include neighborhood and project type)</li><li>Add a &#x27;Last Updated 2026&#x27; line and refresh the homepage hero copy</li><li>Trim repetitive title suffixes so the keyword can lead</li><li>Add LocalBusiness schema with NAP, service area, and hours</li><li>Pull in 3–5 quote testimonials from Houzz/GuildQuality and feature them on the homepage</li><li>Link the BBB, Houzz, and Angie&#x27;s badges to actual review pages rather than just logos</li></ol>
+            </div>
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--blue)"></span>
+                    Strategic Investments
+                    <span class="sub">plan for this quarter</span>
+                </div>
+                <ol class="action-list"><li>Build six neighborhood landing pages (Highlands, Cherokee Triangle, Saint Matthews, Indian Hills, Anchorage, Prospect)</li><li>Launch a /blog content hub and publish 1–2 cost-and-process posts per month</li><li>Convert the portfolio into written case studies with project scope, timeline, and budget range</li><li>Add FAQ and Service schema across all service pages</li><li>Create dedicated service pages for basement remodeling and load-bearing modifications</li><li>Run a Core Web Vitals pass — compress hero imagery and remove base64 placeholders</li></ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta">
+        <h3>Ready to implement these improvements?</h3>
+        <p>Innovation With Pixels specializes in websites for construction and home service businesses.</p>
+        <div class="cta-links">
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+                hammad@innovationwithpixels.com
+            </span>
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                innovationwithpixels.com
+            </span>
+        </div>
+    </div>
+
+    <div class="footer">
+        Prepared by Innovation With Pixels &middot; innovationwithpixels.com
+    </div>
+
+</div>
+
+</body>
+</html>
