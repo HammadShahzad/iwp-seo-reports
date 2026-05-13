@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Review &mdash; Blueboard Remodeling Services</title>
+<style>
+:root {
+    --navy: #0f172a;
+    --navy-light: #1e293b;
+    --blue: #3b82f6;
+    --blue-light: #dbeafe;
+    --green: #10b981;
+    --green-bg: #ecfdf5;
+    --amber: #f59e0b;
+    --amber-bg: #fffbeb;
+    --red: #ef4444;
+    --red-bg: #fef2f2;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-700);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+.report { max-width: 960px; margin: 0 auto; }
+.hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    padding: 64px 56px 56px;
+    border-radius: 0 0 var(--radius) var(--radius);
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(59,130,246,.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.8);
+    margin-bottom: 24px;
+}
+.hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    margin-bottom: 24px;
+}
+.hero-meta { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 8px; }
+.hero-meta-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: rgba(255,255,255,.7); }
+.hero-meta-item svg { flex-shrink: 0; }
+.hero-divider { height: 1px; background: rgba(255,255,255,.12); margin: 32px 0 20px; }
+.hero-footer { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,.5); }
+.section { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); margin: 24px 0; overflow: hidden; }
+.section-header { padding: 28px 32px 0; }
+.section-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--blue); color: #fff; font-size: 13px; font-weight: 700; border-radius: 8px; margin-right: 12px; vertical-align: middle; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--gray-900); display: inline; vertical-align: middle; }
+.section-desc { font-size: 14px; color: var(--gray-500); margin-top: 8px; padding: 0 32px; }
+.section-body { padding: 24px 32px 32px; }
+.score-hero { display: flex; align-items: center; justify-content: center; gap: 48px; padding: 36px 32px; flex-wrap: wrap; }
+.score-main { text-align: center; }
+.score-ring-lg { position: relative; width: 160px; height: 160px; margin: 0 auto 12px; }
+.score-ring-lg svg { width: 160px; height: 160px; transform: rotate(-90deg); }
+.score-ring-lg .ring-bg { fill: none; stroke: var(--gray-100); stroke-width: 3; }
+.score-ring-lg .ring-fill { fill: none; stroke-width: 3; stroke-linecap: round; transition: stroke-dasharray .6s ease; }
+.score-big { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 48px; font-weight: 800; letter-spacing: -.03em; }
+.score-of { font-size: 18px; font-weight: 400; color: var(--gray-400); }
+.score-label { font-size: 14px; font-weight: 600; margin-top: 4px; }
+.score-summary { max-width: 420px; text-align: left; }
+.score-summary p { font-size: 15px; line-height: 1.7; color: var(--gray-600); margin-bottom: 12px; }
+.score-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 0 32px 32px; }
+.score-card { text-align: center; padding: 20px 12px 16px; background: var(--gray-50); border-radius: 10px; border: 1px solid var(--gray-200); }
+.ring-wrap { position: relative; width: 64px; height: 64px; margin: 0 auto 10px; }
+.ring-wrap svg { width: 64px; height: 64px; transform: rotate(-90deg); }
+.ring { width: 100%; height: 100%; }
+.ring-bg { fill: none; stroke: var(--gray-200); stroke-width: 3; }
+.ring-fill { fill: none; stroke-width: 3; stroke-linecap: round; }
+.ring-num { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 18px; font-weight: 700; }
+.score-card-label { font-size: 13px; font-weight: 600; color: var(--gray-800); margin-bottom: 4px; }
+.score-card-sub { font-size: 11px; color: var(--gray-400); line-height: 1.4; }
+.tbl-wrap { overflow-x: auto; padding: 0 32px 32px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; table-layout: fixed; }
+th { text-align: left; padding: 10px 14px; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .5px; color: var(--gray-500); border-bottom: 2px solid var(--gray-200); background: var(--gray-50); }
+td { padding: 12px 14px; border-bottom: 1px solid var(--gray-100); vertical-align: top; word-wrap: break-word; overflow-wrap: break-word; }
+tr:last-child td { border-bottom: none; }
+.td-main { font-weight: 600; color: var(--gray-800); }
+.td-muted { color: var(--gray-500); font-size: 12px; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.badge-green { background: var(--green-bg); color: #047857; }
+.badge-amber { background: var(--amber-bg); color: #b45309; }
+.badge-red { background: var(--red-bg); color: #b91c1c; }
+.gap-card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 10px; padding: 20px 24px; margin-bottom: 12px; }
+.gap-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.gap-title { font-size: 15px; font-weight: 700; color: var(--gray-800); }
+.gap-why { font-size: 13px; color: var(--gray-600); line-height: 1.6; margin-bottom: 6px; }
+.gap-format { font-size: 12px; color: var(--gray-400); font-style: italic; }
+.action-group { margin-bottom: 28px; }
+.action-group-title { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid var(--gray-100); }
+.action-group-title .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.action-group-title .sub { font-weight: 400; font-size: 12px; text-transform: none; letter-spacing: 0; color: var(--gray-400); }
+.action-list { list-style: none; counter-reset: action; }
+.action-list li { counter-increment: action; position: relative; padding: 10px 0 10px 36px; font-size: 14px; color: var(--gray-700); line-height: 1.55; border-bottom: 1px solid var(--gray-100); }
+.action-list li:last-child { border-bottom: none; }
+.action-list li::before { content: counter(action); position: absolute; left: 0; top: 11px; width: 22px; height: 22px; background: var(--gray-100); color: var(--gray-500); font-size: 11px; font-weight: 700; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+.cta { background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%); color: #fff; border-radius: var(--radius); padding: 40px 40px; text-align: center; margin: 24px 0; }
+.cta h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+.cta p { font-size: 14px; color: rgba(255,255,255,.7); max-width: 500px; margin: 0 auto 24px; line-height: 1.65; }
+.cta-links { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.cta-link { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,.9); font-size: 14px; font-weight: 600; text-decoration: none; }
+.cta-link svg { flex-shrink: 0; }
+.footer { text-align: center; padding: 24px; font-size: 12px; color: var(--gray-400); }
+@media print {
+    body { background: #fff; }
+    .section { box-shadow: none; border: 1px solid var(--gray-200); page-break-inside: avoid; }
+    .hero { border-radius: 0; }
+}
+</style>
+</head>
+<body>
+<div class="report">
+    <div class="hero">
+        <div class="hero-badge">Website Performance Review</div>
+        <h1>Blueboard Remodeling Services</h1>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                blueboardremodeling.com
+            </div>
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Boise, ID
+            </div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-footer">
+            <span>Prepared May 13, 2026</span>
+            <span>by Innovation With Pixels</span>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">1</span>
+            <span class="section-title">Executive Summary</span>
+        </div>
+        <div class="score-hero">
+            <div class="score-main">
+                <div class="score-ring-lg">
+                    <svg viewBox="0 0 36 36">
+                        <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="ring-fill" stroke="#ef4444" stroke-dasharray="58, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="score-big" style="color:#ef4444">58<span class="score-of">/100</span></div>
+                </div>
+                <div class="score-label" style="color:#ef4444">Critical</div>
+            </div>
+            <div class="score-summary">
+                <p>Blueboard Remodeling has a clean, modern site built on Elementor that loads quickly and reads well on mobile. The fundamentals are in place — HTTPS, sensible page titles, meta descriptions across the main service pages, and a clear list of services covering Boise and surrounding towns like Eagle, Meridian, Nampa, Caldwell, and Kuna.</p>
+                <p>Where the site is leaving real money on the table is in three areas: thin service pages that read like template copy rather than local expertise, a gallery that uses generic stock-style imagery with non-descriptive filenames, and a Gmail address as the primary contact rather than a branded inbox. Add a couple of city-specific landing pages, real project case studies, and structured review markup, and this site can comfortably outrank the small-shop competition in the Treasure Valley.</p>
+            </div>
+        </div>
+        <div class="score-grid">
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="62, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">62</span>
+            </div>
+            <div class="score-card-label">On-Page SEO</div>
+            <div class="score-card-sub">Solid basics, thin content</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="78, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">78</span>
+            </div>
+            <div class="score-card-label">Technical SEO</div>
+            <div class="score-card-sub">Healthy foundation</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="48, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">48</span>
+            </div>
+            <div class="score-card-label">Local SEO</div>
+            <div class="score-card-sub">Big growth opportunity</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="42, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">42</span>
+            </div>
+            <div class="score-card-label">Content Depth</div>
+            <div class="score-card-sub">Pages are very light</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="55, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">55</span>
+            </div>
+            <div class="score-card-label">Trust &amp; Reviews</div>
+            <div class="score-card-sub">Reviews section empty</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="72, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">72</span>
+            </div>
+            <div class="score-card-label">Mobile &amp; Speed</div>
+            <div class="score-card-sub">Good, can be faster</div>
+        </div></div>
+    </div>
+    <div class="section">
+        <div class="section-header"><span class="section-num">2</span><span class="section-title">Keyword Opportunities</span></div>
+        <p class="section-desc">Top keyword opportunities ranked by search demand, competition, and relevance to your business.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:25%"><col style="width:12%"><col style="width:13%"><col style="width:15%"><col style="width:35%"></colgroup>
+                <thead><tr><th>Keyword</th><th>Difficulty</th><th>Opportunity</th><th>Intent</th><th>Recommended Action</th></tr></thead>
+                <tbody><tr>
+            <td class="td-main">kitchen remodel Boise</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Strengthen the existing kitchen page with cost ranges, timeline, FAQ</td>
+        </tr><tr>
+            <td class="td-main">bathroom remodel Boise ID</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Expand bathroom page with project photos and before/after</td>
+        </tr><tr>
+            <td class="td-main">home remodeling contractor Boise</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Target on homepage H1 and About page</td>
+        </tr><tr>
+            <td class="td-main">handyman services Boise ID</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build out the handyman page with clear service list and pricing approach</td>
+        </tr><tr>
+            <td class="td-main">kitchen remodeling Meridian ID</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create dedicated Meridian service area page</td>
+        </tr><tr>
+            <td class="td-main">bathroom renovation Eagle Idaho</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create dedicated Eagle service area page</td>
+        </tr><tr>
+            <td class="td-main">drywall repair Boise</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Expand drywall page with common repair scenarios</td>
+        </tr><tr>
+            <td class="td-main">flooring installation Boise</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Add flooring type sub-sections (hardwood, LVP, tile)</td>
+        </tr><tr>
+            <td class="td-main">interior painters Boise ID</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Split interior and exterior painting into two pages</td>
+        </tr><tr>
+            <td class="td-main">cost to remodel a kitchen in Boise</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Write a pricing guide blog post with local ranges</td>
+        </tr><tr>
+            <td class="td-main">how long does a bathroom remodel take</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Add a timeline guide blog post</td>
+        </tr><tr>
+            <td class="td-main">licensed remodeling contractor near me</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Strengthen About page with license, insurance, years in business</td>
+        </tr><tr>
+            <td class="td-main">small bathroom remodel ideas Boise</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Build a gallery post tagged to Boise homes</td>
+        </tr><tr>
+            <td class="td-main">Caldwell ID kitchen remodel</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create Caldwell service area page</td>
+        </tr><tr>
+            <td class="td-main">Nampa home remodeling</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create Nampa service area page</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-header"><span class="section-num">3</span><span class="section-title">On-Page SEO Issues</span></div>
+        <p class="section-desc">Page-level issues affecting your search visibility, sorted by severity.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:15%"><col style="width:30%"><col style="width:12%"><col style="width:43%"></colgroup>
+                <thead><tr><th>Page</th><th>Issue</th><th>Severity</th><th>Recommended Fix</th></tr></thead>
+                <tbody><tr>
+            <td class="td-main">Homepage</td>
+            <td>H1 reads &#x27;Blueboard Remodeling Services&#x27; instead of a keyword-rich phrase</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Change H1 to &#x27;Home Remodeling &amp; Renovation Contractor in Boise, ID&#x27;</td>
+        </tr><tr>
+            <td class="td-main">Gallery</td>
+            <td>Image filenames are generic (3d-rendering-white-wood-living-room, o-1, o-2)</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Rename files to descriptive names like &#x27;kitchen-remodel-meridian-id-2025.jpg&#x27; and add real local project alt text</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>&#x27;What Our Clients Say&#x27; section is empty / has no visible reviews</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Pull 4-6 real Yelp or Google reviews onto the homepage with reviewer name and city</td>
+        </tr><tr>
+            <td class="td-main">Kitchen Remodeling</td>
+            <td>Page is very short — under 300 words of actual content</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Expand to 800-1200 words with cost ranges, timeline, materials, FAQ, and 2-3 project photos</td>
+        </tr><tr>
+            <td class="td-main">Bathroom Renovations</td>
+            <td>No before/after photos and no scope examples</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Add a &#x27;Recent Bathroom Projects&#x27; grid with 4-6 local examples</td>
+        </tr><tr>
+            <td class="td-main">Areas We Serve</td>
+            <td>Single page lists 5 cities — should be separate landing pages</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Split into individual pages for Meridian, Eagle, Nampa, Caldwell, Kuna</td>
+        </tr><tr>
+            <td class="td-main">All pages</td>
+            <td>Primary contact email is a personal Gmail address (victorsalazarluna89@gmail.com)</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Set up info@blueboardremodeling.com and use everywhere</td>
+        </tr><tr>
+            <td class="td-main">Contact</td>
+            <td>No NAP block (name, address, phone) in a consistent footer-ready format</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Add a consistent business name, full address, and phone block to footer of every page</td>
+        </tr><tr>
+            <td class="td-main">Services hub</td>
+            <td>Service overview page reuses the same generic copy as the homepage</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Rewrite with a unique 200-word intro and link out to each service with custom blurbs</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>Hero copy says &#x27;Would you be ready to revitalize your home? I think we should get started today.&#x27; — reads oddly translated</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td class="td-muted">Rewrite hero CTA to natural conversational English</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-header"><span class="section-num">4</span><span class="section-title">Technical SEO Checklist</span></div>
+        <p class="section-desc">Infrastructure and crawlability checks that affect how search engines index your site.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:22%"><col style="width:15%"><col style="width:63%"></colgroup>
+                <thead><tr><th>Check</th><th>Status</th><th>Details</th></tr></thead>
+                <tbody><tr>
+            <td class="td-main">HTTPS / SSL</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Site loads over HTTPS with a valid certificate</td>
+        </tr><tr>
+            <td class="td-main">Mobile Viewport</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Viewport meta tag is set, layout responsive on Elementor 3.34</td>
+        </tr><tr>
+            <td class="td-main">Canonical Tags</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Each page has a self-referencing canonical</td>
+        </tr><tr>
+            <td class="td-main">Open Graph Tags</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">og:title, og:description, og:image present on all main pages</td>
+        </tr><tr>
+            <td class="td-main">LocalBusiness Schema</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">No LocalBusiness or GeneralContractor schema detected — missing a huge local SEO signal</td>
+        </tr><tr>
+            <td class="td-main">Review Schema</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">No AggregateRating or Review schema, so star ratings will not show in Google</td>
+        </tr><tr>
+            <td class="td-main">FAQ Schema</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">FAQ content exists on the homepage but is not wrapped in FAQPage schema</td>
+        </tr><tr>
+            <td class="td-main">Image Alt Text</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Most gallery images use generic alt text — should describe the project, room type, and city</td>
+        </tr><tr>
+            <td class="td-main">XML Sitemap</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">WordPress sitemap typically auto-generated by Yoast/RankMath — verify it is submitted to Google Search Console</td>
+        </tr><tr>
+            <td class="td-main">Robots.txt</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Standard WordPress robots.txt, no crawl blocks detected</td>
+        </tr><tr>
+            <td class="td-main">Page Speed Signals</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Elementor with multiple Google Fonts and large hero images — defer non-critical CSS and compress hero images</td>
+        </tr><tr>
+            <td class="td-main">Internal Linking</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Service pages link back to homepage and Contact, but rarely cross-link to related services</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-header"><span class="section-num">5</span><span class="section-title">Competitor Comparison</span></div>
+        <p class="section-desc">Head-to-head comparison against your main local competitors.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <thead><tr><th>Dimension</th><th>Blueboard Remodeling Services</th><th>Triple G Construction</th><th>Idaho Remodeling Pros</th></tr></thead>
+                <tbody><tr>
+            <td class="td-main">Domain Age</td>
+            <td>~1 year (registered 2025)</td>
+            <td>~5 years</td>
+            <td>~3 years</td>
+        </tr><tr>
+            <td class="td-main">Indexed Pages</td>
+            <td>~15 pages</td>
+            <td>~40 pages</td>
+            <td>~28 pages</td>
+        </tr><tr>
+            <td class="td-main">Google Reviews Visible</td>
+            <td>Yelp link only</td>
+            <td>Embedded Google reviews</td>
+            <td>Star rating in SERPs</td>
+        </tr><tr>
+            <td class="td-main">City Landing Pages</td>
+            <td>0 individual pages</td>
+            <td>5 cities</td>
+            <td>3 cities</td>
+        </tr><tr>
+            <td class="td-main">Project Case Studies</td>
+            <td>Stock images only</td>
+            <td>12 case studies</td>
+            <td>8 case studies</td>
+        </tr><tr>
+            <td class="td-main">Blog / Content</td>
+            <td>None</td>
+            <td>Active blog</td>
+            <td>10 posts</td>
+        </tr><tr>
+            <td class="td-main">Branded Email</td>
+            <td>Gmail address</td>
+            <td>Branded inbox</td>
+            <td>Branded inbox</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-header"><span class="section-num">6</span><span class="section-title">Content Gap Recommendations</span></div>
+        <p class="section-desc">Topics and content types your competitors cover that you're missing.</p>
+        <div class="section-body">
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Real local project case studies</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Homeowners hiring a remodeler want to see real work in homes that look like theirs — stock photos hurt trust and Google can tell the difference</p>
+            <p class="gap-format">Recommended format: Case study posts with before/after photos, scope, timeline, budget range, and the neighborhood</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">City-specific service area pages</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Meridian, Eagle, Nampa, Caldwell, and Kuna each have their own search volume — one combined page can&#x27;t rank for all of them</p>
+            <p class="gap-format">Recommended format: One landing page per city, each with locally-specific intro, project examples, and FAQs</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Cost / pricing guides</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">&#x27;Cost to remodel kitchen Boise&#x27; style searches have strong intent and pull people to the bottom of the funnel quickly</p>
+            <p class="gap-format">Recommended format: Pricing guide blog posts with low / mid / high budget ranges for Treasure Valley homes</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Reviews and testimonials on-page</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">The current &#x27;What Our Clients Say&#x27; section is empty — that&#x27;s a major credibility gap on every page</p>
+            <p class="gap-format">Recommended format: Embedded Google reviews carousel + 2-3 written testimonials per service page</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Process / what-to-expect page</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">First-time remodelers want to understand the process; this builds trust and answers objections before the consult</p>
+            <p class="gap-format">Recommended format: A &#x27;How we work&#x27; page covering consult, design, permitting, build phases, and warranty</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">FAQ schema markup</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">FAQ content already exists on the homepage but is not marked up as FAQPage schema, so Google can&#x27;t show it as rich results</p>
+            <p class="gap-format">Recommended format: Add JSON-LD FAQPage schema for the existing 8 FAQs</p>
+        </div></div>
+    </div>
+    <div class="section">
+        <div class="section-header"><span class="section-num">7</span><span class="section-title">Prioritized Action Plan</span></div>
+        <div class="section-body">
+            <div class="action-group">
+                <div class="action-group-title"><span class="dot" style="background:var(--green)"></span>Quick Wins<span class="sub">do this week &mdash; under 2 hours each</span></div>
+                <ol class="action-list"><li>Rewrite the homepage H1 to &#x27;Home Remodeling &amp; Renovation Contractor in Boise, ID&#x27; so it matches what locals actually search for</li><li>Swap the Gmail contact for a branded inbox like info@blueboardremodeling.com and update every page footer</li><li>Populate the empty &#x27;What Our Clients Say&#x27; section with 4-6 real Yelp/Google reviews including reviewer first name and city</li><li>Add LocalBusiness JSON-LD schema with name, address, phone, hours, service area, and aggregate rating</li><li>Rename gallery image files from &#x27;o-1.jpg&#x27; style to descriptive names like &#x27;kitchen-remodel-meridian-id-2025.jpg&#x27; and write real alt text</li><li>Wrap the existing homepage FAQ section in FAQPage schema so it can earn rich results in Google</li><li>Compress hero images and defer non-critical CSS to lift mobile speed by 1-2 seconds</li><li>Add a consistent NAP (name, address, phone) block to the footer of every page</li></ol>
+            </div>
+            <div class="action-group">
+                <div class="action-group-title"><span class="dot" style="background:var(--blue)"></span>Strategic Investments<span class="sub">plan for this quarter</span></div>
+                <ol class="action-list"><li>Build out 5 individual service area landing pages — one each for Meridian, Eagle, Nampa, Caldwell, and Kuna — with city-specific copy and projects</li><li>Expand the Kitchen Remodeling and Bathroom Renovations pages to 800-1200 words each with cost ranges, timeline, materials, FAQ, and real project photos</li><li>Publish 6-8 case study posts documenting recent local projects with before/after photos, scope, and budget bands</li><li>Start a simple blog with 1 post per month focused on informational keywords like &#x27;cost to remodel a kitchen in Boise&#x27; and &#x27;how long does a bathroom remodel take&#x27;</li><li>Split the Interior &amp; Exterior Painting page into two dedicated pages, each targeting its own keyword set</li><li>Embed real Google reviews with star ratings on the homepage and on each top service page</li></ol>
+            </div>
+        </div>
+    </div>
+    <div class="cta">
+        <h3>Ready to implement these improvements?</h3>
+        <p>Innovation With Pixels specializes in websites for construction and home service businesses.</p>
+        <div class="cta-links">
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+                hammad@innovationwithpixels.com
+            </span>
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                innovationwithpixels.com
+            </span>
+        </div>
+    </div>
+    <div class="footer">Prepared by Innovation With Pixels &middot; innovationwithpixels.com</div>
+</div>
+</body>
+</html>
