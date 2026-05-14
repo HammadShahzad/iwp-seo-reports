@@ -2,6 +2,15 @@
 
 This log tracks carpet-cleaning companies that have been contacted via the automated outreach task. NEVER contact a company already listed here. Rotate cities — avoid reusing a city from the last 2 entries.
 
+## 2026-05-14
+- **Company:** C. Thomas Cleaning Service
+- **Website:** cthomascleanings.com
+- **City:** Richmond, VA
+- **Contact:** cthomascleanings@gmail.com
+- **Subject:** Quick look at the C. Thomas Cleaning site — a few things worth fixing
+- **Status:** Sent
+- **Report URL:** https://reports.innovationwithpixels.com/reports/c-thomas-cleaning-service.html
+
 ## 2026-05-04
 - **Company:** Clean As Day
 - **Website:** cleanasday.com
