@@ -2,6 +2,15 @@
 
 This log tracks carpet-cleaning companies that have been contacted via the automated outreach task. NEVER contact a company already listed here. Rotate cities — avoid reusing a city from the last 2 entries.
 
+## 2026-05-15
+- **Company:** Heartland Carpet & Upholstery Care
+- **Website:** heartlandcuc.com
+- **City:** Grove City / Columbus, OH
+- **Contact:** info@heartlandcuc.com
+- **Subject:** Quick look at the Heartland site — a few things worth fixing
+- **Status:** Sent
+- **Report URL:** https://reports.innovationwithpixels.com/reports/heartland-carpet-upholstery-care.html
+
 ## 2026-05-14
 - **Company:** C. Thomas Cleaning Service
 - **Website:** cthomascleanings.com
