@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Review &mdash; Pannell Construction</title>
+<style>
+:root {
+    --navy: #0f172a;
+    --navy-light: #1e293b;
+    --blue: #3b82f6;
+    --blue-light: #dbeafe;
+    --green: #10b981;
+    --green-bg: #ecfdf5;
+    --amber: #f59e0b;
+    --amber-bg: #fffbeb;
+    --red: #ef4444;
+    --red-bg: #fef2f2;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-700);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+.report { max-width: 960px; margin: 0 auto; }
+.hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    padding: 64px 56px 56px;
+    border-radius: 0 0 var(--radius) var(--radius);
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(59,130,246,.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.8);
+    margin-bottom: 24px;
+}
+.hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    margin-bottom: 24px;
+}
+.hero-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+.hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+}
+.hero-meta-item svg { flex-shrink: 0; }
+.hero-divider {
+    height: 1px;
+    background: rgba(255,255,255,.12);
+    margin: 32px 0 20px;
+}
+.hero-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+}
+.section {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 24px 0;
+    overflow: hidden;
+}
+.section-header {
+    padding: 28px 32px 0;
+}
+.section-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 8px;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+.section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-900);
+    display: inline;
+    vertical-align: middle;
+}
+.section-desc {
+    font-size: 14px;
+    color: var(--gray-500);
+    margin-top: 8px;
+    padding: 0 32px;
+}
+.section-body {
+    padding: 24px 32px 32px;
+}
+.score-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    padding: 36px 32px;
+    flex-wrap: wrap;
+}
+.score-main {
+    text-align: center;
+}
+.score-ring-lg {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 12px;
+}
+.score-ring-lg svg {
+    width: 160px;
+    height: 160px;
+    transform: rotate(-90deg);
+}
+.score-ring-lg .ring-bg {
+    fill: none;
+    stroke: var(--gray-100);
+    stroke-width: 3;
+}
+.score-ring-lg .ring-fill {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    transition: stroke-dasharray .6s ease;
+}
+.score-big {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -.03em;
+}
+.score-of {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--gray-400);
+}
+.score-label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+.score-summary {
+    max-width: 420px;
+    text-align: left;
+}
+.score-summary p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-600);
+    margin-bottom: 12px;
+}
+.score-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 0 32px 32px;
+}
+.score-card {
+    text-align: center;
+    padding: 20px 12px 16px;
+    background: var(--gray-50);
+    border-radius: 10px;
+    border: 1px solid var(--gray-200);
+}
+.ring-wrap {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 10px;
+}
+.ring-wrap svg {
+    width: 64px;
+    height: 64px;
+    transform: rotate(-90deg);
+}
+.ring { width: 100%; height: 100%; }
+.ring-bg { fill: none; stroke: var(--gray-200); stroke-width: 3; }
+.ring-fill { fill: none; stroke-width: 3; stroke-linecap: round; }
+.ring-num {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: 700;
+}
+.score-card-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 4px;
+}
+.score-card-sub {
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.4;
+}
+.tbl-wrap {
+    overflow-x: auto;
+    padding: 0 32px 32px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    table-layout: fixed;
+}
+th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--gray-500);
+    border-bottom: 2px solid var(--gray-200);
+    background: var(--gray-50);
+}
+td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-100);
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+tr:last-child td { border-bottom: none; }
+.td-main { font-weight: 600; color: var(--gray-800); }
+.td-muted { color: var(--gray-500); font-size: 12px; }
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.badge-green {
+    background: var(--green-bg);
+    color: #047857;
+}
+.badge-amber {
+    background: var(--amber-bg);
+    color: #b45309;
+}
+.badge-red {
+    background: var(--red-bg);
+    color: #b91c1c;
+}
+.gap-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+}
+.gap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+.gap-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-800);
+}
+.gap-why {
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+.gap-format {
+    font-size: 12px;
+    color: var(--gray-400);
+    font-style: italic;
+}
+.action-group {
+    margin-bottom: 28px;
+}
+.action-group-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--gray-100);
+}
+.action-group-title .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.action-group-title .sub {
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--gray-400);
+}
+.action-list {
+    list-style: none;
+    counter-reset: action;
+}
+.action-list li {
+    counter-increment: action;
+    position: relative;
+    padding: 10px 0 10px 36px;
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    border-bottom: 1px solid var(--gray-100);
+}
+.action-list li:last-child { border-bottom: none; }
+.action-list li::before {
+    content: counter(action);
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 22px;
+    height: 22px;
+    background: var(--gray-100);
+    color: var(--gray-500);
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cta {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 40px 40px;
+    text-align: center;
+    margin: 24px 0;
+}
+.cta h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.cta p {
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+    max-width: 500px;
+    margin: 0 auto 24px;
+    line-height: 1.65;
+}
+.cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.cta-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,.9);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.cta-link svg { flex-shrink: 0; }
+.footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: var(--gray-400);
+}
+@media print {
+    body { background: #fff; }
+    .section { box-shadow: none; border: 1px solid var(--gray-200); page-break-inside: avoid; }
+    .hero { border-radius: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="report">
+
+    <div class="hero">
+        <div class="hero-badge">Website Performance Review</div>
+        <h1>Pannell Construction</h1>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                pannellconstruction.com
+            </div>
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Knoxville, TN
+            </div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-footer">
+            <span>Prepared May 18, 2026</span>
+            <span>by Innovation With Pixels</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">1</span>
+            <span class="section-title">Executive Summary</span>
+        </div>
+        <div class="score-hero">
+            <div class="score-main">
+                <div class="score-ring-lg">
+                    <svg viewBox="0 0 36 36">
+                        <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="ring-fill" stroke="#ef4444" stroke-dasharray="58, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="score-big" style="color:#ef4444">58<span class="score-of">/100</span></div>
+                </div>
+                <div class="score-label" style="color:#ef4444">Critical</div>
+            </div>
+            <div class="score-summary">
+                <p>Pannell Construction has a clean, image-forward Squarespace site with a strong portfolio of recognizable Knoxville commercial projects like Kern&#x27;s Bakery, Black Dog Brewhouse, and Smoothie King. The brand presentation is solid and trustworthy, and the site already includes LocalBusiness schema, which is a great foundation. However, several core SEO fundamentals are missing that are likely keeping the site from ranking for the searches Knoxville homeowners and small business owners actually type into Google.</p>
+                <p>The biggest gap is that the homepage has no H1 heading tag at all, meaning Google has no clear signal about what the page is primarily about. There&#x27;s also no dedicated service pages for kitchen remodels, bath renovations, or commercial build-outs (each service is just a bullet point on the About page), and no service area pages for nearby cities like Farragut, Oak Ridge, Maryville, or Sevierville. Combined with slow page load (~4 seconds to interactive) and missing alt text on portfolio images, these fixes alone could meaningfully improve search visibility within a quarter.</p>
+            </div>
+        </div>
+        <div class="score-grid">
+            
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="48, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">48</span>
+            </div>
+            <div class="score-card-label">On-Page SEO</div>
+            <div class="score-card-sub">Missing H1, thin pages</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="65, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">65</span>
+            </div>
+            <div class="score-card-label">Technical SEO</div>
+            <div class="score-card-sub">HTTPS solid, speed slow</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="62, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">62</span>
+            </div>
+            <div class="score-card-label">Local SEO</div>
+            <div class="score-card-sub">Schema yes, no area pages</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="45, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">45</span>
+            </div>
+            <div class="score-card-label">Content Depth</div>
+            <div class="score-card-sub">Portfolio rich, copy thin</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="70, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">70</span>
+            </div>
+            <div class="score-card-label">Mobile &amp; UX</div>
+            <div class="score-card-sub">Responsive, viewport set</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="55, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">55</span>
+            </div>
+            <div class="score-card-label">Off-Page Authority</div>
+            <div class="score-card-sub">Limited backlink signals</div>
+        </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">2</span>
+            <span class="section-title">Keyword Opportunities</span>
+        </div>
+        <p class="section-desc">Top keyword opportunities ranked by search demand, competition, and relevance to your business.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:25%"><col style="width:12%"><col style="width:13%"><col style="width:15%"><col style="width:35%"></colgroup>
+                <thead><tr>
+                    <th>Keyword</th><th>Difficulty</th><th>Opportunity</th><th>Intent</th><th>Recommended Action</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">general contractor Knoxville TN</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Optimize homepage H1 and title for this exact phrase</td>
+        </tr><tr>
+            <td class="td-main">commercial build out Knoxville</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create a dedicated commercial build-out service page</td>
+        </tr><tr>
+            <td class="td-main">restaurant build out contractor Knoxville</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Spin off restaurant build-out page tied to portfolio projects</td>
+        </tr><tr>
+            <td class="td-main">kitchen remodel Knoxville</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build standalone kitchen remodel page with photos and pricing range</td>
+        </tr><tr>
+            <td class="td-main">bathroom remodel Knoxville TN</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create bathroom renovation service page with before/after gallery</td>
+        </tr><tr>
+            <td class="td-main">home addition contractor Knoxville</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build home addition page covering process and timeline</td>
+        </tr><tr>
+            <td class="td-main">custom home builder Knoxville</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create custom home build service page with FAQ</td>
+        </tr><tr>
+            <td class="td-main">general contractor Farragut TN</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create service area page for Farragut</td>
+        </tr><tr>
+            <td class="td-main">general contractor Oak Ridge TN</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create service area page for Oak Ridge (already have project there)</td>
+        </tr><tr>
+            <td class="td-main">general contractor Maryville TN</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create service area page for Maryville</td>
+        </tr><tr>
+            <td class="td-main">cost to remodel kitchen Knoxville</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Blog post with local pricing ranges and process</td>
+        </tr><tr>
+            <td class="td-main">how to choose a general contractor</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Write guide post for hiring a GC, link to contact</td>
+        </tr><tr>
+            <td class="td-main">brewery construction contractor Tennessee</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Niche case study page leveraging Black Dog and Orange Hat projects</td>
+        </tr><tr>
+            <td class="td-main">licensed general contractor near me</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Ensure NAP consistency and Google Business Profile is fully built out</td>
+        </tr><tr>
+            <td class="td-main">small business build out Knoxville</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Lead-gen page targeting local small business owners opening retail</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">3</span>
+            <span class="section-title">On-Page SEO Issues</span>
+        </div>
+        <p class="section-desc">Page-level issues affecting your search visibility, sorted by severity.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:15%"><col style="width:30%"><col style="width:12%"><col style="width:43%"></colgroup>
+                <thead><tr>
+                    <th>Page</th><th>Issue</th><th>Severity</th><th>Recommended Fix</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">Homepage</td>
+            <td>No H1 tag on page</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add a single H1 like &#x27;Licensed General Contractor in Knoxville, TN&#x27; so Google understands the page&#x27;s primary topic</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>Only 1 H2 and no H3 structure</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Break content into sections with H2s for Services, Recent Projects, Service Area, and Why Choose Us</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>Body copy is very thin (under 100 words)</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Expand to 400-600 words covering services, area served, and differentiators</td>
+        </tr><tr>
+            <td class="td-main">All pages</td>
+            <td>Generic page titles all lead with company name</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Lead titles with the keyword first: &#x27;Kitchen Remodeling Knoxville | Pannell Construction&#x27;</td>
+        </tr><tr>
+            <td class="td-main">Portfolio images</td>
+            <td>3 of 10 images missing alt text</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Add descriptive alt text like &#x27;Black Dog Brewhouse build out by Pannell Construction in Knoxville&#x27;</td>
+        </tr><tr>
+            <td class="td-main">About</td>
+            <td>Services listed as bullets, no dedicated pages</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Each service (kitchen, bath, commercial build-out, custom home) needs its own indexed page</td>
+        </tr><tr>
+            <td class="td-main">Site-wide</td>
+            <td>No service area pages for surrounding towns</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add /service-area/farragut, /service-area/oak-ridge, /service-area/maryville pages</td>
+        </tr><tr>
+            <td class="td-main">Portfolio</td>
+            <td>Project pages lack written case studies</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Add 200-300 word write-ups for each project: scope, challenges, timeline, outcome</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>No testimonials or reviews displayed</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Pull Google reviews onto homepage with schema markup for star ratings</td>
+        </tr><tr>
+            <td class="td-main">Site-wide</td>
+            <td>No blog or news section</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Start a simple blog for informational queries and to build topical authority</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">4</span>
+            <span class="section-title">Technical SEO Checklist</span>
+        </div>
+        <p class="section-desc">Infrastructure and crawlability checks that affect how search engines index your site.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:22%"><col style="width:15%"><col style="width:63%"></colgroup>
+                <thead><tr>
+                    <th>Check</th><th>Status</th><th>Details</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">HTTPS / SSL</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Site loads over HTTPS with valid certificate</td>
+        </tr><tr>
+            <td class="td-main">Mobile Viewport</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Viewport meta tag set correctly for responsive behavior</td>
+        </tr><tr>
+            <td class="td-main">LocalBusiness Schema</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Site already has WebSite and LocalBusiness JSON-LD schema present</td>
+        </tr><tr>
+            <td class="td-main">Canonical Tags</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Canonical URLs set on homepage and key pages</td>
+        </tr><tr>
+            <td class="td-main">Page Speed</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">DOMContentLoaded around 4 seconds, slower than competitors, mostly due to large unoptimized portfolio images</td>
+        </tr><tr>
+            <td class="td-main">Image Optimization</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Squarespace serves images at large sizes; consider next-gen formats and lazy loading</td>
+        </tr><tr>
+            <td class="td-main">Sitemap.xml</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Should be confirmed in Google Search Console and submitted; thin site structure limits crawl signals</td>
+        </tr><tr>
+            <td class="td-main">Open Graph Tags</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">OG title and description set for social sharing</td>
+        </tr><tr>
+            <td class="td-main">H1 Tag</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">Homepage has no H1 tag at all — this is a critical missed signal for Google</td>
+        </tr><tr>
+            <td class="td-main">Internal Linking</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Only 6 unique internal pages and limited cross-linking between services and portfolio</td>
+        </tr><tr>
+            <td class="td-main">GBP / Map Embed</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">No embedded Google Map or visible NAP block on homepage</td>
+        </tr><tr>
+            <td class="td-main">Review Schema</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">No AggregateRating or Review schema present despite likely having Google reviews</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">5</span>
+            <span class="section-title">Competitor Comparison</span>
+        </div>
+        <p class="section-desc">Head-to-head comparison against your main local competitors.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <thead><tr>
+                    <th>Dimension</th><th>Pannell Construction</th><th>Cox General Contractors</th><th>Universal Construction of TN</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">Domain Age (approx)</td>
+            <td>~7 years</td>
+            <td>10+ years</td>
+            <td>5 years</td>
+        </tr><tr>
+            <td class="td-main">Indexed Pages (approx)</td>
+            <td>6 pages</td>
+            <td>25+ pages</td>
+            <td>18 pages</td>
+        </tr><tr>
+            <td class="td-main">Service Pages</td>
+            <td>0 dedicated</td>
+            <td>6 service pages</td>
+            <td>4 service pages</td>
+        </tr><tr>
+            <td class="td-main">Service Area Pages</td>
+            <td>None</td>
+            <td>Knoxville + 4 cities</td>
+            <td>Knoxville + 2 cities</td>
+        </tr><tr>
+            <td class="td-main">Blog / Resources</td>
+            <td>No</td>
+            <td>Yes (active)</td>
+            <td>No</td>
+        </tr><tr>
+            <td class="td-main">Google Reviews Visible</td>
+            <td>Not on site</td>
+            <td>Embedded with rating</td>
+            <td>Linked from footer</td>
+        </tr><tr>
+            <td class="td-main">Portfolio Case Studies</td>
+            <td>Photo-only</td>
+            <td>Photos + descriptions</td>
+            <td>Photos + project details</td>
+        </tr><tr>
+            <td class="td-main">Schema Markup</td>
+            <td>LocalBusiness</td>
+            <td>LocalBusiness + Reviews</td>
+            <td>LocalBusiness + Services</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">6</span>
+            <span class="section-title">Content Gap Recommendations</span>
+        </div>
+        <p class="section-desc">Topics and content types your competitors cover that you're missing.</p>
+        <div class="section-body">
+            
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Dedicated service pages for each offering</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Right now Google has no specific page to rank when someone searches &#x27;kitchen remodel Knoxville&#x27; or &#x27;commercial build out Knoxville&#x27; — these are exactly the searches that drive qualified leads</p>
+            <p class="gap-format">Recommended format: One page per service with photos, process, FAQ, and a clear CTA</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Service area pages for surrounding cities</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Farragut, Oak Ridge, Maryville, and Sevierville all have homeowners searching for contractors — without area-specific pages you&#x27;re invisible for those local searches</p>
+            <p class="gap-format">Recommended format: Short city-specific landing pages featuring relevant past projects and a local quote form</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Project case studies with written narrative</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Beautiful project photos exist but no story behind them; written case studies build trust and rank for niche searches like &#x27;restaurant build out contractor Tennessee&#x27;</p>
+            <p class="gap-format">Recommended format: 200-400 word write-ups per project covering scope, timeline, challenges, and outcome</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Customer testimonials and Google review integration</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Trust signals are critical for high-ticket construction decisions, and review schema can earn rich snippets in search results</p>
+            <p class="gap-format">Recommended format: Testimonial section on homepage plus AggregateRating schema</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Cost guides and process FAQs (blog)</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Homeowners search &#x27;how much does a kitchen remodel cost in Knoxville&#x27; constantly — owning these answers builds top-of-funnel authority</p>
+            <p class="gap-format">Recommended format: Short, evergreen blog posts (600-900 words each) with local data</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Pricing or budget transparency page</span>
+                <span class="badge badge-amber" style="font-size:11px">Low Priority</span>
+            </div>
+            <p class="gap-why">Competitors that share even rough pricing ranges build trust and pre-qualify leads, saving time on consultations</p>
+            <p class="gap-format">Recommended format: Single page with typical project budget tiers and what&#x27;s included</p>
+        </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">7</span>
+            <span class="section-title">Prioritized Action Plan</span>
+        </div>
+        <div class="section-body">
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--green)"></span>
+                    Quick Wins
+                    <span class="sub">do this week &mdash; under 2 hours each</span>
+                </div>
+                <ol class="action-list"><li>Add an H1 to the homepage like &#x27;Licensed General Contractor in Knoxville, TN&#x27; — currently there is none</li><li>Add descriptive alt text to the 3 portfolio images currently missing it</li><li>Expand homepage body copy from a paragraph to 400-600 words covering services and area served</li><li>Reorder all page titles so the keyword comes first (e.g., &#x27;Kitchen Remodeling Knoxville | Pannell Construction&#x27;)</li><li>Embed a Google Map and full NAP block (address, phone) on the homepage and contact page</li><li>Compress and lazy-load portfolio images to cut DOMContentLoaded under 2.5 seconds</li><li>Claim or fully optimize the Google Business Profile and link it from the site footer</li></ol>
+            </div>
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--blue)"></span>
+                    Strategic Investments
+                    <span class="sub">plan for this quarter</span>
+                </div>
+                <ol class="action-list"><li>Build dedicated service pages for kitchen remodel, bath renovation, home addition, custom home, and commercial build out</li><li>Create service area pages for Farragut, Oak Ridge, Maryville, and Sevierville to capture nearby city searches</li><li>Convert each portfolio project into a real written case study with 200-400 words of narrative</li><li>Add a simple blog and publish one local-focused post per month (cost guides, process explainers, contractor FAQs)</li><li>Implement Review and AggregateRating schema and surface Google reviews on the homepage</li><li>Develop a niche commercial build-out landing page leveraging the brewery, restaurant, and retail portfolio for industry-specific lead gen</li></ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta">
+        <h3>Ready to implement these improvements?</h3>
+        <p>Innovation With Pixels specializes in websites for construction and home service businesses.</p>
+        <div class="cta-links">
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+                hammad@innovationwithpixels.com
+            </span>
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                innovationwithpixels.com
+            </span>
+        </div>
+    </div>
+
+    <div class="footer">
+        Prepared by Innovation With Pixels &middot; innovationwithpixels.com
+    </div>
+
+</div>
+
+</body>
+</html>
