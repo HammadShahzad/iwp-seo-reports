@@ -2,6 +2,15 @@
 
 This log tracks carpet-cleaning companies that have been contacted via the automated outreach task. NEVER contact a company already listed here. Rotate cities — avoid reusing a city from the last 2 entries.
 
+## 2026-05-20
+- **Company:** True Price Carpet Cleaning
+- **Website:** truepricecarpetcleaning.com
+- **City:** Tampa, FL
+- **Contact:** bmarcum@truepricecarpetcleaning.com
+- **Subject:** Quick look at the True Price site — a few things worth fixing
+- **Status:** Sent
+- **Report URL:** https://reports.innovationwithpixels.com/reports/true-price-carpet-cleaning.html
+
 ## 2026-05-15
 - **Company:** Heartland Carpet & Upholstery Care
 - **Website:** heartlandcuc.com
