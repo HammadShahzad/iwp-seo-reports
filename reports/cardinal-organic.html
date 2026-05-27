@@ -38,7 +38,11 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
 }
+
+/* Layout */
 .report { max-width: 960px; margin: 0 auto; }
+
+/* Hero */
 .hero {
     background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
     color: #fff;
@@ -104,6 +108,8 @@ body {
     font-size: 13px;
     color: rgba(255,255,255,.5);
 }
+
+/* Sections */
 .section {
     background: #fff;
     border-radius: var(--radius);
@@ -111,7 +117,9 @@ body {
     margin: 24px 0;
     overflow: hidden;
 }
-.section-header { padding: 28px 32px 0; }
+.section-header {
+    padding: 28px 32px 0;
+}
 .section-num {
     display: inline-flex;
     align-items: center;
@@ -139,7 +147,11 @@ body {
     margin-top: 8px;
     padding: 0 32px;
 }
-.section-body { padding: 24px 32px 32px; }
+.section-body {
+    padding: 24px 32px 32px;
+}
+
+/* Score Hero Card */
 .score-hero {
     display: flex;
     align-items: center;
@@ -148,7 +160,9 @@ body {
     padding: 36px 32px;
     flex-wrap: wrap;
 }
-.score-main { text-align: center; }
+.score-main {
+    text-align: center;
+}
 .score-ring-lg {
     position: relative;
     width: 160px;
@@ -180,15 +194,28 @@ body {
     font-weight: 800;
     letter-spacing: -.03em;
 }
-.score-of { font-size: 18px; font-weight: 400; color: var(--gray-400); }
-.score-label { font-size: 14px; font-weight: 600; margin-top: 4px; }
-.score-summary { max-width: 420px; text-align: left; }
+.score-of {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--gray-400);
+}
+.score-label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+.score-summary {
+    max-width: 420px;
+    text-align: left;
+}
 .score-summary p {
     font-size: 15px;
     line-height: 1.7;
     color: var(--gray-600);
     margin-bottom: 12px;
 }
+
+/* Category Score Cards */
 .score-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -230,8 +257,17 @@ body {
     color: var(--gray-800);
     margin-bottom: 4px;
 }
-.score-card-sub { font-size: 11px; color: var(--gray-400); line-height: 1.4; }
-.tbl-wrap { overflow-x: auto; padding: 0 32px 32px; }
+.score-card-sub {
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.4;
+}
+
+/* Tables */
+.tbl-wrap {
+    overflow-x: auto;
+    padding: 0 32px 32px;
+}
 table {
     width: 100%;
     border-collapse: collapse;
@@ -259,6 +295,8 @@ td {
 tr:last-child td { border-bottom: none; }
 .td-main { font-weight: 600; color: var(--gray-800); }
 .td-muted { color: var(--gray-500); font-size: 12px; }
+
+/* Badges */
 .badge {
     display: inline-block;
     padding: 3px 10px;
@@ -267,9 +305,20 @@ tr:last-child td { border-bottom: none; }
     font-weight: 600;
     white-space: nowrap;
 }
-.badge-green { background: var(--green-bg); color: #047857; }
-.badge-amber { background: var(--amber-bg); color: #b45309; }
-.badge-red { background: var(--red-bg); color: #b91c1c; }
+.badge-green {
+    background: var(--green-bg);
+    color: #047857;
+}
+.badge-amber {
+    background: var(--amber-bg);
+    color: #b45309;
+}
+.badge-red {
+    background: var(--red-bg);
+    color: #b91c1c;
+}
+
+/* Gap Cards */
 .gap-card {
     background: var(--gray-50);
     border: 1px solid var(--gray-200);
@@ -285,10 +334,27 @@ tr:last-child td { border-bottom: none; }
     flex-wrap: wrap;
     margin-bottom: 8px;
 }
-.gap-title { font-size: 15px; font-weight: 700; color: var(--gray-800); }
-.gap-why { font-size: 13px; color: var(--gray-600); line-height: 1.6; margin-bottom: 6px; }
-.gap-format { font-size: 12px; color: var(--gray-400); font-style: italic; }
-.action-group { margin-bottom: 28px; }
+.gap-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-800);
+}
+.gap-why {
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+.gap-format {
+    font-size: 12px;
+    color: var(--gray-400);
+    font-style: italic;
+}
+
+/* Action Plan */
+.action-group {
+    margin-bottom: 28px;
+}
 .action-group-title {
     display: flex;
     align-items: center;
@@ -301,7 +367,12 @@ tr:last-child td { border-bottom: none; }
     padding-bottom: 10px;
     border-bottom: 2px solid var(--gray-100);
 }
-.action-group-title .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.action-group-title .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
 .action-group-title .sub {
     font-weight: 400;
     font-size: 12px;
@@ -309,7 +380,10 @@ tr:last-child td { border-bottom: none; }
     letter-spacing: 0;
     color: var(--gray-400);
 }
-.action-list { list-style: none; counter-reset: action; }
+.action-list {
+    list-style: none;
+    counter-reset: action;
+}
 .action-list li {
     counter-increment: action;
     position: relative;
@@ -336,6 +410,8 @@ tr:last-child td { border-bottom: none; }
     align-items: center;
     justify-content: center;
 }
+
+/* CTA */
 .cta {
     background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
     color: #fff;
@@ -344,7 +420,11 @@ tr:last-child td { border-bottom: none; }
     text-align: center;
     margin: 24px 0;
 }
-.cta h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+.cta h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
 .cta p {
     font-size: 14px;
     color: rgba(255,255,255,.7);
@@ -352,7 +432,12 @@ tr:last-child td { border-bottom: none; }
     margin: 0 auto 24px;
     line-height: 1.65;
 }
-.cta-links { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
 .cta-link {
     display: flex;
     align-items: center;
@@ -363,12 +448,16 @@ tr:last-child td { border-bottom: none; }
     text-decoration: none;
 }
 .cta-link svg { flex-shrink: 0; }
+
+/* Footer */
 .footer {
     text-align: center;
     padding: 24px;
     font-size: 12px;
     color: var(--gray-400);
 }
+
+/* Print */
 @media print {
     body { background: #fff; }
     .section { box-shadow: none; border: 1px solid var(--gray-200); page-break-inside: avoid; }
@@ -377,7 +466,10 @@ tr:last-child td { border-bottom: none; }
 </style>
 </head>
 <body>
+
 <div class="report">
+
+    <!-- HERO -->
     <div class="hero">
         <div class="hero-badge">Website Performance Review</div>
         <h1>Cardinal Organic</h1>
@@ -388,15 +480,17 @@ tr:last-child td { border-bottom: none; }
             </div>
             <div class="hero-meta-item">
                 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Charlotte, NC (Waxhaw)
+                Charlotte, NC
             </div>
         </div>
         <div class="hero-divider"></div>
         <div class="hero-footer">
-            <span>Prepared May 11, 2026</span>
+            <span>Prepared May 27, 2026</span>
             <span>by Innovation With Pixels</span>
         </div>
     </div>
+
+    <!-- EXECUTIVE SUMMARY -->
     <div class="section">
         <div class="section-header">
             <span class="section-num">1</span>
@@ -414,8 +508,8 @@ tr:last-child td { border-bottom: none; }
                 <div class="score-label" style="color:#ef4444">Critical</div>
             </div>
             <div class="score-summary">
-                <p>Cardinal Organic has a genuinely strong story to tell — IICRC-certified, eco-friendly Very Low Moisture cleaning, one client per day, and transparent pricing. Those are real differentiators in a crowded Charlotte market. But the website is undermining that story in a few critical ways: the phone numbers don&#x27;t match across the page (the click-to-call link routes to a Las Vegas number), the email link is broken, the meta description is missing, and the homepage is one long wall of text instead of guided sections. Search engines and visitors both end up confused.</p>
-                <p>On the SEO side, the biggest wins are quick: fix the broken NAP (name/address/phone) consistency, add LocalBusiness schema, write a real meta description, and split out dedicated city pages for Waxhaw, Ballantyne, Fort Mill, and Matthews — those are searches you should already be ranking for. With a focused six-week effort you could realistically move from page 2 to top 3 for several of your highest-intent local terms, especially the niche organic and VLM searches where you face almost no direct competition.</p>
+                <p>Cardinal Organic has built a strong local reputation in the Charlotte / Waxhaw area with a clear point of differentiation — Very Low Moisture cleaning, IICRC certification, eco-friendly products, and a one-client-per-day model. The website communicates that story to anyone who lands on it, and customer testimonials reinforce it well.</p>
+                <p>The bigger challenge is getting people to land on the site in the first place. Page titles, meta descriptions, heading structure and on-page targeting are all built for a visitor who already knows the brand — not for someone in Ballantyne searching &quot;carpet cleaning near me.&quot; Add inconsistent NAP information (two different phone numbers across pages), missing LocalBusiness schema, an outdated 2018 copyright in the footer, and no dedicated service-area pages for the eleven cities listed, and there is meaningful organic search opportunity being left on the table.</p>
             </div>
         </div>
         <div class="score-grid">
@@ -424,23 +518,56 @@ tr:last-child td { border-bottom: none; }
             <div class="ring-wrap">
                 <svg viewBox="0 0 36 36" class="ring">
                     <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="55, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="52, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
                 </svg>
-                <span class="ring-num" style="color:#ef4444">55</span>
+                <span class="ring-num" style="color:#ef4444">52</span>
             </div>
             <div class="score-card-label">On-Page SEO</div>
-            <div class="score-card-sub">Title is okay; meta description missing; multiple H1s on inner pages</div>
+            <div class="score-card-sub">Title tags and metas need rework</div>
         </div>
         <div class="score-card">
             <div class="ring-wrap">
                 <svg viewBox="0 0 36 36" class="ring">
                     <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="50, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="65, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
                 </svg>
-                <span class="ring-num" style="color:#ef4444">50</span>
+                <span class="ring-num" style="color:#f59e0b">65</span>
             </div>
             <div class="score-card-label">Technical SEO</div>
-            <div class="score-card-sub">HTTPS works, but broken contact links and no schema hurt trust</div>
+            <div class="score-card-sub">HTTPS solid, schema and speed gaps</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="55, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">55</span>
+            </div>
+            <div class="score-card-label">Content Depth</div>
+            <div class="score-card-sub">Thin service-area coverage</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="48, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">48</span>
+            </div>
+            <div class="score-card-label">Local SEO</div>
+            <div class="score-card-sub">NAP inconsistency, no city pages</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="70, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">70</span>
+            </div>
+            <div class="score-card-label">User Experience</div>
+            <div class="score-card-sub">Clear CTAs, dated footer</div>
         </div>
         <div class="score-card">
             <div class="ring-wrap">
@@ -450,44 +577,13 @@ tr:last-child td { border-bottom: none; }
                 </svg>
                 <span class="ring-num" style="color:#f59e0b">60</span>
             </div>
-            <div class="score-card-label">Content Quality</div>
-            <div class="score-card-sub">Strong story but stale (COVID-era) and hard to scan</div>
-        </div>
-        <div class="score-card">
-            <div class="ring-wrap">
-                <svg viewBox="0 0 36 36" class="ring">
-                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="55, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                </svg>
-                <span class="ring-num" style="color:#ef4444">55</span>
-            </div>
-            <div class="score-card-label">Local SEO</div>
-            <div class="score-card-sub">Lists 12 service cities on one page — needs dedicated pages</div>
-        </div>
-        <div class="score-card">
-            <div class="ring-wrap">
-                <svg viewBox="0 0 36 36" class="ring">
-                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="65, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                </svg>
-                <span class="ring-num" style="color:#f59e0b">65</span>
-            </div>
-            <div class="score-card-label">Mobile &amp; Speed</div>
-            <div class="score-card-sub">Responsive viewport set; oversized PNG assets slow load</div>
-        </div>
-        <div class="score-card">
-            <div class="ring-wrap">
-                <svg viewBox="0 0 36 36" class="ring">
-                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="65, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                </svg>
-                <span class="ring-num" style="color:#f59e0b">65</span>
-            </div>
-            <div class="score-card-label">Trust &amp; Conversion</div>
-            <div class="score-card-sub">Real reviews and IICRC certification, but contact friction</div>
+            <div class="score-card-label">Authority Signals</div>
+            <div class="score-card-sub">Good reviews, weak link profile</div>
         </div>
         </div>
     </div>
+
+    <!-- KEYWORD OPPORTUNITIES -->
     <div class="section">
         <div class="section-header">
             <span class="section-num">2</span>
@@ -505,95 +601,97 @@ tr:last-child td { border-bottom: none; }
             <td><span class="badge badge-red">High</span></td>
             <td><span class="badge badge-red">High</span></td>
             <td class="td-muted">Commercial</td>
-            <td class="td-muted">Optimize homepage title and H1 with this exact phrase</td>
+            <td class="td-muted">Optimize homepage title, H1 and content around this primary term</td>
         </tr><tr>
-            <td class="td-main">very low moisture carpet cleaning charlotte</td>
+            <td class="td-main">low moisture carpet cleaning charlotte</td>
             <td><span class="badge badge-green">Low</span></td>
             <td><span class="badge badge-red">High</span></td>
             <td class="td-muted">Commercial</td>
-            <td class="td-muted">Build a dedicated VLM landing page — almost no local competition</td>
+            <td class="td-muted">Build a dedicated VLM service page — you already own this angle</td>
         </tr><tr>
-            <td class="td-main">organic carpet cleaning charlotte nc</td>
+            <td class="td-main">eco friendly carpet cleaning charlotte</td>
             <td><span class="badge badge-green">Low</span></td>
             <td><span class="badge badge-red">High</span></td>
             <td class="td-muted">Commercial</td>
-            <td class="td-muted">Own this term — your brand name aligns perfectly</td>
-        </tr><tr>
-            <td class="td-main">eco friendly carpet cleaner near me</td>
-            <td><span class="badge badge-amber">Medium</span></td>
-            <td><span class="badge badge-red">High</span></td>
-            <td class="td-muted">Commercial</td>
-            <td class="td-muted">Add an eco-friendly landing page with green-product specifics</td>
-        </tr><tr>
-            <td class="td-main">pet urine carpet cleaning charlotte</td>
-            <td><span class="badge badge-amber">Medium</span></td>
-            <td><span class="badge badge-red">High</span></td>
-            <td class="td-muted">Commercial</td>
-            <td class="td-muted">Expand the urine decontamination service into a full page</td>
+            <td class="td-muted">Create a service page focused on green / non-toxic cleaning</td>
         </tr><tr>
             <td class="td-main">carpet cleaning waxhaw nc</td>
             <td><span class="badge badge-green">Low</span></td>
-            <td><span class="badge badge-red">High</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
             <td class="td-muted">Commercial</td>
-            <td class="td-muted">Build a dedicated Waxhaw page — you&#x27;re already located there</td>
+            <td class="td-muted">Add a Waxhaw service-area page — you are HQ here, easy win</td>
         </tr><tr>
             <td class="td-main">carpet cleaning ballantyne</td>
             <td><span class="badge badge-green">Low</span></td>
-            <td><span class="badge badge-red">High</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
             <td class="td-muted">Commercial</td>
-            <td class="td-muted">Create a Ballantyne service area page</td>
+            <td class="td-muted">Dedicated Ballantyne neighborhood page</td>
+        </tr><tr>
+            <td class="td-main">carpet cleaning weddington nc</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Dedicated Weddington service-area page</td>
         </tr><tr>
             <td class="td-main">carpet cleaning fort mill sc</td>
             <td><span class="badge badge-green">Low</span></td>
             <td><span class="badge badge-amber">Medium</span></td>
             <td class="td-muted">Commercial</td>
-            <td class="td-muted">Create a Fort Mill SC service area page</td>
+            <td class="td-muted">Dedicated Fort Mill page — SC traffic you currently miss</td>
         </tr><tr>
-            <td class="td-main">carpet cleaning matthews nc</td>
+            <td class="td-main">pet urine carpet cleaning charlotte</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build a Pet Urine Decontamination page with case studies</td>
+        </tr><tr>
+            <td class="td-main">wool rug cleaning charlotte</td>
             <td><span class="badge badge-green">Low</span></td>
             <td><span class="badge badge-amber">Medium</span></td>
             <td class="td-muted">Commercial</td>
-            <td class="td-muted">Create a Matthews service area page</td>
+            <td class="td-muted">Create a dedicated area-rug page</td>
+        </tr><tr>
+            <td class="td-main">upholstery cleaning charlotte</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Expand upholstery section into a stand-alone page</td>
+        </tr><tr>
+            <td class="td-main">how long does carpet take to dry after cleaning</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Blog post — your 1-hour dry time is the natural hook</td>
+        </tr><tr>
+            <td class="td-main">carpet cleaning vs steam cleaning</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Educational comparison post (VLM vs hot water extraction)</td>
+        </tr><tr>
+            <td class="td-main">best carpet cleaner for pet owners</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Blog post leading into your urine decontamination service</td>
         </tr><tr>
             <td class="td-main">iicrc certified carpet cleaner charlotte</td>
             <td><span class="badge badge-green">Low</span></td>
             <td><span class="badge badge-amber">Medium</span></td>
             <td class="td-muted">Commercial</td>
-            <td class="td-muted">Highlight IICRC certification in title and dedicated trust section</td>
+            <td class="td-muted">Mention certification in title/H1 and add a Why IICRC page</td>
         </tr><tr>
-            <td class="td-main">how long does carpet take to dry after cleaning</td>
-            <td><span class="badge badge-green">Low</span></td>
-            <td><span class="badge badge-amber">Medium</span></td>
-            <td class="td-muted">Informational</td>
-            <td class="td-muted">Write a blog post — your 1-hour dry time is a great hook</td>
-        </tr><tr>
-            <td class="td-main">is steam cleaning safe for pets</td>
-            <td><span class="badge badge-green">Low</span></td>
-            <td><span class="badge badge-amber">Medium</span></td>
-            <td class="td-muted">Informational</td>
-            <td class="td-muted">Write a comparison post: VLM vs steam for pet households</td>
-        </tr><tr>
-            <td class="td-main">best carpet cleaning method</td>
-            <td><span class="badge badge-amber">Medium</span></td>
-            <td><span class="badge badge-amber">Medium</span></td>
-            <td class="td-muted">Informational</td>
-            <td class="td-muted">Educational pillar post comparing methods</td>
-        </tr><tr>
-            <td class="td-main">carpet cleaning cost charlotte nc</td>
-            <td><span class="badge badge-green">Low</span></td>
+            <td class="td-main">carpet cleaning near me</td>
+            <td><span class="badge badge-red">High</span></td>
             <td><span class="badge badge-red">High</span></td>
             <td class="td-muted">Commercial</td>
-            <td class="td-muted">Pricing page — your transparent pricing is rare and ranks well</td>
-        </tr><tr>
-            <td class="td-main">upholstery cleaning charlotte nc</td>
-            <td><span class="badge badge-amber">Medium</span></td>
-            <td><span class="badge badge-amber">Medium</span></td>
-            <td class="td-muted">Commercial</td>
-            <td class="td-muted">Expand upholstery into a standalone service page</td>
+            <td class="td-muted">Strong LocalBusiness schema + GBP optimization is the lever here</td>
         </tr></tbody>
             </table>
         </div>
     </div>
+
+    <!-- ON-PAGE ISSUES -->
     <div class="section">
         <div class="section-header">
             <span class="section-num">3</span>
@@ -608,68 +706,60 @@ tr:last-child td { border-bottom: none; }
                 </tr></thead>
                 <tbody><tr>
             <td class="td-main">Homepage</td>
-            <td>Click-to-call link routes to wrong number (Las Vegas area code 702)</td>
-            <td><span class="badge badge-red">Critical</span></td>
-            <td class="td-muted">Update tel: links to a single canonical number — pick 704.422.4224 or 704.484.7121 and use it everywhere</td>
+            <td>Page title is only &quot;Home&quot; in browser tab once loaded — weak for SERPs</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Set title to something like &quot;Carpet Cleaning Charlotte NC | Very Low Moisture | Cardinal Organic&quot;</td>
         </tr><tr>
             <td class="td-main">Homepage</td>
-            <td>Email link uses http:// prefix instead of mailto:</td>
-            <td><span class="badge badge-red">Critical</span></td>
-            <td class="td-muted">Change href to mailto:g@cardinalorganic.com — the link is currently broken</td>
-        </tr><tr>
-            <td class="td-main">All pages</td>
-            <td>Three different phone numbers shown across the site</td>
+            <td>Meta description is essentially the first paragraph of body copy — cluttered, no CTA</td>
             <td><span class="badge badge-red">High</span></td>
-            <td class="td-muted">Standardize on one number for NAP consistency — Google penalizes this for local SEO</td>
-        </tr><tr>
-            <td class="td-main">All pages</td>
-            <td>Meta description missing or auto-generated from page text</td>
-            <td><span class="badge badge-red">High</span></td>
-            <td class="td-muted">Write unique 150-character meta descriptions for each page that include city + key service</td>
-        </tr><tr>
-            <td class="td-main">Services page</td>
-            <td>Multiple H1 tags on the same page</td>
-            <td><span class="badge badge-amber">Medium</span></td>
-            <td class="td-muted">Use one H1 per page; demote sub-headings to H2 and H3</td>
+            <td class="td-muted">Write a 150-160 character description with primary keyword + clear value prop (dry-in-1-hour, IICRC, eco-friendly)</td>
         </tr><tr>
             <td class="td-main">Homepage</td>
-            <td>No LocalBusiness schema markup detected</td>
-            <td><span class="badge badge-red">High</span></td>
-            <td class="td-muted">Add JSON-LD LocalBusiness schema with hours, service area, ratings, and price range</td>
-        </tr><tr>
-            <td class="td-main">Homepage</td>
-            <td>Long unstructured paragraphs make scanning difficult</td>
+            <td>Multiple H1 tags on the page (brand name, value prop, welcome line)</td>
             <td><span class="badge badge-amber">Medium</span></td>
-            <td class="td-muted">Break content into short paragraphs with subheadings, bullet lists, and visual separation</td>
+            <td class="td-muted">Use a single H1 like &quot;Eco-Friendly Carpet Cleaning in Charlotte, NC&quot; — demote the rest to H2</td>
         </tr><tr>
-            <td class="td-main">Footer</td>
-            <td>Copyright shows 2018 — site looks abandoned</td>
+            <td class="td-main">About</td>
+            <td>Title tag is just &quot;About – Cardinal Organic&quot; — no keyword value</td>
             <td><span class="badge badge-amber">Medium</span></td>
-            <td class="td-muted">Update to dynamic year or current year</td>
+            <td class="td-muted">Rewrite to &quot;About Cardinal Organic | IICRC Certified Carpet Cleaners in Charlotte&quot;</td>
+        </tr><tr>
+            <td class="td-main">Services</td>
+            <td>Title tag is just &quot;Services – Cardinal Organic&quot;</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Rewrite to &quot;Carpet, Upholstery &amp; Wood Floor Cleaning Services in Charlotte&quot;</td>
         </tr><tr>
             <td class="td-main">All pages</td>
-            <td>COVID-19 messaging is dated and dominates above-the-fold content</td>
-            <td><span class="badge badge-amber">Medium</span></td>
-            <td class="td-muted">Refresh content to focus on current differentiators (eco, VLM, one-client-per-day)</td>
+            <td>No dedicated service-area pages despite serving 11+ cities</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Build one page per major city (Waxhaw, Weddington, Ballantyne, Matthews, Fort Mill, Rock Hill)</td>
         </tr><tr>
-            <td class="td-main">Services page</td>
-            <td>Missing alt text on several decorative and content images</td>
-            <td><span class="badge badge-green">Low</span></td>
-            <td class="td-muted">Add descriptive alt text to all content images for accessibility and image SEO</td>
+            <td class="td-main">Homepage</td>
+            <td>Image alt text is largely missing or descriptive only (e.g. &quot;Black Cat&quot;, &quot;Pitbull&quot;)</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Rewrite alt text to be descriptive of context, e.g. &quot;pet-safe carpet cleaning Charlotte NC&quot;</td>
         </tr><tr>
             <td class="td-main">Site-wide</td>
-            <td>No dedicated city/service-area landing pages</td>
-            <td><span class="badge badge-red">High</span></td>
-            <td class="td-muted">Build one page per primary service area (Waxhaw, Ballantyne, Fort Mill, Matthews)</td>
-        </tr><tr>
-            <td class="td-main">Homepage title</td>
-            <td>Title doesn&#x27;t lead with primary keyword</td>
+            <td>Footer copyright reads &quot;Copyright 2018&quot; — hurts trust and freshness signals</td>
             <td><span class="badge badge-amber">Medium</span></td>
-            <td class="td-muted">Rewrite to: &#x27;Organic Carpet Cleaning Charlotte NC | Cardinal Organic — IICRC Certified&#x27;</td>
+            <td class="td-muted">Update copyright to current year via dynamic PHP date()</td>
+        </tr><tr>
+            <td class="td-main">Site-wide</td>
+            <td>Inconsistent NAP — phone is 704.422.4224 in some places and 704.484.7121 in others</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Pick one number, update site, GBP, and citation directories so they all match</td>
+        </tr><tr>
+            <td class="td-main">Services</td>
+            <td>Service page is one long block of text with no internal section anchors</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Break each service into its own page (or anchor sections) with H2/H3 structure and FAQ blocks</td>
         </tr></tbody>
             </table>
         </div>
     </div>
+
+    <!-- TECHNICAL SEO -->
     <div class="section">
         <div class="section-header">
             <span class="section-num">4</span>
@@ -685,55 +775,57 @@ tr:last-child td { border-bottom: none; }
                 <tbody><tr>
             <td class="td-main">HTTPS / SSL</td>
             <td><span class="badge badge-green">&#10003; Pass</span></td>
-            <td class="td-muted">Valid certificate, secure connection</td>
+            <td class="td-muted">Valid certificate, site loads over HTTPS</td>
         </tr><tr>
-            <td class="td-main">Mobile viewport</td>
+            <td class="td-main">Mobile viewport meta</td>
             <td><span class="badge badge-green">&#10003; Pass</span></td>
-            <td class="td-muted">Responsive viewport meta tag is set correctly</td>
+            <td class="td-muted">Viewport set to width=device-width, initial-scale=1</td>
         </tr><tr>
             <td class="td-main">Canonical tags</td>
             <td><span class="badge badge-green">&#10003; Pass</span></td>
-            <td class="td-muted">Canonical URLs are present on inspected pages</td>
+            <td class="td-muted">Each page has a self-referencing canonical</td>
         </tr><tr>
-            <td class="td-main">OpenGraph tags</td>
-            <td><span class="badge badge-amber">&#9888; Warning</span></td>
-            <td class="td-muted">OG tags present but auto-generated descriptions are weak</td>
+            <td class="td-main">Open Graph tags</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">OG title/description/image present — good for social sharing</td>
         </tr><tr>
-            <td class="td-main">Schema markup (LocalBusiness)</td>
+            <td class="td-main">Twitter Card tags</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Twitter card meta present</td>
+        </tr><tr>
+            <td class="td-main">LocalBusiness schema</td>
             <td><span class="badge badge-red">&#10007; Fail</span></td>
-            <td class="td-muted">No LocalBusiness, Service, or Review schema detected</td>
+            <td class="td-muted">No structured data for LocalBusiness / Organization detected — critical for local SEO</td>
         </tr><tr>
-            <td class="td-main">XML sitemap</td>
-            <td><span class="badge badge-amber">&#9888; Warning</span></td>
-            <td class="td-muted">Yoast/sitemap presence not confirmed — verify /sitemap.xml exists and is submitted to Google Search Console</td>
-        </tr><tr>
-            <td class="td-main">robots.txt</td>
-            <td><span class="badge badge-amber">&#9888; Warning</span></td>
-            <td class="td-muted">Verify robots.txt exists and doesn&#x27;t block important pages</td>
-        </tr><tr>
-            <td class="td-main">NAP consistency</td>
+            <td class="td-main">Service / Product schema</td>
             <td><span class="badge badge-red">&#10007; Fail</span></td>
-            <td class="td-muted">Multiple phone numbers shown — major local SEO issue</td>
+            <td class="td-muted">Pricing is visible on page but no Service schema to mark it up for rich results</td>
         </tr><tr>
-            <td class="td-main">Click-to-call links</td>
-            <td><span class="badge badge-red">&#10007; Fail</span></td>
-            <td class="td-muted">Tel links point to wrong number(s) — visitors calling from mobile reach the wrong line</td>
+            <td class="td-main">Sitemap</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Sitemap location not advertised in headers; verify /sitemap_index.xml exists and is submitted to GSC</td>
+        </tr><tr>
+            <td class="td-main">Robots.txt</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Confirm robots.txt allows crawl and references sitemap</td>
+        </tr><tr>
+            <td class="td-main">Page speed signals</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Elementor + WordPress with multiple large background images — likely room to improve LCP</td>
         </tr><tr>
             <td class="td-main">Image optimization</td>
             <td><span class="badge badge-amber">&#9888; Warning</span></td>
-            <td class="td-muted">Several PNG assets are large (&gt;500KB) and could be compressed or converted to WebP</td>
+            <td class="td-muted">Images served as PNG without modern format (WebP / AVIF) — wins on mobile</td>
         </tr><tr>
-            <td class="td-main">WordPress version security</td>
-            <td><span class="badge badge-amber">&#9888; Warning</span></td>
-            <td class="td-muted">Elementor 3.30.3 detected — keep core, themes, and plugins updated monthly</td>
-        </tr><tr>
-            <td class="td-main">404 handling</td>
-            <td><span class="badge badge-amber">&#9888; Warning</span></td>
-            <td class="td-muted">Test custom 404 page exists and links back to navigation</td>
+            <td class="td-main">Heading hierarchy</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">Multiple H1s detected on the homepage — should be exactly one</td>
         </tr></tbody>
             </table>
         </div>
     </div>
+
+    <!-- COMPETITOR COMPARISON -->
     <div class="section">
         <div class="section-header">
             <span class="section-num">5</span>
@@ -743,52 +835,54 @@ tr:last-child td { border-bottom: none; }
         <div class="tbl-wrap" style="padding-top:20px">
             <table>
                 <thead><tr>
-                    <th>Dimension</th><th>Cardinal Organic</th><th>Pronto and Carpet LLC</th><th>Morrow&#x27;s Carpet Cleaning</th>
+                    <th>Dimension</th><th>Cardinal Organic</th><th>Carolina Carpet Solutions</th><th>Pronto and Carpet LLC</th>
                 </tr></thead>
                 <tbody><tr>
-            <td class="td-main">Domain Age</td>
-            <td>Since 2018 (~7 yrs)</td>
-            <td>Since 2004 (~21 yrs)</td>
-            <td>Decades</td>
+            <td class="td-main">Years in business (visible on site)</td>
+            <td>Founded 2018 (per copyright)</td>
+            <td>Since 2004 (20+ years)</td>
+            <td>Since 2004 (20+ years)</td>
         </tr><tr>
-            <td class="td-main">Service Area Pages</td>
-            <td>1 (combined list)</td>
-            <td>Multiple city pages</td>
-            <td>County-focused pages</td>
+            <td class="td-main">Homepage title quality</td>
+            <td>&quot;Home&quot; / generic</td>
+            <td>Geo + service in title</td>
+            <td>Geo + service in title</td>
         </tr><tr>
-            <td class="td-main">LocalBusiness Schema</td>
-            <td>No</td>
-            <td>Partial</td>
-            <td>Yes</td>
+            <td class="td-main">LocalBusiness schema</td>
+            <td>Missing</td>
+            <td>Present</td>
+            <td>Present</td>
         </tr><tr>
-            <td class="td-main">Blog / Content</td>
-            <td>Empty blog</td>
-            <td>Limited</td>
-            <td>Active blog</td>
+            <td class="td-main">Dedicated service-area pages</td>
+            <td>0</td>
+            <td>Multiple (Charlotte metro neighborhoods)</td>
+            <td>Listed but light</td>
         </tr><tr>
-            <td class="td-main">Pricing Transparency</td>
-            <td>Yes (rare)</td>
-            <td>No</td>
-            <td>No</td>
+            <td class="td-main">Blog / educational content</td>
+            <td>Blog link exists but thin</td>
+            <td>Active content</td>
+            <td>Light</td>
         </tr><tr>
-            <td class="td-main">Eco / Organic Angle</td>
-            <td>Strong (unique)</td>
-            <td>None</td>
-            <td>None</td>
+            <td class="td-main">Awards / trust signals shown</td>
+            <td>Testimonials only</td>
+            <td>Angie&#x27;s List Super Service Awards</td>
+            <td>Money-back guarantee</td>
         </tr><tr>
-            <td class="td-main">Online Booking</td>
-            <td>Yes (Markate)</td>
-            <td>Phone only</td>
-            <td>Phone form only</td>
+            <td class="td-main">Online booking</td>
+            <td>Markate widget linked</td>
+            <td>Online scheduling form</td>
+            <td>Quote form</td>
         </tr><tr>
-            <td class="td-main">Reviews on Site</td>
-            <td>10+ testimonials</td>
-            <td>Few</td>
-            <td>Many (Google embed)</td>
+            <td class="td-main">NAP consistency</td>
+            <td>Two different phone numbers on site</td>
+            <td>Consistent</td>
+            <td>Consistent</td>
         </tr></tbody>
             </table>
         </div>
     </div>
+
+    <!-- CONTENT GAPS -->
     <div class="section">
         <div class="section-header">
             <span class="section-num">6</span>
@@ -799,62 +893,56 @@ tr:last-child td { border-bottom: none; }
             
         <div class="gap-card">
             <div class="gap-header">
-                <span class="gap-title">VLM vs Steam Cleaning: Which Is Better for Your Carpet?</span>
+                <span class="gap-title">Service-area pages for each city you serve</span>
                 <span class="badge badge-red" style="font-size:11px">High Priority</span>
             </div>
-            <p class="gap-why">You&#x27;re the rare local VLM specialist — owning this comparison topic captures research-stage buyers searching for both methods</p>
-            <p class="gap-format">Recommended format: Long-form blog post with comparison table + FAQ</p>
+            <p class="gap-why">You already list 11+ cities you serve but only have a homepage — every one of these is a missed page that competitors are ranking for</p>
+            <p class="gap-format">Recommended format: 11 short landing pages with localized copy + reviews + driving directions</p>
         </div>
         <div class="gap-card">
             <div class="gap-header">
-                <span class="gap-title">Carpet Cleaning Charlotte — Service Area Pages</span>
+                <span class="gap-title">Pet urine decontamination case studies</span>
                 <span class="badge badge-red" style="font-size:11px">High Priority</span>
             </div>
-            <p class="gap-why">A single page listing 12 cities won&#x27;t rank for any of them. Each city deserves a dedicated, locally-relevant page</p>
-            <p class="gap-format">Recommended format: 8-10 city landing pages (Waxhaw, Ballantyne, Matthews, Fort Mill, etc.)</p>
+            <p class="gap-why">You already offer this service (and price it on the homepage), but there&#x27;s no dedicated page that ranks. Searchers in trouble Google this specifically</p>
+            <p class="gap-format">Recommended format: Dedicated service page + 2-3 before/after case studies</p>
         </div>
         <div class="gap-card">
             <div class="gap-header">
-                <span class="gap-title">Pet Urine Removal Guide: What Actually Works</span>
-                <span class="badge badge-red" style="font-size:11px">High Priority</span>
-            </div>
-            <p class="gap-why">High-intent, emotional search. Your urine decontamination service is a strong fit but currently buried in pricing cards</p>
-            <p class="gap-format">Recommended format: Pillar page + before/after photos + FAQ</p>
-        </div>
-        <div class="gap-card">
-            <div class="gap-header">
-                <span class="gap-title">Why One Client Per Day? Our Service Promise</span>
+                <span class="gap-title">VLM vs steam cleaning explainer</span>
                 <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
             </div>
-            <p class="gap-why">Your one-client-per-day model is a real differentiator that&#x27;s currently lost in dense paragraphs — make it a featured story</p>
-            <p class="gap-format">Recommended format: Dedicated &#x27;Our Promise&#x27; page with photos and process explanation</p>
+            <p class="gap-why">Your entire differentiator is VLM. Most prospects don&#x27;t know what that is or why it matters — educational content closes that gap and ranks</p>
+            <p class="gap-format">Recommended format: Pillar blog post + comparison table + FAQ schema</p>
         </div>
         <div class="gap-card">
             <div class="gap-header">
-                <span class="gap-title">Eco-Friendly Carpet Cleaning: Products We Use and Why</span>
+                <span class="gap-title">Carpet care guides by carpet type</span>
                 <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
             </div>
-            <p class="gap-why">Aligns with your brand name and captures the growing green-conscious homeowner segment</p>
-            <p class="gap-format">Recommended format: Service page with product transparency, certifications, and sustainability story</p>
+            <p class="gap-why">Wool, silk, viscose, polyester each have different care needs. These are long-tail terms competitors are not covering well</p>
+            <p class="gap-format">Recommended format: Series of 4-5 short guides</p>
         </div>
         <div class="gap-card">
             <div class="gap-header">
-                <span class="gap-title">Carpet Cleaning Cost Guide for Charlotte Homeowners</span>
+                <span class="gap-title">Why eco-friendly cleaning matters for pets &amp; kids</span>
                 <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
             </div>
-            <p class="gap-why">Cost-related searches are very high volume. Your transparent pricing is unusual — make it your SEO weapon</p>
-            <p class="gap-format">Recommended format: Pricing pillar page with calculators and per-room breakdowns</p>
+            <p class="gap-why">Pulls in family / health-conscious audience and naturally funnels to your eco-friendly differentiation</p>
+            <p class="gap-format">Recommended format: Blog post + lead magnet (PDF checklist)</p>
         </div>
         <div class="gap-card">
             <div class="gap-header">
-                <span class="gap-title">How Often Should You Have Your Carpets Professionally Cleaned?</span>
+                <span class="gap-title">Pricing transparency page</span>
                 <span class="badge badge-amber" style="font-size:11px">Low Priority</span>
             </div>
-            <p class="gap-why">Educational content that builds trust and brings in informational traffic that converts later</p>
-            <p class="gap-format">Recommended format: Blog post with quick-reference table by household type</p>
+            <p class="gap-why">Pricing is already on the homepage but split between blocks; a clean pricing page reduces phone friction and ranks for &quot;carpet cleaning cost charlotte&quot;</p>
+            <p class="gap-format">Recommended format: Pricing page with clear tiers</p>
         </div>
         </div>
     </div>
+
+    <!-- ACTION PLAN -->
     <div class="section">
         <div class="section-header">
             <span class="section-num">7</span>
@@ -867,7 +955,7 @@ tr:last-child td { border-bottom: none; }
                     Quick Wins
                     <span class="sub">do this week &mdash; under 2 hours each</span>
                 </div>
-                <ol class="action-list"><li>Fix the broken click-to-call link — it currently routes to a Las Vegas number (area code 702). Pick one phone number and use it consistently across the entire site.</li><li>Fix the email link in the footer — it&#x27;s currently linked as http://g@cardinalorganic.com instead of mailto:g@cardinalorganic.com so clicks go nowhere.</li><li>Write a real meta description for the homepage and top 5 service pages — keep each under 155 characters and include &#x27;Charlotte&#x27; or your city.</li><li>Update the footer copyright from 2018 to 2026 (use a dynamic year so this never falls behind again).</li><li>Remove or substantially shorten the COVID-19 paragraphs — they&#x27;re dated and push your real differentiators below the fold.</li><li>Add a single canonical phone number to your Google Business Profile, Facebook, and BBB listing so Google sees consistent NAP.</li><li>Add LocalBusiness JSON-LD schema to the homepage with hours, address, phone, service area, price range, and review aggregate.</li><li>Compress the largest PNG images on the site — converting decorative graphics to WebP can cut page weight 40-60%.</li><li>Add descriptive alt text to all images on the services page — currently many are blank or generic file names.</li></ol>
+                <ol class="action-list"><li>Rewrite the homepage title tag to include &quot;Carpet Cleaning Charlotte NC&quot; plus your differentiator (VLM / eco-friendly)</li><li>Write a focused 150-character meta description for the homepage with primary keyword and a CTA</li><li>Pick one phone number and make it identical across the homepage, About page, footer, and Google Business Profile</li><li>Update the footer copyright from 2018 to the current year (dynamic year via PHP date())</li><li>Consolidate the homepage down to a single H1 and demote the rest to H2</li><li>Add LocalBusiness schema (JSON-LD) with name, address, phone, service area, hours, geo coordinates</li><li>Rewrite image alt text on the homepage so it describes the service or location, not just the object</li><li>Add a clear &quot;Areas We Serve&quot; section with anchor links — sets up the future city pages</li></ol>
             </div>
             <div class="action-group">
                 <div class="action-group-title">
@@ -875,10 +963,12 @@ tr:last-child td { border-bottom: none; }
                     Strategic Investments
                     <span class="sub">plan for this quarter</span>
                 </div>
-                <ol class="action-list"><li>Build dedicated service-area landing pages for your top 6-8 cities (Waxhaw, Ballantyne, Matthews, Fort Mill, Indian Trail, Weddington, Huntersville, Rock Hill). Each page should include locally-relevant content, embedded map, and testimonials from that area.</li><li>Launch a focused content program: publish one practical, search-optimized blog post per month on topics like &#x27;VLM vs Steam Cleaning,&#x27; &#x27;Pet Urine Removal,&#x27; and &#x27;Carpet Cleaning Frequency.&#x27; This builds authority and informational traffic.</li><li>Redesign the homepage hero to lead with your three real differentiators: organic VLM cleaning, IICRC-certified, one client per day. Move COVID content off the homepage entirely.</li><li>Build out the urine decontamination and odor remediation services into full standalone pages with before/after galleries, FAQs, and clear pricing — these are high-margin services with low local competition.</li><li>Implement a review-collection system: after each job, send a one-tap email/SMS asking happy customers to review on Google. Aim for 2-3 new Google reviews per month — this directly drives Google Maps rankings.</li><li>Establish a citation-building program to ensure your name, address, and phone are consistent across Google Business Profile, Yelp, BBB, Facebook, Apple Maps, and 15-20 industry directories. Inconsistent NAP is currently your biggest local SEO drag.</li><li>Add a transparent pricing/quote calculator to your site — your honest pricing is a real competitive advantage that almost no competitor offers.</li></ol>
+                <ol class="action-list"><li>Build 11 dedicated service-area pages (Waxhaw, Charlotte, Weddington, Ballantyne, Matthews, Indian Trail, Fort Mill, Rock Hill, Tega Cay, Marvin, Lancaster) — each 600-800 words with localized copy and at least one local review</li><li>Launch a real blog calendar with at least one post per month focused on long-tail informational keywords (drying times, pet urine, VLM, eco-friendly)</li><li>Build out a proper pet urine decontamination service page with case studies and FAQs — it&#x27;s high-margin and high-intent</li><li>Run a citation cleanup across NAP listings (Google Business Profile, Bing Places, Apple Maps, Facebook, BBB, HomeGuide) so all phone numbers and addresses match the canonical version</li><li>Get review velocity moving — a structured ask after every job, with direct GBP review links sent by SMS the same evening</li><li>Compress and serve images as WebP, defer non-critical Elementor JS, and target a Lighthouse mobile score north of 80</li></ol>
             </div>
         </div>
     </div>
+
+    <!-- CTA -->
     <div class="cta">
         <h3>Ready to implement these improvements?</h3>
         <p>Innovation With Pixels specializes in websites for carpet cleaning and home service businesses. We handle everything from technical fixes to content creation and ongoing optimization.</p>
@@ -893,9 +983,13 @@ tr:last-child td { border-bottom: none; }
             </span>
         </div>
     </div>
+
+    <!-- FOOTER -->
     <div class="footer">
         Prepared by Innovation With Pixels &middot; innovationwithpixels.com
     </div>
+
 </div>
+
 </body>
 </html>
