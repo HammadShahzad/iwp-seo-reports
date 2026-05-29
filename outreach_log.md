@@ -2,6 +2,15 @@
 
 This log tracks carpet-cleaning companies that have been contacted via the automated outreach task. NEVER contact a company already listed here. Rotate cities — avoid reusing a city from the last 2 entries.
 
+## 2026-05-29
+- **Company:** Pronto & Carpet LLC
+- **Website:** prontoandcarpetllc.com
+- **City:** Charlotte, NC
+- **Contact:** info@carpetcleanercharlottenc.com
+- **Subject:** Quick look at the Pronto & Carpet site — a few things worth fixing
+- **Status:** Sent
+- **Report URL:** https://reports.innovationwithpixels.com/reports/pronto-and-carpet-llc.html
+
 ## 2026-05-20
 - **Company:** True Price Carpet Cleaning
 - **Website:** truepricecarpetcleaning.com
