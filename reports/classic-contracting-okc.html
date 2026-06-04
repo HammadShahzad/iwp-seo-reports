@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Review &mdash; Classic Contracting, OKC</title>
+<style>
+:root {
+    --navy: #0f172a;
+    --navy-light: #1e293b;
+    --blue: #3b82f6;
+    --blue-light: #dbeafe;
+    --green: #10b981;
+    --green-bg: #ecfdf5;
+    --amber: #f59e0b;
+    --amber-bg: #fffbeb;
+    --red: #ef4444;
+    --red-bg: #fef2f2;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-700);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Layout */
+.report { max-width: 960px; margin: 0 auto; }
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    padding: 64px 56px 56px;
+    border-radius: 0 0 var(--radius) var(--radius);
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(59,130,246,.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.8);
+    margin-bottom: 24px;
+}
+.hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    margin-bottom: 24px;
+}
+.hero-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+.hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+}
+.hero-meta-item svg { flex-shrink: 0; }
+.hero-divider {
+    height: 1px;
+    background: rgba(255,255,255,.12);
+    margin: 32px 0 20px;
+}
+.hero-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+}
+
+/* Sections */
+.section {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 24px 0;
+    overflow: hidden;
+}
+.section-header {
+    padding: 28px 32px 0;
+}
+.section-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 8px;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+.section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-900);
+    display: inline;
+    vertical-align: middle;
+}
+.section-desc {
+    font-size: 14px;
+    color: var(--gray-500);
+    margin-top: 8px;
+    padding: 0 32px;
+}
+.section-body {
+    padding: 24px 32px 32px;
+}
+
+/* Score Hero Card */
+.score-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    padding: 36px 32px;
+    flex-wrap: wrap;
+}
+.score-main {
+    text-align: center;
+}
+.score-ring-lg {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 12px;
+}
+.score-ring-lg svg {
+    width: 160px;
+    height: 160px;
+    transform: rotate(-90deg);
+}
+.score-ring-lg .ring-bg {
+    fill: none;
+    stroke: var(--gray-100);
+    stroke-width: 3;
+}
+.score-ring-lg .ring-fill {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    transition: stroke-dasharray .6s ease;
+}
+.score-big {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -.03em;
+}
+.score-of {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--gray-400);
+}
+.score-label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+.score-summary {
+    max-width: 420px;
+    text-align: left;
+}
+.score-summary p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-600);
+    margin-bottom: 12px;
+}
+
+/* Category Score Cards */
+.score-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 0 32px 32px;
+}
+.score-card {
+    text-align: center;
+    padding: 20px 12px 16px;
+    background: var(--gray-50);
+    border-radius: 10px;
+    border: 1px solid var(--gray-200);
+}
+.ring-wrap {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 10px;
+}
+.ring-wrap svg {
+    width: 64px;
+    height: 64px;
+    transform: rotate(-90deg);
+}
+.ring { width: 100%; height: 100%; }
+.ring-bg { fill: none; stroke: var(--gray-200); stroke-width: 3; }
+.ring-fill { fill: none; stroke-width: 3; stroke-linecap: round; }
+.ring-num {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: 700;
+}
+.score-card-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 4px;
+}
+.score-card-sub {
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.4;
+}
+
+/* Tables */
+.tbl-wrap {
+    overflow-x: auto;
+    padding: 0 32px 32px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    table-layout: fixed;
+}
+th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--gray-500);
+    border-bottom: 2px solid var(--gray-200);
+    background: var(--gray-50);
+}
+td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-100);
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+tr:last-child td { border-bottom: none; }
+.td-main { font-weight: 600; color: var(--gray-800); }
+.td-muted { color: var(--gray-500); font-size: 12px; }
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.badge-green {
+    background: var(--green-bg);
+    color: #047857;
+}
+.badge-amber {
+    background: var(--amber-bg);
+    color: #b45309;
+}
+.badge-red {
+    background: var(--red-bg);
+    color: #b91c1c;
+}
+
+/* Gap Cards */
+.gap-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+}
+.gap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+.gap-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-800);
+}
+.gap-why {
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+.gap-format {
+    font-size: 12px;
+    color: var(--gray-400);
+    font-style: italic;
+}
+
+/* Action Plan */
+.action-group {
+    margin-bottom: 28px;
+}
+.action-group-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--gray-100);
+}
+.action-group-title .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.action-group-title .sub {
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--gray-400);
+}
+.action-list {
+    list-style: none;
+    counter-reset: action;
+}
+.action-list li {
+    counter-increment: action;
+    position: relative;
+    padding: 10px 0 10px 36px;
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    border-bottom: 1px solid var(--gray-100);
+}
+.action-list li:last-child { border-bottom: none; }
+.action-list li::before {
+    content: counter(action);
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 22px;
+    height: 22px;
+    background: var(--gray-100);
+    color: var(--gray-500);
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CTA */
+.cta {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 40px 40px;
+    text-align: center;
+    margin: 24px 0;
+}
+.cta h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.cta p {
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+    max-width: 500px;
+    margin: 0 auto 24px;
+    line-height: 1.65;
+}
+.cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.cta-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,.9);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.cta-link svg { flex-shrink: 0; }
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: var(--gray-400);
+}
+
+/* Print */
+@media print {
+    body { background: #fff; }
+    .section { box-shadow: none; border: 1px solid var(--gray-200); page-break-inside: avoid; }
+    .hero { border-radius: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="report">
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-badge">Website Performance Review</div>
+        <h1>Classic Contracting, OKC</h1>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                classiccontractingokc.com
+            </div>
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Oklahoma City, OK
+            </div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-footer">
+            <span>Prepared June 4, 2026</span>
+            <span>by Innovation With Pixels</span>
+        </div>
+    </div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">1</span>
+            <span class="section-title">Executive Summary</span>
+        </div>
+        <div class="score-hero">
+            <div class="score-main">
+                <div class="score-ring-lg">
+                    <svg viewBox="0 0 36 36">
+                        <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="ring-fill" stroke="#ef4444" stroke-dasharray="54, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <div class="score-big" style="color:#ef4444">54<span class="score-of">/100</span></div>
+                </div>
+                <div class="score-label" style="color:#ef4444">Critical</div>
+            </div>
+            <div class="score-summary">
+                <p>Your site does a solid job of covering the full range of services you offer — from new home construction to roofing, concrete, and kitchen and bath remodels — and it loads quickly with a clear structure. That foundation is genuinely useful, and a lot of contractors don&#x27;t have a service breakdown this organized. The challenge is that almost none of that work is currently showing up where Oklahoma City homeowners are searching. The homepage title doesn&#x27;t mention Oklahoma City, the contact email runs through Gmail instead of your own domain, your testimonials section reads &#x27;Coming Soon,&#x27; and there&#x27;s no project gallery or schema markup helping Google understand who you serve.</p>
+                <p>The good news is these are fixable issues, not architectural problems. With targeted on-page work — a real LocalBusiness schema block, city-specific titles and meta descriptions, a portfolio with project photos and short case studies, and Google reviews surfaced on the site — you&#x27;d close most of the gap against SH Renovations and All About Remodeling within a quarter. You don&#x27;t need a rebuild; you need the existing pages to start working harder for search.</p>
+            </div>
+        </div>
+        <div class="score-grid">
+            
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="50, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">50</span>
+            </div>
+            <div class="score-card-label">On-Page SEO</div>
+            <div class="score-card-sub">Needs Work</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="65, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">65</span>
+            </div>
+            <div class="score-card-label">Technical SEO</div>
+            <div class="score-card-sub">Decent Foundation</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="45, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">45</span>
+            </div>
+            <div class="score-card-label">Local SEO</div>
+            <div class="score-card-sub">Critical Gaps</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="55, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">55</span>
+            </div>
+            <div class="score-card-label">Content Depth</div>
+            <div class="score-card-sub">Thin in Places</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#ef4444" stroke-dasharray="40, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#ef4444">40</span>
+            </div>
+            <div class="score-card-label">Trust Signals</div>
+            <div class="score-card-sub">Major Gaps</div>
+        </div>
+        <div class="score-card">
+            <div class="ring-wrap">
+                <svg viewBox="0 0 36 36" class="ring">
+                    <path class="ring-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="ring-fill" stroke="#f59e0b" stroke-dasharray="70, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <span class="ring-num" style="color:#f59e0b">70</span>
+            </div>
+            <div class="score-card-label">Mobile &amp; Speed</div>
+            <div class="score-card-sub">Generally Solid</div>
+        </div>
+        </div>
+    </div>
+
+    <!-- KEYWORD OPPORTUNITIES -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">2</span>
+            <span class="section-title">Keyword Opportunities</span>
+        </div>
+        <p class="section-desc">Top keyword opportunities ranked by search demand, competition, and relevance to your business.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:25%"><col style="width:12%"><col style="width:13%"><col style="width:15%"><col style="width:35%"></colgroup>
+                <thead><tr>
+                    <th>Keyword</th><th>Difficulty</th><th>Opportunity</th><th>Intent</th><th>Recommended Action</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">general contractor Oklahoma City</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Optimize homepage title, H1, and meta description to lead with this phrase</td>
+        </tr><tr>
+            <td class="td-main">home remodeling Oklahoma City</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build a dedicated landing page with project examples and pricing guidance</td>
+        </tr><tr>
+            <td class="td-main">kitchen remodel OKC</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Add city-specific copy and before/after photos to kitchen page</td>
+        </tr><tr>
+            <td class="td-main">bathroom remodel Oklahoma City</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Add cost ranges, project timeline, and gallery to bathroom page</td>
+        </tr><tr>
+            <td class="td-main">home additions Oklahoma City</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Expand additions page with FAQ on permits, timelines, common builds</td>
+        </tr><tr>
+            <td class="td-main">new home construction OKC</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Add custom home build process page with sample floor plans</td>
+        </tr><tr>
+            <td class="td-main">commercial contractor Oklahoma City</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Build separate commercial page with completed projects</td>
+        </tr><tr>
+            <td class="td-main">high end remodeling Oklahoma City</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Showcase luxury kitchens/baths with material and finish detail</td>
+        </tr><tr>
+            <td class="td-main">roofing contractor Oklahoma City</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Add storm-damage and insurance-claim content</td>
+        </tr><tr>
+            <td class="td-main">concrete contractor OKC</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Expand to driveways, patios, foundations with photos</td>
+        </tr><tr>
+            <td class="td-main">cost to remodel a kitchen in Oklahoma City</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Write a 2026 cost guide with local labor and material ranges</td>
+        </tr><tr>
+            <td class="td-main">how to choose a general contractor in OKC</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Informational</td>
+            <td class="td-muted">Publish a homeowner buying guide with checklist</td>
+        </tr><tr>
+            <td class="td-main">home builder near me Oklahoma City</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Strengthen local signals — NAP, LocalBusiness schema, service areas</td>
+        </tr><tr>
+            <td class="td-main">Edmond home remodeling contractor</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create a service-area page for Edmond</td>
+        </tr><tr>
+            <td class="td-main">Norman general contractor</td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Commercial</td>
+            <td class="td-muted">Create a service-area page for Norman</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ON-PAGE ISSUES -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">3</span>
+            <span class="section-title">On-Page SEO Issues</span>
+        </div>
+        <p class="section-desc">Page-level issues affecting your search visibility, sorted by severity.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:15%"><col style="width:30%"><col style="width:12%"><col style="width:43%"></colgroup>
+                <thead><tr>
+                    <th>Page</th><th>Issue</th><th>Severity</th><th>Recommended Fix</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">Homepage</td>
+            <td>Title tag is &#x27;Top General Contractor | Classic Contracting&#x27; — no city, no primary keyword</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Change to &#x27;General Contractor in Oklahoma City, OK | Classic Contracting&#x27;</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>H1 says &#x27;Your Trusted General Contractor in Oklahoma City, OK&#x27; but page title doesn&#x27;t match</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Align title, H1, and meta description around &#x27;general contractor Oklahoma City&#x27;</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>Testimonials section shows &#x27;Coming Soon&#x27; three times instead of real reviews</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Pull 3-5 reviews from Google Business Profile and display with reviewer name and star rating</td>
+        </tr><tr>
+            <td class="td-main">Homepage</td>
+            <td>Service blocks repeat (Commercial &amp; Residential General Contractor appears twice)</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Remove duplicate block and add unique anchor text per service</td>
+        </tr><tr>
+            <td class="td-main">All service pages</td>
+            <td>Meta descriptions are generic and don&#x27;t include city or differentiators</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Write a unique 150-character meta description per page with city + service + one differentiator</td>
+        </tr><tr>
+            <td class="td-main">All service pages</td>
+            <td>No customer reviews, project photos, or pricing context on individual service pages</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add 3-5 photos and a short case study with timeline and budget range per page</td>
+        </tr><tr>
+            <td class="td-main">Contact page</td>
+            <td>Email is classiccontracting@gmail.com — not a branded domain email</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Switch to hello@classiccontractingokc.com — Gmail addresses look less established to homeowners and search engines</td>
+        </tr><tr>
+            <td class="td-main">All pages</td>
+            <td>No blog or resources section</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Launch a blog with 1-2 posts per month on remodeling cost guides and project showcases</td>
+        </tr><tr>
+            <td class="td-main">All pages</td>
+            <td>No service-area pages for OKC suburbs (Edmond, Norman, Moore, Yukon, Mustang)</td>
+            <td><span class="badge badge-red">High</span></td>
+            <td class="td-muted">Add a short, unique page for each suburb you serve with local landmarks and project examples</td>
+        </tr><tr>
+            <td class="td-main">Image library</td>
+            <td>Image alt text uses generic descriptions like &#x27;two construction workers&#x27; instead of context</td>
+            <td><span class="badge badge-amber">Medium</span></td>
+            <td class="td-muted">Rewrite alt text to describe the project, location, and service (e.g., &#x27;Kitchen remodel in Nichols Hills, OK&#x27;)</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TECHNICAL SEO -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">4</span>
+            <span class="section-title">Technical SEO Checklist</span>
+        </div>
+        <p class="section-desc">Infrastructure and crawlability checks that affect how search engines index your site.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <colgroup><col style="width:22%"><col style="width:15%"><col style="width:63%"></colgroup>
+                <thead><tr>
+                    <th>Check</th><th>Status</th><th>Details</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">HTTPS / SSL</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Site loads over HTTPS with valid certificate</td>
+        </tr><tr>
+            <td class="td-main">Mobile viewport</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Viewport meta tag present and responsive</td>
+        </tr><tr>
+            <td class="td-main">Canonical tags</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Self-referencing canonical found on key pages</td>
+        </tr><tr>
+            <td class="td-main">Open Graph / social tags</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">OG title, description, image, and Twitter card present</td>
+        </tr><tr>
+            <td class="td-main">LocalBusiness schema markup</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">No JSON-LD structured data detected — Google can&#x27;t pull rich business info into search results</td>
+        </tr><tr>
+            <td class="td-main">Review / Rating schema</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">No Review or AggregateRating schema — missing chance to show stars in search</td>
+        </tr><tr>
+            <td class="td-main">FAQ schema</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">Service pages have natural FAQ structure but no FAQ schema attached</td>
+        </tr><tr>
+            <td class="td-main">Robots.txt and XML sitemap</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Should be verified via /robots.txt and /sitemap.xml — Duda usually auto-generates these</td>
+        </tr><tr>
+            <td class="td-main">Page load speed signals</td>
+            <td><span class="badge badge-green">&#10003; Pass</span></td>
+            <td class="td-muted">Single-page application loads quickly; image CDN in use (lirp.cdn-website.com)</td>
+        </tr><tr>
+            <td class="td-main">Image optimization</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Images served as JPG via CDN but could use modern formats (WebP/AVIF) and lazy-loading</td>
+        </tr><tr>
+            <td class="td-main">Internal linking</td>
+            <td><span class="badge badge-amber">&#9888; Warning</span></td>
+            <td class="td-muted">Service pages link back to home but don&#x27;t cross-link to related services (e.g., kitchen → flooring → painting)</td>
+        </tr><tr>
+            <td class="td-main">Domain email</td>
+            <td><span class="badge badge-red">&#10007; Fail</span></td>
+            <td class="td-muted">Public contact uses @gmail.com — affects trust and brand authority signals</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- COMPETITOR COMPARISON -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">5</span>
+            <span class="section-title">Competitor Comparison</span>
+        </div>
+        <p class="section-desc">Head-to-head comparison against your main local competitors.</p>
+        <div class="tbl-wrap" style="padding-top:20px">
+            <table>
+                <thead><tr>
+                    <th>Dimension</th><th>Classic Contracting, OKC</th><th>SH Renovations</th><th>All About Remodeling</th>
+                </tr></thead>
+                <tbody><tr>
+            <td class="td-main">Domain Email</td>
+            <td>Uses @gmail.com</td>
+            <td>info@shrenovations.org</td>
+            <td>info@allaboutremodeling405.com</td>
+        </tr><tr>
+            <td class="td-main">Google Reviews displayed on site</td>
+            <td>Placeholder (Coming Soon)</td>
+            <td>Reviews embedded with star ratings</td>
+            <td>100+ 5-star reviews showcased</td>
+        </tr><tr>
+            <td class="td-main">Project Portfolio / Gallery</td>
+            <td>Stock construction photos, no projects</td>
+            <td>Dedicated project gallery</td>
+            <td>Before/after gallery with descriptions</td>
+        </tr><tr>
+            <td class="td-main">Service-Area Pages</td>
+            <td>OKC only</td>
+            <td>Edmond, Norman, Moore, Yukon pages</td>
+            <td>OKC metro coverage detailed</td>
+        </tr><tr>
+            <td class="td-main">Awards / Trust Badges</td>
+            <td>None displayed</td>
+            <td>BBB A rating, 2022 Best Remodeler</td>
+            <td>A+ BBB, Angi awards</td>
+        </tr><tr>
+            <td class="td-main">Blog / Content Marketing</td>
+            <td>No blog</td>
+            <td>Project blog updated regularly</td>
+            <td>Educational posts and project spotlights</td>
+        </tr><tr>
+            <td class="td-main">Schema Markup</td>
+            <td>None detected</td>
+            <td>LocalBusiness + Review schema</td>
+            <td>Organization + LocalBusiness schema</td>
+        </tr><tr>
+            <td class="td-main">Homepage Title Tag</td>
+            <td>Generic (&#x27;Top General Contractor&#x27;)</td>
+            <td>Includes Oklahoma City + service</td>
+            <td>Includes Oklahoma City + service</td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- CONTENT GAPS -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">6</span>
+            <span class="section-title">Content Gap Recommendations</span>
+        </div>
+        <p class="section-desc">Topics and content types your competitors cover that you're missing.</p>
+        <div class="section-body">
+            
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Project portfolio with real photos and case studies</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Homeowners in Oklahoma City want to see what you&#x27;ve actually built before they call. Right now your site shows stock construction images, which any contractor could use — there&#x27;s nothing that proves the quality of your work or sets you apart from the dozens of other GCs in the metro.</p>
+            <p class="gap-format">Recommended format: Gallery page with 12-20 projects, each with 4-6 photos, project type, timeline, and a 2-3 sentence story</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Customer reviews and testimonials</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">The &#x27;Coming Soon&#x27; placeholders are actively hurting trust — visitors notice when a section looks unfinished. You already have a Google review link in the footer; the reviews exist, they&#x27;re just not on the site where buyers can see them.</p>
+            <p class="gap-format">Recommended format: Reviews carousel pulled live from Google Business Profile, plus 3-4 full case-study testimonials per service</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Service-area landing pages for OKC suburbs</span>
+                <span class="badge badge-red" style="font-size:11px">High Priority</span>
+            </div>
+            <p class="gap-why">Searches like &#x27;home remodeling Edmond&#x27; or &#x27;general contractor Norman&#x27; are easier to rank for than &#x27;Oklahoma City&#x27; and often have buyers ready to hire. You serve these areas already — you just need pages that tell Google so.</p>
+            <p class="gap-format">Recommended format: Short, unique pages (300-500 words) for Edmond, Norman, Moore, Yukon, Mustang with local references and project examples</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Cost and pricing guides</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Homeowners search &#x27;cost to remodel kitchen Oklahoma City&#x27; and &#x27;price to add a room in OKC&#x27; constantly. Whoever ranks for these pulls in qualified leads weeks before they&#x27;re ready to call. Right now those visitors land on competitors&#x27; blogs or HomeAdvisor.</p>
+            
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">FAQ sections on each service page with schema markup</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Your service pages already touch on what each service involves — adding a structured FAQ at the bottom (with FAQ schema) gives you a shot at the &#x27;People also ask&#x27; boxes in Google for high-intent queries.</p>
+            <p class="gap-format">Recommended format: 5-7 questions per service page, marked up with JSON-LD FAQPage schema</p>
+        </div>
+        <div class="gap-card">
+            <div class="gap-header">
+                <span class="gap-title">Educational blog content</span>
+                <span class="badge badge-amber" style="font-size:11px">Medium Priority</span>
+            </div>
+            <p class="gap-why">Competitors publish guides like &#x27;how to choose a contractor in Oklahoma&#x27; and &#x27;what to expect during a remodel&#x27; that build authority and pull in informational traffic that converts later. You currently have nothing of the kind.</p>
+            <p class="gap-format">Recommended format: 1-2 posts per month, 800-1,200 words, focused on local homeowner questions</p>
+        </div>
+        </div>
+    </div>
+
+    <!-- ACTION PLAN -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-num">7</span>
+            <span class="section-title">Prioritized Action Plan</span>
+        </div>
+        <div class="section-body">
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--green)"></span>
+                    Quick Wins
+                    <span class="sub">do this week &mdash; under 2 hours each</span>
+                </div>
+                <ol class="action-list"><li>Replace &#x27;Coming Soon&#x27; testimonials with 3-5 real Google reviews (you already have a review link in the footer)</li><li>Update homepage title tag from &#x27;Top General Contractor | Classic Contracting&#x27; to &#x27;General Contractor in Oklahoma City, OK | Classic Contracting&#x27;</li><li>Switch the public email from classiccontracting@gmail.com to a branded address like hello@classiccontractingokc.com</li><li>Remove the duplicate &#x27;Commercial &amp; Residential General Contractor&#x27; block on the homepage</li><li>Add a unique meta description to each service page that mentions Oklahoma City and one specific differentiator</li><li>Rewrite image alt text to describe projects (e.g., &#x27;Kitchen remodel in Nichols Hills&#x27;) instead of generic captions</li><li>Claim and fully complete your Google Business Profile with photos, hours, services, and posts</li><li>Add a LocalBusiness JSON-LD schema block to the homepage with NAP and service area</li></ol>
+            </div>
+            <div class="action-group">
+                <div class="action-group-title">
+                    <span class="dot" style="background:var(--blue)"></span>
+                    Strategic Investments
+                    <span class="sub">plan for this quarter</span>
+                </div>
+                <ol class="action-list"><li>Build a real project portfolio page with 12-20 completed jobs, each with photos, project scope, timeline, and a short narrative</li><li>Create service-area pages for Edmond, Norman, Moore, Yukon, and Mustang — each unique, 300-500 words, with local references</li><li>Launch a blog with monthly cost guides (&#x27;2026 kitchen remodel cost in OKC&#x27;) and project showcases</li><li>Add FAQ schema to every service page to compete for &#x27;People also ask&#x27; boxes</li><li>Build out an internal linking structure connecting related services (kitchen → countertops → flooring → painting)</li><li>Add Review/AggregateRating schema once Google reviews are displayed on-site so stars can appear in search results</li><li>Move off Duda or upgrade to a build that allows full schema control, faster page speed, and proper blog architecture if growth outpaces the platform</li></ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+        <h3>Ready to implement these improvements?</h3>
+        <p>Innovation With Pixels specializes in websites for construction and home service businesses.</p>
+        <div class="cta-links">
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+                hammad@innovationwithpixels.com
+            </span>
+            <span class="cta-link">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                innovationwithpixels.com
+            </span>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Prepared by Innovation With Pixels &middot; innovationwithpixels.com
+    </div>
+
+</div>
+
+</body>
+</html>
